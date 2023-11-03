@@ -40,16 +40,19 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { NavSchematicsComponent } from './components/template/nav-schematics/nav-schematics.component';
+import { TaxaCustoComponent } from './views/calculos-tpv/shared/taxa-custo/taxa-custo.component';
+import { ShareTpvComponent } from './views/calculos-tpv/shared/share-tpv/share-tpv.component';
+import { ShareBandeirasTotalComponent } from './views/calculos-tpv/shared/share-bandeiras-total/share-bandeiras-total.component';
+import { ShareBandeirasComponent } from './views/calculos-tpv/shared/share-bandeiras/share-bandeiras.component';
+import { MarkupBandeirasComponent } from './views/calculos-tpv/shared/markup-bandeiras/markup-bandeiras.component';
+import { MarkupComponent } from './views/calculos-tpv/shared/markup/markup.component';
+import { CustoClientComponent } from './views/calculos-tpv/shared/custo-client/custo-client.component';
+
 
 import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
-import { ShareTpvComponent } from './components/logica/share-tpv/share-tpv.component';
-import { ShareBandeirasComponent } from './components/logica/share-bandeiras/share-bandeiras.component';
-import { ShareBandeirasTotalComponent } from './components/logica/share-bandeiras-total/share-bandeiras-total.component';
-import { TaxaCustoComponent } from './components/logica/taxa-custo/taxa-custo.component';
-import { MarkupComponent } from './components/logica/markup/markup.component';
-import { MarkupBandeirasComponent } from './components/logica/markup-bandeiras/markup-bandeiras.component';
-import { CustoClienteComponent } from './components/logica/custo-cliente/custo-cliente.component';
+import { TaxaVendaComponent } from './views/calculos-tpv/shared/taxa-venda/taxa-venda.component';
+
 
 registerLocaleData(localePt);
 
@@ -72,13 +75,15 @@ registerLocaleData(localePt);
     ListaComponent,
     CalculosTpvComponent,
     NavSchematicsComponent,
-    ShareTpvComponent,
-    ShareBandeirasComponent,
-    ShareBandeirasTotalComponent,
+    CustoClientComponent,
     TaxaCustoComponent,
-    MarkupComponent,
+    ShareTpvComponent,
+    ShareBandeirasTotalComponent,
+    ShareBandeirasComponent,
     MarkupBandeirasComponent,
-    CustoClienteComponent,
+    MarkupComponent,
+    TaxaVendaComponent,
+
   ],
   imports: [
     BrowserModule,

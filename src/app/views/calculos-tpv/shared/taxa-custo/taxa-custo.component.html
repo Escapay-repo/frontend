@@ -1,0 +1,17 @@
+<div class="tabela-container">
+    <div class="tabela">
+        <table>
+            <tr>
+                <th>Taxa de custo Master</th>
+                <th>Taxa de custo Visa</th>
+                <th>Taxa de custo Outros</th>
+            </tr>
+            <tr *ngFor="let taxaCusto of taxasCusto">
+                <td>{{ taxaCusto.master.toFixed(2) }}%</td>
+                <td>{{ taxaCusto.visa.toFixed(2) }}%</td>
+                <td>{{ taxaCusto.outros.toFixed(2) }}%</td>
+              </tr>
+        </table>
+
+    </div>
+</div>

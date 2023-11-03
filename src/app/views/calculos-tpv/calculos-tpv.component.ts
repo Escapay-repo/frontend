@@ -1,23 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { LogicaService } from './logica.service';
+import { MarkupComponent } from './shared/markup/markup.component';
+import { MarkupService } from './shared/markup/markup.service';
+import { TaxaVendaService } from './shared/taxa-venda/taxa-venda.service';
+import { TaxaCustoService } from './shared/taxa-custo/taxa-custo.service';
 
 @Component({
   selector: 'escapay-calculos-tpv',
   templateUrl: './calculos-tpv.component.html',
   styleUrls: ['./calculos-tpv.component.css']
 })
-export class CalculosTpvComponent implements OnInit{
+export class CalculosTpvComponent implements OnInit {
   resultados: Array<number> = [];
   inputValue: number = 1000;
 
-  constructor(private calculosTpvService: LogicaService) {}
+  constructor(
+    private markupService: MarkupService,
+    private taxaCustoService: TaxaCustoService,
+    private taxaVendaService: TaxaVendaService
+    ) { }
+
   ngOnInit(): void {
     this.calcular()
     this.printarNoLog()
   }
 
   calcular() {
-    // this.inputValue = parseFloat((<HTMLInputElement>document.getElementById('inputValue')).value);
 
     if (!isNaN(this.inputValue)) {
       const tableRows = document.querySelectorAll('.tabela tr');
@@ -38,12 +46,19 @@ export class CalculosTpvComponent implements OnInit{
           }
         }
       }
-      // this.calculosTpvService.setResultado(this.resultados);
+
     }
   }
 
+
+
   printarNoLog() {
     console.log("this.resultados", this.resultados);
+    console.log("this.calcularmarkup", this.markupService);
+    console.log("taxa venda", this.taxaVendaService);
+    console.log("taxa custo", this.taxaCustoService);
+
+
   }
 }
 

@@ -5,8 +5,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class LogicaService {
-  private resultadoSubject: BehaviorSubject<number[]> = new BehaviorSubject<number[]>([]);
-  resultado$: Observable<number[]> = this.resultadoSubject.asObservable();
 
   constructor() { }
 

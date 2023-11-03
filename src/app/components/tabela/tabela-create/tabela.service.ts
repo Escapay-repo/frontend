@@ -13,7 +13,7 @@ export class TabelaService {
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
 
-  showMessage(msg:string, isError: boolean = false) {
+  showMessage(msg: string, isError: boolean = false) {
     this.snackBar.open(msg, 'X', {
       duration: 3000,
       horizontalPosition: 'right',
@@ -25,42 +25,42 @@ export class TabelaService {
   create(tabela: tabelaCrud): Observable<tabelaCrud> {
     return this.http.post<tabelaCrud>(this.baseUrl, tabela).pipe(
       map((obj) => obj),
-      catchError (e => this.errorHandler(e))
+      catchError(e => this.errorHandler(e))
     )
   }
 
-  read(): Observable <tabelaCrud[]> {
+  read(): Observable<tabelaCrud[]> {
     return this.http.get<tabelaCrud[]>(this.baseUrl).pipe(
       map((obj) => obj),
-      catchError (e => this.errorHandler(e))
-      )
-    }
+      catchError(e => this.errorHandler(e))
+    )
+  }
 
   readById(id: string): Observable<tabelaCrud> {
-    const url=`${this.baseUrl}/${id}`
+    const url = `${this.baseUrl}/${id}`
     return this.http.get<tabelaCrud>(url).pipe(
       map((obj) => obj),
-      catchError (e => this.errorHandler(e))
-      )
-    }
+      catchError(e => this.errorHandler(e))
+    )
+  }
 
-  update(tabela: tabelaCrud): Observable<tabelaCrud>{
+  update(tabela: tabelaCrud): Observable<tabelaCrud> {
     const url = `${this.baseUrl}/${tabela.id}`
     return this.http.put<tabelaCrud>(url, tabela).pipe(
       map((obj) => obj),
-      catchError (e => this.errorHandler(e))
-      )
-    }
+      catchError(e => this.errorHandler(e))
+    )
+  }
 
-  delete(id: number): Observable<tabelaCrud>{
+  delete(id: number): Observable<tabelaCrud> {
     const url = `${this.baseUrl}/${id}`
-  return this.http.delete<tabelaCrud>(url).pipe(
-    map((obj) => obj),
-    catchError (e => this.errorHandler(e))
-  )
-}
+    return this.http.delete<tabelaCrud>(url).pipe(
+      map((obj) => obj),
+      catchError(e => this.errorHandler(e))
+    )
+  }
 
-  errorHandler(e: any): Observable<any>{
+  errorHandler(e: any): Observable<any> {
     console.log(e)
     this.showMessage('Ocorreu um Erro', true)
     return EMPTY

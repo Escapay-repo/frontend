@@ -1,33 +1,6 @@
-.TPV {
-    margin-top: 1rem;
-    margin-left: 1rem;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-direction: row;
-}
-
-.TpvContainer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.escapay-container{
-    margin-left: 3rem;
-}
-
-.Calcular{
-    margin-top: 10px;
-}
-
-
 .tabela-container {
     display: flex;
     align-items: flex-start;
-    margin-top: 1rem;
-    margin-left: 1rem;
 }
 
 table {

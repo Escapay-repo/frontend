@@ -1,0 +1,18 @@
+<div class="tabela-container">
+    <div class="tabela">
+        <table>
+            <tr>
+                <th>Share Master</th>
+                <th>Share Visa</th>
+                <th>Share Outros</th>
+            </tr>
+            <tr *ngFor="let resultado of resultados">
+                <td>{{ (resultado * percent50 / 100).toFixed(2) }}</td>
+                <td>{{ (resultado * percent38 / 100).toFixed(2) }}</td>
+                <td>{{ (resultado * percent12 / 100).toFixed(2) }}</td>
+            </tr>
+
+        </table>
+
+    </div>
+</div>
