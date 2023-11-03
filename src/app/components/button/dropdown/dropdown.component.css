@@ -1,0 +1,11 @@
+::ng-deep .matMenu {
+    background: red;
+  }
+  
+    .matMenu button.mat-menu-item {
+      background-color: blue;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+  

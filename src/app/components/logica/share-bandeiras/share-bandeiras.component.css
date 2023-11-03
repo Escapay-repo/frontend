@@ -1,0 +1,31 @@
+.tabela-container {
+    display: flex;
+    align-items: flex-start;
+}
+
+table {
+    border: 1px solid #000000;
+    /* Adicione uma borda ao redor da tabela */
+
+}
+
+/* Estilos para as células de cabeçalho */
+th {
+    background-color: #a1bf37;
+    color: #fff;
+    padding: 0.7rem;
+    text-align: left;
+    border: 1px solid #000000;
+    font-size: 1rem;
+}
+
+/* Estilos para as células da tabela */
+td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+/* Estilos para linhas alternadas */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}

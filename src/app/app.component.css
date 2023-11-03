@@ -1,0 +1,17 @@
+.button-container {
+    display: flex; 
+    align-items: flex-start;
+    flex-direction: row;
+}
+.button-container .dropdown{
+    display: flex; 
+    align-items: flex-start;
+    margin: 1rem 1rem 1rem 1rem;
+    flex-direction: row;
+}
+.button-container .criar{
+    display: flex; 
+    align-items: flex-start;
+    margin: 1rem 1rem 1rem 0rem;
+    flex-direction: row;
+}

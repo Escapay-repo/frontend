@@ -1,0 +1,95 @@
+<section class="TPV">
+  <div class="TpvContainer">
+    <div class="titulo">
+      <h1>TPV</h1>
+    </div>
+    <div class="inputTPV">
+      <input type="number" [(ngModel)]="inputValue">
+    </div>
+    <div class="Calcular">
+      <button mat-raised-button (click)="calcular()">Calcular</button>
+    </div>
+  </div>
+
+  <div class="escapay-container">
+    <escapay-share-bandeiras-total></escapay-share-bandeiras-total>
+  </div>
+</section>
+<section class="tabela-container">
+  <table class="tabelaFormas">
+    <tr>
+      <th>
+        Formas de Pagamento
+      </th>
+    </tr>
+    <tr>
+      <td>Débito</td>
+    </tr>
+    <tr>
+      <td>Crédito</td>
+    </tr>
+    <tr>
+      <td>Parcelado 2x</td>
+    </tr>
+    <tr>
+      <td>Parcelado 3x</td>
+    </tr>
+    <tr>
+      <td>Parcelado 4x</td>
+    </tr>
+    <tr>
+      <td>Parcelado 5x</td>
+    </tr>
+    <tr>
+      <td>Parcelado 6x</td>
+    </tr>
+    <tr>
+      <td>Parcelado 7x</td>
+    </tr>
+    <tr>
+      <td>Parcelado 8x</td>
+    </tr>
+    <tr>
+      <td>Parcelado 9x</td>
+    </tr>
+    <tr>
+      <td>Parcelado 10x</td>
+    </tr>
+    <tr>
+      <td>Parcelado 11x</td>
+    </tr>
+    <tr>
+      <td>Parcelado 12x</td>
+    </tr>
+    <tr>
+      <td>Parcelado 13x</td>
+    </tr>
+    <tr>
+      <td>Parcelado 14x</td>
+    </tr>
+    <tr>
+      <td>Parcelado 15x</td>
+    </tr>
+    <tr>
+      <td>Parcelado 16x</td>
+    </tr>
+    <tr>
+      <td>Parcelado 17x</td>
+    </tr>
+    <tr>
+      <td>Parcelado 18x</td>
+    </tr>
+    <tr>
+      <td>Parcelado 19x</td>
+    </tr>
+    <tr>
+      <td>Parcelado 20x</td>
+    </tr>
+    <tr>
+      <td>Parcelado 21x</td>
+    </tr>
+  </table>
+
+  <escapay-share-tpv [resultados]="resultados"></escapay-share-tpv>
+  <escapay-share-bandeiras></escapay-share-bandeiras>
+</section>

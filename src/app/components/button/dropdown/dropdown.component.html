@@ -1,0 +1,16 @@
+<mat-menu #menu="matMenu" class="matMenu">
+    <ng-template matMenuContent let-name="name">
+      <button mat-menu-item class="mat-menu-item" *ngFor="let tableName of tabelaNames">{{ tableName }}</button>
+    </ng-template>
+  </mat-menu>
+  
+  <button mat-button 
+  [matMenuTriggerFor]="menu"
+  class="menu mat-elevation-z2"
+  [matMenuTriggerData]="tabelaNames">
+  <mat-icon>menu</mat-icon>
+  <span>
+    Tabelas
+  </span>
+  </button>
+  

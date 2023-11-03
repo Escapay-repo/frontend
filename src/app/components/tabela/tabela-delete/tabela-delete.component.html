@@ -1,0 +1,159 @@
+<mat-card class="cabecalho mat-elevation-z3">
+    <mat-card-title class="title">Excluir Tabela</mat-card-title>
+  </mat-card>
+
+  <h1><input type="text" [(ngModel)]="table.tableName" placeholder="Nome da Tabela"></h1>
+  <div class="tabela-container">
+    <div class="tabela">
+      <table>
+        <tr>
+          <th>Forma de Pagamento</th>
+          <th>MasterCard</th>
+          <th>Visa</th>
+          <th>Outros</th>
+        </tr>
+        <tr>
+          <td>Débito</td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.debito.masterCard"/></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.debito.visa" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.debito.outros" /></td>
+        </tr>
+        <tr>
+          <td>Crédito</td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.credito.masterCard" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.credito.visa" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.credito.outros" /></td>
+        </tr>
+        <tr>
+          <td>2x</td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.duas.masterCard" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.duas.visa" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.duas.outros" /></td>
+        </tr>
+        <tr>
+          <td>3x</td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.tres.masterCard" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.tres.visa" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.tres.outros" /></td>
+        </tr>
+        <tr>
+          <td>4x</td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.quatro.masterCard" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.quatro.visa" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.quatro.outros" /></td>
+        </tr>
+        <tr>
+          <td>5x</td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.cinco.masterCard" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.cinco.visa" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.cinco.outros" /></td>
+        </tr>
+        <tr>
+          <td>6x</td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.seis.masterCard" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.seis.visa" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.seis.outros" /></td>
+        </tr>
+        <tr>
+          <td>7x</td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.sete.masterCard" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.sete.visa" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.sete.outros" /></td>
+        </tr>
+        <tr>
+          <td>8x</td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.oito.masterCard" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.oito.visa" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.oito.outros" /></td>
+        </tr>
+        <tr>
+          <td>9x</td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.nove.masterCard" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.nove.visa" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.nove.outros" /></td>
+        </tr>
+        <tr>
+          <td>10x</td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.dez.masterCard" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.dez.visa" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.dez.outros" /></td>
+        </tr>
+        <tr>
+          <td>11x</td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.onze.masterCard" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.onze.visa" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.onze.outros" /></td>
+        </tr>
+        <tr>
+          <td>12x</td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.doze.masterCard" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.doze.visa" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.doze.outros" /></td>
+        </tr>
+        <tr>
+          <td>13x</td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.treze.masterCard" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.treze.visa" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.treze.outros" /></td>
+        </tr>
+        <tr>
+          <td>14x</td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.quatorze.masterCard" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.quatorze.visa" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.quatorze.outros" /></td>
+        </tr>
+        <tr>
+          <td>15x</td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.quinze.masterCard" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.quinze.visa" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.quinze.outros" /></td>
+        </tr>
+        <tr>
+          <td>16x</td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.dezesseis.masterCard" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.dezesseis.visa" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.dezesseis.outros" /></td>
+        </tr>
+        <tr>
+          <td>17x</td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.dezessete.masterCard" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.dezessete.visa" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.dezessete.outros" /></td>
+        </tr>
+        <tr>
+          <td>18x</td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.dezoito.masterCard" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.dezoito.visa" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.dezoito.outros" /></td>
+        </tr>
+        <tr>
+          <td>19x</td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.dezenove.masterCard" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.dezenove.visa" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.dezenove.outros" /></td>
+        </tr>
+        <tr>
+          <td>20x</td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.vinte.masterCard" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.vinte.visa" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.vinte.outros" /></td>
+        </tr>
+        <tr>
+          <td>21x</td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.vinteUm.masterCard" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.vinteUm.visa" /></td>
+          <td><input type="number" placeholder="%" [(ngModel)]="table.vinteUm.outros" /></td>
+        </tr>
+      </table>
+    </div>
+  
+    <div class="buttons-container">
+      <button mat-raised-buton (click)="deleteTable()" class="deletar" color="warn">
+        Deletar
+      </button>
+  
+      <button mat-raised-buton (click)="cancel()" class="cancelar">
+        Cancelar
+      </button>
+    </div>
+  </div>
