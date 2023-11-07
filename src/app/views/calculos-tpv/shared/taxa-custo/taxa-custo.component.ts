@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TaxaCustoService } from './taxa-custo.service';
 
 @Component({
   selector: 'escapay-taxa-custo',
@@ -30,4 +31,8 @@ export class TaxaCustoComponent {
     { master: 0, visa: 0, outros: 0 },
     { master: 0, visa: 0, outros: 0 },
   ]
+
+  constructor(private taxaCustoService: TaxaCustoService) {
+    this.taxaCustoService.atualizarTaxasCusto(this.taxasCusto);
+  }
 }

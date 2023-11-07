@@ -44,6 +44,20 @@ export class TabelaService {
     )
   }
 
+  readByIdSelector(id: string): Observable<{ master: number, visa: number, outros: number }> {
+    const url = `${this.baseUrl}/${id}`
+    return this.http.get<tabelaCrud>(url).pipe(
+      map((obj) => {
+        return {
+          master: obj.debito.masterCard.valor,
+          visa: obj.debito.visa.valor,
+          outros: obj.debito.outros.valor,
+        };
+      }),
+      catchError(e => this.errorHandler(e))
+    )
+  }
+
   update(tabela: tabelaCrud): Observable<tabelaCrud> {
     const url = `${this.baseUrl}/${tabela.id}`
     return this.http.put<tabelaCrud>(url, tabela).pipe(

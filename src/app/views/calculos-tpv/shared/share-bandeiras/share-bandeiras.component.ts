@@ -6,8 +6,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./share-bandeiras.component.css']
 })
 export class ShareBandeirasComponent {
-  @Input() percent50: number = 0;
-  @Input() percent38: number = 0;
-  @Input() percent12: number = 0;
+  @Input() percent50: number = 50;
+  @Input() percent38: number = 38;
+  @Input() percent12: number = 12;
   @Input() resultados: Array<number> = [];
+
 }

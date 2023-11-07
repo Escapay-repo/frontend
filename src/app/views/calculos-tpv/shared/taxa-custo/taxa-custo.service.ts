@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaxaCustoService {
-  taxasCusto: any = [
+  private taxasCusto = new BehaviorSubject <Array<{master: number, visa: number, outros: number }>>([
     { master: 1.19, visa: 1.19, outros: 1.38 },
     { master: 3.60, visa: 3.60, outros: 4.07 },
     { master: 4.74, visa: 4.74, outros: 4.37 },
@@ -27,7 +28,12 @@ export class TaxaCustoService {
     { master: 0, visa: 0, outros: 0 },
     { master: 0, visa: 0, outros: 0 },
     { master: 0, visa: 0, outros: 0 },
-  ]
+  ]);
 
-  constructor() { }
+  taxasCusto$ = this.taxasCusto.asObservable();
+  
+  atualizarTaxasCusto(taxas: Array<{ master: number, visa: number, outros: number }>) {
+    this.taxasCusto.next(taxas);
+  }
+
 }
