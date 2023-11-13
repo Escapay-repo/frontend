@@ -1,5 +1,5 @@
 import { FooterComponent } from './components/template/footer/footer.component';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -47,6 +47,7 @@ import { ShareBandeirasComponent } from './views/calculos-tpv/shared/share-bande
 import { MarkupBandeirasComponent } from './views/calculos-tpv/shared/markup-bandeiras/markup-bandeiras.component';
 import { MarkupComponent } from './views/calculos-tpv/shared/markup/markup.component';
 import { CustoClientComponent } from './views/calculos-tpv/shared/custo-client/custo-client.component';
+import { ReceitaFranqueadoComponent } from './views/calculos-tpv/shared/receita-franqueado/receita-franqueado.component';
 
 
 import localePt from '@angular/common/locales/pt';
@@ -83,6 +84,7 @@ registerLocaleData(localePt);
     MarkupBandeirasComponent,
     MarkupComponent,
     TaxaVendaComponent,
+    ReceitaFranqueadoComponent
 
   ],
   imports: [
@@ -111,8 +113,8 @@ registerLocaleData(localePt);
     MatRadioModule
   ],
   providers: [
-    
-    
+    {provide: LOCALE_ID, useValue: 'pt-BR' }
+
   ],
   bootstrap: [AppComponent]
 })

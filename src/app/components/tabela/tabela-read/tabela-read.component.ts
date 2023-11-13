@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { tabelaCrud } from '../tabelaCrud';
 import { TabelaService } from '../tabela-create/tabela.service';
-import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'escapay-tabela-read',

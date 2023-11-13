@@ -7,115 +7,115 @@
                 <th>Markup R$ Outros</th>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+                <td>{{ ((resultados[0] * 0.5) * (convertToNumber(table.debito.masterCard) - convertToNumber(taxaCusto.debito.masterCard.valor)))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[0] * 0.38) * (convertToNumber(table.debito.visa) - convertToNumber(taxaCusto.debito.visa.valor)))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[0] * 0.12) * (convertToNumber(table.debito.outros) - convertToNumber(taxaCusto.debito.outros.valor)))/100 | currency:'BRL' }}</td>
+              </tr>
+              <tr>
+                <td>{{ ((resultados[1] * 0.5) * convertToNumber(table.credito.masterCard) - convertToNumber(taxaCusto.credito.masterCard.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[1] * 0.38) * convertToNumber(table.credito.visa) - convertToNumber(taxaCusto.credito.visa.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[1] * 0.12) * convertToNumber(table.credito.outros) - convertToNumber(taxaCusto.credito.outros.valor))/100 | currency:'BRL' }}</td>
+              </tr>
+              <tr>
+                <td>{{ ((resultados[2] * 0.5) * convertToNumber(table.duas.masterCard) - convertToNumber(taxaCusto.duas.masterCard.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[2] * 0.38) * convertToNumber(table.duas.visa) - convertToNumber(taxaCusto.duas.visa.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[2] * 0.12) * convertToNumber(table.duas.outros) - convertToNumber(taxaCusto.duas.outros.valor))/100 | currency:'BRL' }}</td>
+              </tr>
+              <tr>
+                <td>{{ ((resultados[3] * 0.5) * convertToNumber(table.tres.masterCard) - convertToNumber(taxaCusto.tres.masterCard.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[3] * 0.38) * convertToNumber(table.tres.visa) - convertToNumber(taxaCusto.tres.visa.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[3] * 0.12) * convertToNumber(table.tres.outros) - convertToNumber(taxaCusto.tres.outros.valor))/100 | currency:'BRL' }}</td>
+              </tr>
+              <tr>
+                <td>{{ ((resultados[4] * 0.5) * convertToNumber(table.quatro.masterCard) - convertToNumber(taxaCusto.quatro.masterCard.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[4] * 0.38) * convertToNumber(table.quatro.visa) - convertToNumber(taxaCusto.quatro.visa.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[4] * 0.12) * convertToNumber(table.quatro.outros) - convertToNumber(taxaCusto.quatro.outros.valor))/100 | currency:'BRL' }}</td>
+              </tr>
+              <tr>
+                <td>{{ ((resultados[5] * 0.5) * convertToNumber(table.cinco.masterCard) - convertToNumber(taxaCusto.cinco.masterCard.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[5] * 0.38) * convertToNumber(table.cinco.visa) - convertToNumber(taxaCusto.cinco.visa.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[5] * 0.12) * convertToNumber(table.cinco.outros) - convertToNumber(taxaCusto.cinco.outros.valor))/100 | currency:'BRL' }}</td>
+              </tr>
+              <tr>
+                <td>{{ ((resultados[6] * 0.5) * convertToNumber(table.seis.masterCard) - convertToNumber(taxaCusto.seis.masterCard.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[6] * 0.38) * convertToNumber(table.seis.visa) - convertToNumber(taxaCusto.seis.visa.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[6] * 0.12) * convertToNumber(table.seis.outros) - convertToNumber(taxaCusto.seis.outros.valor))/100 | currency:'BRL' }}</td>
+              </tr>
+              <tr>
+                <td>{{ ((resultados[7] * 0.5) * convertToNumber(table.sete.masterCard) - convertToNumber(taxaCusto.sete.masterCard.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[7] * 0.38) * convertToNumber(table.sete.visa) - convertToNumber(taxaCusto.sete.visa.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[7] * 0.12) * convertToNumber(table.sete.outros) - convertToNumber(taxaCusto.sete.outros.valor))/100 | currency:'BRL' }}</td>
+              </tr>
+              <tr>
+                <td>{{ ((resultados[8] * 0.5) * convertToNumber(table.oito.masterCard) - convertToNumber(taxaCusto.oito.masterCard.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[8] * 0.38) * convertToNumber(table.oito.visa) - convertToNumber(taxaCusto.oito.visa.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[8] * 0.12) * convertToNumber(table.oito.outros) - convertToNumber(taxaCusto.oito.outros.valor))/100 | currency:'BRL' }}</td>
+              </tr>
+              <tr>
+                <td>{{ ((resultados[9] * 0.5) * convertToNumber(table.nove.masterCard) - convertToNumber(taxaCusto.nove.masterCard.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[9] * 0.38) * convertToNumber(table.nove.visa) - convertToNumber(taxaCusto.nove.visa.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[9] * 0.12) * convertToNumber(table.nove.outros) - convertToNumber(taxaCusto.nove.outros.valor))/100 | currency:'BRL' }}</td>
+              </tr>
+              <tr>
+                <td>{{ ((resultados[10] * 0.5) * convertToNumber(table.dez.masterCard) - convertToNumber(taxaCusto.dez.masterCard.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[10] * 0.38) * convertToNumber(table.dez.visa) - convertToNumber(taxaCusto.dez.visa.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[10] * 0.12) * convertToNumber(table.dez.outros) - convertToNumber(taxaCusto.dez.outros.valor))/100 | currency:'BRL' }}</td>
+              </tr>
+              <tr>
+                <td>{{ ((resultados[11] * 0.5) * convertToNumber(table.onze.masterCard) - convertToNumber(taxaCusto.onze.masterCard.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[11] * 0.38) * convertToNumber(table.onze.visa) - convertToNumber(taxaCusto.onze.visa.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[11] * 0.12) * convertToNumber(table.onze.outros) - convertToNumber(taxaCusto.onze.outros.valor))/100 | currency:'BRL' }}</td>
+              </tr>
+              <tr>
+                <td>{{ ((resultados[12] * 0.5) * convertToNumber(table.doze.masterCard) - convertToNumber(taxaCusto.doze.masterCard.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[12] * 0.38) * convertToNumber(table.doze.visa) - convertToNumber(taxaCusto.doze.visa.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[12] * 0.12) * convertToNumber(table.doze.outros) - convertToNumber(taxaCusto.doze.outros.valor))/100 | currency:'BRL' }}</td>
+              </tr>
+              <tr>
+                <td>{{ ((resultados[13] * 0.5) * convertToNumber(table.treze.masterCard) - convertToNumber(taxaCusto.treze.masterCard.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[13] * 0.38) * convertToNumber(table.treze.visa) - convertToNumber(taxaCusto.treze.visa.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[13] * 0.12) * convertToNumber(table.treze.outros) - convertToNumber(taxaCusto.treze.outros.valor))/100 | currency:'BRL' }}</td>
+              </tr>
+              <tr>
+                <td>{{ ((resultados[14] * 0.5) * convertToNumber(table.quatorze.masterCard) - convertToNumber(taxaCusto.quatorze.masterCard.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[14] * 0.38) * convertToNumber(table.quatorze.visa) - convertToNumber(taxaCusto.quatorze.visa.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[14] * 0.12) * convertToNumber(table.quatorze.outros) - convertToNumber(taxaCusto.quatorze.outros.valor))/100 | currency:'BRL' }}</td>
+              </tr>
+              <tr>
+                <td>{{ ((resultados[15] * 0.5) * convertToNumber(table.quinze.masterCard) - convertToNumber(taxaCusto.quinze.masterCard.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[15] * 0.38) * convertToNumber(table.quinze.visa) - convertToNumber(taxaCusto.quinze.visa.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[15] * 0.12) * convertToNumber(table.quinze.outros) - convertToNumber(taxaCusto.quinze.outros.valor))/100 | currency:'BRL' }}</td>
+              </tr>
+              <tr>
+                <td>{{ ((resultados[16] * 0.5) * convertToNumber(table.dezesseis.masterCard) - convertToNumber(taxaCusto.dezesseis.masterCard.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[16] * 0.38) * convertToNumber(table.dezesseis.visa) - convertToNumber(taxaCusto.dezesseis.visa.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[16] * 0.12) * convertToNumber(table.dezesseis.outros) - convertToNumber(taxaCusto.dezesseis.outros.valor))/100 | currency:'BRL' }}</td>
+              </tr>
+              <tr>
+                <td>{{ ((resultados[17] * 0.5) * convertToNumber(table.dezessete.masterCard) - convertToNumber(taxaCusto.dezessete.masterCard.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[17] * 0.38) * convertToNumber(table.dezessete.visa) - convertToNumber(taxaCusto.dezessete.visa.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[17] * 0.12) * convertToNumber(table.dezessete.outros) - convertToNumber(taxaCusto.dezessete.outros.valor))/100 | currency:'BRL' }}</td>
+              </tr>
+              <tr>
+                <td>{{ ((resultados[18] * 0.5) * convertToNumber(table.dezoito.masterCard) - convertToNumber(taxaCusto.dezoito.masterCard.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[18] * 0.38) * convertToNumber(table.dezoito.visa) - convertToNumber(taxaCusto.dezoito.visa.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[18] * 0.12) * convertToNumber(table.dezoito.outros) - convertToNumber(taxaCusto.dezoito.outros.valor))/100 | currency:'BRL' }}</td>
+              </tr>
+              <tr>
+                <td>{{ ((resultados[19] * 0.5) * convertToNumber(table.dezenove.masterCard) - convertToNumber(taxaCusto.dezenove.masterCard.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[19] * 0.38) * convertToNumber(table.dezenove.visa) - convertToNumber(taxaCusto.dezenove.visa.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[19] * 0.12) * convertToNumber(table.dezenove.outros) - convertToNumber(taxaCusto.dezenove.outros.valor))/100 | currency:'BRL' }}</td>
+              </tr>
+              <tr>
+                <td>{{ ((resultados[20] * 0.5) * convertToNumber(table.vinte.masterCard) - convertToNumber(taxaCusto.vinte.masterCard.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[20] * 0.38) * convertToNumber(table.vinte.visa) - convertToNumber(taxaCusto.vinte.visa.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[20] * 0.12) * convertToNumber(table.vinte.outros) - convertToNumber(taxaCusto.vinte.outros.valor))/100 | currency:'BRL' }}</td>
+              </tr>
+              <tr>
+                <td>{{ ((resultados[21] * 0.5) * convertToNumber(table.vinteUm.masterCard) - convertToNumber(taxaCusto.vinteUm.masterCard.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[21] * 0.38) * convertToNumber(table.vinteUm.visa) - convertToNumber(taxaCusto.vinteUm.visa.valor))/100 | currency:'BRL' }}</td>
+                <td>{{ ((resultados[21] * 0.12) * convertToNumber(table.vinteUm.outros) - convertToNumber(taxaCusto.vinteUm.outros.valor))/100 | currency:'BRL' }}</td>
+              </tr>
         </table>
 
     </div>

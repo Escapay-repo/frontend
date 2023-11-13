@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { EMPTY, Observable, catchError, map } from 'rxjs'
+import { EMPTY, Observable, catchError, map, tap } from 'rxjs'
 import { MatSnackBar } from '@angular/material/snack-bar'
 import { HttpClient } from '@angular/common/http';
 import { tabelaCrud } from '../tabelaCrud';
+import { ActivatedRoute } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,9 @@ export class TabelaService {
 
   baseUrl = "http://localhost:3001/tabelas"
 
-  constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
+  constructor(private snackBar: MatSnackBar, 
+    private http: HttpClient,
+    private route: ActivatedRoute) { }
 
   showMessage(msg: string, isError: boolean = false) {
     this.snackBar.open(msg, 'X', {
@@ -23,6 +26,7 @@ export class TabelaService {
   }
 
   create(tabela: tabelaCrud): Observable<tabelaCrud> {
+    tabela.key = new Date().getTime().toString();
     return this.http.post<tabelaCrud>(this.baseUrl, tabela).pipe(
       map((obj) => obj),
       catchError(e => this.errorHandler(e))
@@ -44,18 +48,10 @@ export class TabelaService {
     )
   }
 
-  readByIdSelector(id: string): Observable<{ master: number, visa: number, outros: number }> {
+
+  readByIdSelector(id: string): Observable<tabelaCrud> {
     const url = `${this.baseUrl}/${id}`
-    return this.http.get<tabelaCrud>(url).pipe(
-      map((obj) => {
-        return {
-          master: obj.debito.masterCard.valor,
-          visa: obj.debito.visa.valor,
-          outros: obj.debito.outros.valor,
-        };
-      }),
-      catchError(e => this.errorHandler(e))
-    )
+    return this.http.get<tabelaCrud>(url);
   }
 
   update(tabela: tabelaCrud): Observable<tabelaCrud> {
@@ -78,5 +74,11 @@ export class TabelaService {
     console.log(e)
     this.showMessage('Ocorreu um Erro', true)
     return EMPTY
+  }
+
+  getTableById(id: string): Observable<tabelaCrud> {
+    return this.readById(id).pipe(
+      tap(table => console.log('Current Table', table))
+    );
   }
 }

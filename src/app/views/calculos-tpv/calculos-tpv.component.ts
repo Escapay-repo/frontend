@@ -1,10 +1,8 @@
-import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
-import { LogicaService } from './logica.service';
-import { MarkupComponent } from './shared/markup/markup.component';
-import { MarkupService } from './shared/markup/markup.service';
-import { TaxaVendaService } from './shared/taxa-venda/taxa-venda.service';
-import { TaxaCustoService } from './shared/taxa-custo/taxa-custo.service';
-import { ShareBandeirasComponent } from './shared/share-bandeiras/share-bandeiras.component';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { TabelaService } from 'src/app/components/tabela/tabela-create/tabela.service';
+import { tabelaCrud } from 'src/app/components/tabela/tabelaCrud';
+import { HeaderService } from 'src/app/components/template/header/header.service';
 
 @Component({
   selector: 'escapay-calculos-tpv',
@@ -12,24 +10,39 @@ import { ShareBandeirasComponent } from './shared/share-bandeiras/share-bandeira
   styleUrls: ['./calculos-tpv.component.css']
 })
 export class CalculosTpvComponent implements OnInit {
-  @Output() resultadosAtualizados = new EventEmitter<number[]>();  
+  @Output() resultadosAtualizados = new EventEmitter<number[]>();
   resultados: Array<number> = [];
-  inputValue: number = 1000;
-  
+  inputValue: number = 1000000;
+  tables!: tabelaCrud[];
+  currentTable!: tabelaCrud;  
 
-  constructor(
-    private markupService: MarkupService,
-    private taxaCustoService: TaxaCustoService,
-    private taxaVendaService: TaxaVendaService
-    ) { }
+  constructor(private headerService: HeaderService,
+    private tabelaService: TabelaService,
+    private route: ActivatedRoute) {
+      headerService.headerData = {
+        title: "Tabelas",
+        icon: "format_list_bulleted",
+        routeUrl: ""
+      }
+  }
 
   ngOnInit(): void {
-    this.calcular()
-    this.printarNoLog()
+    this.calcular();
+
+    this.tabelaService.read().subscribe(tables => {
+      this.tables = tables
+      console.log('tables',this.tables)
+    })
+
+    this.route.params.subscribe(params => {
+      const id = params['id'];
+      this.tabelaService.getTableById(id).subscribe(table => {
+        this.currentTable = table;
+      });
+    });
   }
 
   calcular() {
-
     if (!isNaN(this.inputValue)) {
       this.resultados = [];
       const tableRows = document.querySelectorAll('.share-tpv tr');
@@ -44,8 +57,10 @@ export class CalculosTpvComponent implements OnInit {
             const shareValue = parseFloat(shareText.replace('%', '').replace(',', '.'));
             if (!isNaN(shareValue)) {
               const resultado = (this.inputValue * shareValue) / 100;
-              resultadoTD.textContent = resultado.toFixed(2);
+              const formattedResultado = resultado.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+              resultadoTD.textContent = formattedResultado;
               this.resultados.push(resultado);
+
             }
           }
         }
@@ -54,13 +69,8 @@ export class CalculosTpvComponent implements OnInit {
     }
   }
 
-
-  printarNoLog() {
-    console.log("this.resultados", this.resultados);
-    console.log("this.calcularmarkup", this.markupService);
-    console.log("taxa venda", this.taxaVendaService);
-    console.log("taxa custo", this.taxaCustoService)
-
+  convertToNumber(value: any): number {
+    return !isNaN(value) ? Number(value) : 0;
   }
 }
 
