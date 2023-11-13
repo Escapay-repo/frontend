@@ -53,6 +53,8 @@ import { ReceitaFranqueadoComponent } from './views/calculos-tpv/shared/receita-
 import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
 import { TaxaVendaComponent } from './views/calculos-tpv/shared/taxa-venda/taxa-venda.component';
+import { ComissaoCltComponent } from './views/calculos-tpv/shared/comissao-clt/comissao-clt.component';
+import { ReceitaTotalComponent } from './views/calculos-tpv/shared/receita-total/receita-total.component';
 
 
 registerLocaleData(localePt);
@@ -84,7 +86,9 @@ registerLocaleData(localePt);
     MarkupBandeirasComponent,
     MarkupComponent,
     TaxaVendaComponent,
-    ReceitaFranqueadoComponent
+    ReceitaFranqueadoComponent,
+    ComissaoCltComponent,
+    ReceitaTotalComponent
 
   ],
   imports: [

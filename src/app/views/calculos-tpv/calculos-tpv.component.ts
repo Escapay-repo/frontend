@@ -31,7 +31,6 @@ export class CalculosTpvComponent implements OnInit {
 
     this.tabelaService.read().subscribe(tables => {
       this.tables = tables
-      console.log('tables',this.tables)
     })
 
     this.route.params.subscribe(params => {

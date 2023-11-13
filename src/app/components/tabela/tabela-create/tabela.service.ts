@@ -77,8 +77,6 @@ export class TabelaService {
   }
 
   getTableById(id: string): Observable<tabelaCrud> {
-    return this.readById(id).pipe(
-      tap(table => console.log('Current Table', table))
-    );
+    return this.readById(id).pipe()
   }
 }

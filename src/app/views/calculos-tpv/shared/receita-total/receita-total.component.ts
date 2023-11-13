@@ -1,15 +1,15 @@
-import { Component, Input, OnInit, } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TabelaService } from 'src/app/components/tabela/tabela-create/tabela.service';
 import { tabelaCrud } from 'src/app/components/tabela/tabelaCrud';
 import { tabelaTaxaCusto } from 'src/app/components/tabela/tabelaTaxaCusto';
 
 @Component({
-  selector: 'escapay-receita-franqueado',
-  templateUrl: './receita-franqueado.component.html',
-  styleUrls: ['./receita-franqueado.component.css']
+  selector: 'escapay-receita-total',
+  templateUrl: './receita-total.component.html',
+  styleUrls: ['./receita-total.component.css']
 })
-export class ReceitaFranqueadoComponent implements OnInit {
+export class ReceitaTotalComponent implements OnInit {
   @Input() resultados: Array<number> = [];
   taxaCusto = tabelaTaxaCusto;
   table!: tabelaCrud
@@ -98,7 +98,7 @@ export class ReceitaFranqueadoComponent implements OnInit {
       ((this.resultados[21] * 0.5) * (this.convertToNumber(this.table.vinteUm.masterCard) - this.convertToNumber(this.taxaCusto.vinteUm.masterCard.valor))) / 100 +
       ((this.resultados[21] * 0.38) * (this.convertToNumber(this.table.vinteUm.visa) - this.convertToNumber(this.taxaCusto.vinteUm.visa.valor))) / 100 +
       ((this.resultados[21] * 0.12) * (this.convertToNumber(this.table.vinteUm.outros) - this.convertToNumber(this.taxaCusto.vinteUm.outros.valor))) / 100    
-    ) * 0.845) * 0.40
+    ) * 0.845)
     return valor;
   }
 }
