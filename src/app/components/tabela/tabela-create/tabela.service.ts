@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class TabelaService {
 
-  baseUrl = "http://localhost:3001/tabelas"
+  baseUrl = "database-1.cpv3ti3wbuzl.sa-east-1.rds.amazonaws.com"
 
   constructor(private snackBar: MatSnackBar, 
     private http: HttpClient,
