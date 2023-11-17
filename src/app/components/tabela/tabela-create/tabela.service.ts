@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class TabelaService {
 
-  baseUrl = "database-1.cpv3ti3wbuzl.sa-east-1.rds.amazonaws.com"
+  baseUrl = "https://backendteste-b438b.firebaseapp.com/"
 
   constructor(private snackBar: MatSnackBar, 
     private http: HttpClient,
