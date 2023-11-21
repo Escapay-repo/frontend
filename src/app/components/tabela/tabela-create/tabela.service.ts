@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class TabelaService {
 
-  baseUrl = "https://backendteste-b438b.firebaseapp.com/"
+  baseUrl = "http://localhost:3001/tabelas"
 
   constructor(private snackBar: MatSnackBar, 
     private http: HttpClient,
@@ -27,7 +27,8 @@ export class TabelaService {
 
   create(tabela: tabelaCrud): Observable<tabelaCrud> {
     tabela.key = new Date().getTime().toString();
-    return this.http.post<tabelaCrud>(this.baseUrl, tabela).pipe(
+    const headers = { 'Content-Type': 'application/json' };
+    return this.http.post<tabelaCrud>(this.baseUrl, tabela, {headers}).pipe(
       map((obj) => obj),
       catchError(e => this.errorHandler(e))
     )
@@ -55,15 +56,15 @@ export class TabelaService {
   }
 
   update(tabela: tabelaCrud): Observable<tabelaCrud> {
-    const url = `${this.baseUrl}/${tabela.id}`
+    const url = `${this.baseUrl}/${tabela.key}`
     return this.http.put<tabelaCrud>(url, tabela).pipe(
       map((obj) => obj),
       catchError(e => this.errorHandler(e))
     )
   }
 
-  delete(id: number): Observable<tabelaCrud> {
-    const url = `${this.baseUrl}/${id}`
+  delete(tabela: tabelaCrud): Observable<tabelaCrud> {
+    const url = `${this.baseUrl}/${tabela.key}`
     return this.http.delete<tabelaCrud>(url).pipe(
       map((obj) => obj),
       catchError(e => this.errorHandler(e))

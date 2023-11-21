@@ -9,7 +9,7 @@ import { TabelaService } from '../tabela-create/tabela.service';
 })
 export class TabelaReadComponent implements OnInit {
   tables!: tabelaCrud[]
-  displayedColumns = ['id', 'tableName', 'action']
+  displayedColumns = [ 'tableName', 'action']
 
   constructor(private tabelaService: TabelaService) { }
 

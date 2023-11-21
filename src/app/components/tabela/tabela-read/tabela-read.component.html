@@ -10,7 +10,7 @@
       <ng-container matColumnDef="tableName">
         <th mat-header-cell *matHeaderCellDef>Nome</th>
         <td mat-cell *matCellDef="let row">{{row.tableName}}
-          <a routerLink="/tabelaTpv/{{ row.id }}">
+          <a routerLink="/tabelaTpv/{{ row.key }}">
             <i class="material-icons">
               edit
             </i>
@@ -29,7 +29,7 @@
             </i>
           </a>
   
-          <a routerLink="/tabelaDelete/{{ row.id }}" class="delete">
+          <a routerLink="/tabelaDelete/{{ row.key }}" class="delete">
             <i class="material-icons">
               delete
             </i>

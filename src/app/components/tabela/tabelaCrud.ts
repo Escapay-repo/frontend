@@ -1,6 +1,5 @@
 export interface tabelaCrud {
   key: string;
-  id: number;
   tableName: string;
   debito: {
     masterCard: { valor: number },

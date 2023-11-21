@@ -13,6 +13,7 @@ export class CalculosTpvComponent implements OnInit {
   @Output() resultadosAtualizados = new EventEmitter<number[]>();
   resultados: Array<number> = [];
   inputValue: number = 1000000;
+  currentTableId!: string;
   tables!: tabelaCrud[];
   currentTable!: tabelaCrud;  
 
@@ -29,17 +30,25 @@ export class CalculosTpvComponent implements OnInit {
   ngOnInit(): void {
     this.calcular();
 
-    this.tabelaService.read().subscribe(tables => {
-      this.tables = tables
-    })
-
     this.route.params.subscribe(params => {
-      const id = params['id'];
-      this.tabelaService.getTableById(id).subscribe(table => {
+      this.currentTableId = params['id'];
+      this.tabelaService.readById(this.currentTableId).subscribe(table => {
         this.currentTable = table;
       });
     });
   }
+
+  //   this.tabelaService.read().subscribe(tables => {
+  //     this.tables = tables
+  //   })
+
+  //   this.route.params.subscribe(params => {
+  //     const id = params['id'];
+  //     this.tabelaService.getTableById(id).subscribe(table => {
+  //       this.currentTable = table;
+  //     });
+  //   });
+  // }
 
   calcular() {
     if (!isNaN(this.inputValue)) {

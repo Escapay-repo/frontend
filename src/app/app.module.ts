@@ -25,7 +25,6 @@ import { MatSidenavContainer } from '@angular/material/sidenav';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/template/header/header.component';
-import { NavComponent } from './components/template/nav/nav.component';
 import { TabelaCreateComponent } from './components/tabela/tabela-create/tabela-create.component';
 import { TabelaDeleteComponent } from './components/tabela/tabela-delete/tabela-delete.component';
 import { TabelaUpdateComponent } from './components/tabela/tabela-update/tabela-update.component';
@@ -66,7 +65,6 @@ registerLocaleData(localePt);
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    NavComponent,
     TabelaCreateComponent,
     TabelaDeleteComponent,
     TabelaUpdateComponent,

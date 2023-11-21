@@ -23,7 +23,7 @@ export class TabelaDeleteComponent implements OnInit {
   }
 
   deleteTable(): void {
-    this.tabelaService.delete(this.table.id!).subscribe(() => {
+    this.tabelaService.delete(this.table).subscribe(() => {
       this.tabelaService.showMessage('Tabela excluido')
       this.router.navigate([''])
     })
