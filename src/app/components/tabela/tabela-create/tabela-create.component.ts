@@ -3,6 +3,7 @@ import { tabelaCrud } from '../tabelaCrud';
 import { TabelaService } from './tabela.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { FormatadorService } from 'src/app/services/formatador.service';
 
 @Component({
   selector: 'escapay-tabela-create',
@@ -13,123 +14,131 @@ export class TabelaCreateComponent implements OnInit {
   table: any = {
     key: '',
     tableName: '',
-    debito:{
-      masterCard:{valor: 0},
-      visa:{valor: 0},
-      outros: {valor: 0},
-  },
-    credito:{
-      masterCard:{valor: 0},
-      visa:{valor: 0},
-      outros: {valor: 0},
-  },
+    debito: {
+      masterCard: { valor: 0 },
+      visa: { valor: 0 },
+      outros: { valor: 0 },
+    },
+    credito: {
+      masterCard: { valor: 0 },
+      visa: { valor: 0 },
+      outros: { valor: 0 },
+    },
     duas: {
-      masterCard:{valor: 0},
-      visa:{valor: 0},
-      outros: {valor: 0},
-  },
+      masterCard: { valor: 0 },
+      visa: { valor: 0 },
+      outros: { valor: 0 },
+    },
     tres: {
-      masterCard:{valor: 0},
-      visa:{valor: 0},
-      outros: {valor: 0},
-  },
+      masterCard: { valor: 0 },
+      visa: { valor: 0 },
+      outros: { valor: 0 },
+    },
     quatro: {
-      masterCard:{valor: 0},
-      visa:{valor: 0},
-      outros: {valor: 0},
-  },
+      masterCard: { valor: 0 },
+      visa: { valor: 0 },
+      outros: { valor: 0 },
+    },
     cinco: {
-      masterCard:{valor: 0},
-      visa:{valor: 0},
-      outros: {valor: 0},
-  },
+      masterCard: { valor: 0 },
+      visa: { valor: 0 },
+      outros: { valor: 0 },
+    },
     seis: {
-      masterCard:{valor: 0},
-      visa:{valor: 0},
-      outros: {valor: 0},
-  },
+      masterCard: { valor: 0 },
+      visa: { valor: 0 },
+      outros: { valor: 0 },
+    },
     sete: {
-      masterCard:{valor: 0},
-      visa:{valor: 0},
-      outros: {valor: 0},
-  },
+      masterCard: { valor: 0 },
+      visa: { valor: 0 },
+      outros: { valor: 0 },
+    },
     oito: {
-      masterCard:{valor: 0},
-      visa:{valor: 0},
-      outros: {valor: 0},
-  },
+      masterCard: { valor: 0 },
+      visa: { valor: 0 },
+      outros: { valor: 0 },
+    },
     nove: {
-      masterCard:{valor: 0},
-      visa:{valor: 0},
-      outros: {valor: 0},
-  },
+      masterCard: { valor: 0 },
+      visa: { valor: 0 },
+      outros: { valor: 0 },
+    },
     dez: {
-      masterCard:{valor: 0},
-      visa:{valor: 0},
-      outros: {valor: 0},
-  },
+      masterCard: { valor: 0 },
+      visa: { valor: 0 },
+      outros: { valor: 0 },
+    },
     onze: {
-      masterCard:{valor: 0},
-      visa:{valor: 0},
-      outros: {valor: 0},
-  },
+      masterCard: { valor: 0 },
+      visa: { valor: 0 },
+      outros: { valor: 0 },
+    },
     doze: {
-      masterCard:{valor: 0},
-      visa:{valor: 0},
-      outros: {valor: 0},
-  },
+      masterCard: { valor: 0 },
+      visa: { valor: 0 },
+      outros: { valor: 0 },
+    },
     treze: {
-      masterCard:{valor: 0},
-      visa:{valor: 0},
-      outros: {valor: 0},
-  },
+      masterCard: { valor: 0 },
+      visa: { valor: 0 },
+      outros: { valor: 0 },
+    },
     quatorze: {
-      masterCard:{valor: 0},
-      visa:{valor: 0},
-      outros: {valor: 0},
-  },
+      masterCard: { valor: 0 },
+      visa: { valor: 0 },
+      outros: { valor: 0 },
+    },
     quinze: {
-      masterCard:{valor: 0},
-      visa:{valor: 0},
-      outros: {valor: 0},
-  },
+      masterCard: { valor: 0 },
+      visa: { valor: 0 },
+      outros: { valor: 0 },
+    },
     dezesseis: {
-      masterCard:{valor: 0},
-      visa:{valor: 0},
-      outros: {valor: 0},
-  },
+      masterCard: { valor: 0 },
+      visa: { valor: 0 },
+      outros: { valor: 0 },
+    },
     dezessete: {
-      masterCard:{valor: 0},
-      visa:{valor: 0},
-      outros: {valor: 0},
-  },
+      masterCard: { valor: 0 },
+      visa: { valor: 0 },
+      outros: { valor: 0 },
+    },
     dezoito: {
-      masterCard:{valor: 0},
-      visa:{valor: 0},
-      outros: {valor: 0},
-  },
+      masterCard: { valor: 0 },
+      visa: { valor: 0 },
+      outros: { valor: 0 },
+    },
     dezenove: {
-      masterCard:{valor: 0},
-      visa:{valor: 0},
-      outros: {valor: 0},
-  },
+      masterCard: { valor: 0 },
+      visa: { valor: 0 },
+      outros: { valor: 0 },
+    },
     vinte: {
-      masterCard:{valor: 0},
-      visa:{valor: 0},
-      outros: {valor: 0},
-  },
+      masterCard: { valor: 0 },
+      visa: { valor: 0 },
+      outros: { valor: 0 },
+    },
     vinteUm: {
-      masterCard:{valor: 0},
-      visa:{valor: 0},
-      outros: {valor: 0},
-  }
+      masterCard: { valor: 0 },
+      visa: { valor: 0 },
+      outros: { valor: 0 },
+    }
   }
 
   constructor
     (private router: Router,
       private tabelaService: TabelaService,
-      private http: HttpClient
+      private http: HttpClient,
+      private formatadorService: FormatadorService
     ) { }
+
+    formatarNumero(event: any): void {
+      const numeroDigitado = event.target.value;
+      const numeroFormatado = this.formatadorService.formatarNumero(numeroDigitado);
+        event.target.value = numeroFormatado;
+    }
+
 
   ngOnInit(): void {
 
@@ -382,6 +391,10 @@ export class TabelaCreateComponent implements OnInit {
         this.router.navigate([""])
       }
     })
+  }
+
+  private copyNumericValues(source: any, destination: any): void {
+    destination.valor = this.formatadorService.formatarNumero(source.valor.toString());
   }
 
   cancel(): void {

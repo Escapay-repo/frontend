@@ -1,6 +1,7 @@
 .sidenav-container {
   height: 100%;
   font-weight: bold;
+
 }
 
 .sidenav {
@@ -9,13 +10,9 @@
   padding-top: 64px;
 }
 
-.sidenav a{
-  font-weight: bold;
-}
-
 .sidenav .mat-toolbar {
   background: inherit;
-  
+
 }
 
 .mat-toolbar.mat-primary {
@@ -31,4 +28,31 @@
 .material-icons {
   vertical-align: middle;
   margin-left: 8px;
+  margin-right: 8px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.estiloBotao{
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Roboto", sans-serif ;
+}
+
+.estiloBotao:hover {
+color: #ffffff ;
+  /* Cor do texto no hover */
+  transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+}
+
+.sidenav a:hover i {
+  color: rgb(255, 255, 255);
+  /* Cor do ícone no hover */
+  transition: color 0.3s ease;
+}
+
+.estiloBotao:hover::after {
+  transform: translateX(5px);
+  /* Deslize para a direita */
+  transition: transform 0.3s ease;
 }

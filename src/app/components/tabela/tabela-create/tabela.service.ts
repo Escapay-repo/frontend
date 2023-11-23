@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar'
 import { HttpClient } from '@angular/common/http';
 import { tabelaCrud } from '../tabelaCrud';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router'; 
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,8 @@ export class TabelaService {
 
   constructor(private snackBar: MatSnackBar, 
     private http: HttpClient,
-    private route: ActivatedRoute) { }
+    private router: Router
+    ) { }
 
   showMessage(msg: string, isError: boolean = false) {
     this.snackBar.open(msg, 'X', {
@@ -41,8 +43,8 @@ export class TabelaService {
     )
   }
 
-  readById(id: string): Observable<tabelaCrud> {
-    const url = `${this.baseUrl}/${id}`
+  readById(key: string): Observable<tabelaCrud> {
+    const url = `${this.baseUrl}/${key}`
     return this.http.get<tabelaCrud>(url).pipe(
       map((obj) => obj),
       catchError(e => this.errorHandler(e))
@@ -55,16 +57,16 @@ export class TabelaService {
     return this.http.get<tabelaCrud>(url);
   }
 
-  update(tabela: tabelaCrud): Observable<tabelaCrud> {
-    const url = `${this.baseUrl}/${tabela.key}`
-    return this.http.put<tabelaCrud>(url, tabela).pipe(
+  update(key: string, data: tabelaCrud): Observable<tabelaCrud> {
+    const url = `${this.baseUrl}/update/${key}`
+    return this.http.put<tabelaCrud>(url, data).pipe(
       map((obj) => obj),
       catchError(e => this.errorHandler(e))
     )
   }
 
-  delete(tabela: tabelaCrud): Observable<tabelaCrud> {
-    const url = `${this.baseUrl}/${tabela.key}`
+  delete(id: string): Observable<tabelaCrud> {
+    const url = `${this.baseUrl}/delete/${id}`
     return this.http.delete<tabelaCrud>(url).pipe(
       map((obj) => obj),
       catchError(e => this.errorHandler(e))
@@ -80,4 +82,9 @@ export class TabelaService {
   getTableById(id: string): Observable<tabelaCrud> {
     return this.readById(id).pipe()
   }
+
+  navigateToDetails(prefix: string, variablePart: string): void {
+    this.router.navigate([`${prefix}/${variablePart}`]);
+  }
+
 }

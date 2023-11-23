@@ -1,9 +1,12 @@
 .home .title {
     font-size: 3rem;
     font-weight: 300;
-    line-height: 1.2;
+    line-height: 1.5;
     padding: 1rem;
     text-align: center;
+    font-feature-settings: "liga"0;
+    font-family: 'Roboto', sans-serif !important;
+
 }
 
 .home .subtitle {
@@ -14,13 +17,13 @@
 
 .home .container {
     flex: 1;
-    
+
 }
 
 .button {
     justify-content: center;
     display: flex;
-    background: none; 
+    background: none;
     margin-top: 10px;
 }
 
@@ -28,5 +31,9 @@
 
 .button .menu {
     padding: 0;
-    margin: 0 1rem; 
-  }
+    margin: 0 1rem;
+}
+
+.espacamento{
+    padding: 10px;
+}

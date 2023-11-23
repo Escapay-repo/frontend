@@ -19,5 +19,9 @@ export class TabelaReadComponent implements OnInit {
     })
     
   }
+  onClickNavigateToDetails(rowId: string): void {
+    const prefix = '/tabelaTpv';
+    this.tabelaService.navigateToDetails(prefix, rowId);
+  }
 
 }

@@ -1,4 +1,5 @@
 export interface tabelaCrud {
+  _id?: any;
   key: string;
   tableName: string;
   debito: {

@@ -18,8 +18,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort'
 import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { MatToolbarModule } from '@angular/material/toolbar'
-import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
-import { MatSidenavContainer } from '@angular/material/sidenav'; 
+import { MatFormFieldModule } from '@angular/material/form-field';
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -40,7 +40,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { NavSchematicsComponent } from './components/template/nav-schematics/nav-schematics.component';
 import { TaxaCustoComponent } from './views/calculos-tpv/shared/taxa-custo/taxa-custo.component';
-import { ShareTpvComponent } from './views/calculos-tpv/shared/share-tpv/share-tpv.component';
 import { ShareBandeirasTotalComponent } from './views/calculos-tpv/shared/share-bandeiras-total/share-bandeiras-total.component';
 import { ShareBandeirasComponent } from './views/calculos-tpv/shared/share-bandeiras/share-bandeiras.component';
 import { MarkupBandeirasComponent } from './views/calculos-tpv/shared/markup-bandeiras/markup-bandeiras.component';
@@ -49,11 +48,13 @@ import { CustoClientComponent } from './views/calculos-tpv/shared/custo-client/c
 import { ReceitaFranqueadoComponent } from './views/calculos-tpv/shared/receita-franqueado/receita-franqueado.component';
 
 
+
 import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
 import { TaxaVendaComponent } from './views/calculos-tpv/shared/taxa-venda/taxa-venda.component';
 import { ComissaoCltComponent } from './views/calculos-tpv/shared/comissao-clt/comissao-clt.component';
 import { ReceitaTotalComponent } from './views/calculos-tpv/shared/receita-total/receita-total.component';
+
 
 
 registerLocaleData(localePt);
@@ -78,7 +79,6 @@ registerLocaleData(localePt);
     NavSchematicsComponent,
     CustoClientComponent,
     TaxaCustoComponent,
-    ShareTpvComponent,
     ShareBandeirasTotalComponent,
     ShareBandeirasComponent,
     MarkupBandeirasComponent,
@@ -86,8 +86,7 @@ registerLocaleData(localePt);
     TaxaVendaComponent,
     ReceitaFranqueadoComponent,
     ComissaoCltComponent,
-    ReceitaTotalComponent
-
+    ReceitaTotalComponent,
   ],
   imports: [
     BrowserModule,
@@ -112,7 +111,7 @@ registerLocaleData(localePt);
     MatToolbarModule,
     MatInputModule,
     MatSelectModule,
-    MatRadioModule
+    MatRadioModule,
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'pt-BR' }

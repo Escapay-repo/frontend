@@ -2,9 +2,9 @@
     <div class="tabela">
         <table>
             <tr>
-                <th>Markup R$ Master</th>
-                <th>Markup R$ Visa</th>
-                <th>Markup R$ Outros</th>
+                <th>MARKUP R$ MASTER</th>
+                <th>MARKUP R$ VISA</th>
+                <th>MARKUP R$ OUTROS</th>
             </tr>
             <tr>
                 <td>{{ ((resultados[0] * 0.5) * (convertToNumber(table.debito.masterCard) - convertToNumber(taxaCusto.debito.masterCard.valor)))/100 | currency:'BRL' }}</td>

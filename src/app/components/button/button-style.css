@@ -1,0 +1,19 @@
+.hover-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #333;
+    text-decoration: none;
+    border: 2px solid #333;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease, background-position 0.3s ease;
+}
+
+.hover-button:hover {
+    color: #fff;
+}
+
+.hover-button:hover::before {
+    background-position: 100% 0;
+}

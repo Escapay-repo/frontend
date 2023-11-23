@@ -1,8 +1,210 @@
-form{
+/* header */
+.cabecalho {
+    flex: 1;
+    padding-bottom: 10px;
+  }
+  
+  .title {
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1.2;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .nome-tabela{
+    /* flex: 1; */
+    text-align: center;
+    margin-top: 30px;
+  }
+  .nome-tabela-input{
+    width: 400px;
+    text-align: left !important;
+  }
+  
+  input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    text-align: right;
+  }
+  
+  /* botoes tabela */
+  
+  .copy {
+    align-items: center;
+    appearance: none;
+    background-color: #FCFCFD;
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #36395A;
+    cursor: pointer;
+    display: inline-flex;
+    height: 30px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow .15s, transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow, transform;
+    font-size: 12px;
+  }
+  
+  .copy:focus {
+    box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  }
+  
+  .copy:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    transform: translateY(-2px);
+  }
+  
+  .copy:active {
+    box-shadow: #D6D6E7 0 3px 7px inset;
+    transform: translateY(2px);
+  }
+  
+  /*tabela */
+  .tabela {
+    width: 80%;
+    margin-top: 10px;
+  }
+  
+  .tabela-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
+  }
+  
+  table {
+    width: 80%;
+  }
+  
+  
+  th {
+    text-align: center;
+    color: #000000;
+    padding: 0.7rem;
+    font-size: 1rem;
+  }
+  
+  
+  .celulas {
+    text-align: center;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  
+  
+  tr:nth-child(even) {
+    background-color: #cacaca;
+  }
+  
+  .cabecalho-botao {
+    background-color: white !important;
+    text-align: center;
+  }
+  
+  
+  input[type="number"] {
+    -moz-appearance: textfield;
+    /* Firefox */
+  }
+  
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    /* Safari e Chrome */
+    margin: 0;
+  }
+  
+  /* botoes footer */
+  .icon_save {
+    font-size: 1.2rem;
+    vertical-align: middle;
+  }
+  
+  .icon_close {
+    font-size: 1.2rem;
+    vertical-align: middle;
+  }
+  
+  .buttons-container {
+    display: flex;
+    justify-content: space-between;
     margin-top: 20px;
-}
-button {
-    margin: 20px 15px 0px 0px;
-}
+  }
+  
+  .buttons-container-space {
+    padding: 30px;
+  }
+  
+  .salvar {
+    display: table-cell;
+    background-color: #b3dc2b;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 500;
+    height: 40px;
+    width: 110px;
+    min-width: 120px;
+    line-height: 20px;
+    margin: 8px 8px 8px 0;
+    font-weight: 600;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    transition: color 100ms;
+    vertical-align: baseline;
+  }
+  
+  .salvar:hover,
+  .salvar:focus {
+    background-color: #87a32c;
+  }
+  
+  .cancelar {
+    display: table-cell;
+    background-color: rgb(255, 0, 0);
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 500;
+    height: 40px;
+    width: 131px;
+    line-height: 20px;
+    margin: 8px 8px 8px 0;
+    font-weight: 600;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    transition: color 100ms;
+    vertical-align: baseline;
+  }
+  
+  .cancelar:hover,
+  .cancelar:focus {
+    background-color: rgb(118, 20, 20);
+  }

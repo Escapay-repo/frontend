@@ -16,10 +16,12 @@ export class CalculosTpvComponent implements OnInit {
   currentTableId!: string;
   tables!: tabelaCrud[];
   currentTable!: tabelaCrud;  
+  formattedValue: string = '1.000.000';
 
   constructor(private headerService: HeaderService,
     private tabelaService: TabelaService,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+    ) {
       headerService.headerData = {
         title: "Tabelas",
         icon: "format_list_bulleted",
@@ -29,7 +31,7 @@ export class CalculosTpvComponent implements OnInit {
 
   ngOnInit(): void {
     this.calcular();
-
+    this.formatInput();
     this.route.params.subscribe(params => {
       this.currentTableId = params['id'];
       this.tabelaService.readById(this.currentTableId).subscribe(table => {
@@ -38,17 +40,13 @@ export class CalculosTpvComponent implements OnInit {
     });
   }
 
-  //   this.tabelaService.read().subscribe(tables => {
-  //     this.tables = tables
-  //   })
-
-  //   this.route.params.subscribe(params => {
-  //     const id = params['id'];
-  //     this.tabelaService.getTableById(id).subscribe(table => {
-  //       this.currentTable = table;
-  //     });
-  //   });
-  // }
+  formatInput() {
+    const valorSemPontos = this.formattedValue.replace(/\./g, '');
+    const partes = valorSemPontos.split(',');
+    const valorFinal = partes[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.') + (partes[1] ? ',' + partes[1].substring(0, 3) : '');
+    this.formattedValue = valorFinal;
+    this.inputValue = parseFloat(valorSemPontos.replace(',', '.'));
+  }
 
   calcular() {
     if (!isNaN(this.inputValue)) {

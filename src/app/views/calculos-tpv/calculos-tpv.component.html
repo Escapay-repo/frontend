@@ -4,7 +4,7 @@
       <h1 class="titulo">{{currentTable.tableName}}</h1>
     </div>
     <div class="inputTPV">
-      <input type="number" [(ngModel)]="inputValue">
+      R$<input type="text" [(ngModel)]="formattedValue" (input)="formatInput()">
     </div>
     <div class="Calcular">
       <button mat-raised-button (click)="calcular()">Calcular</button>
@@ -27,10 +27,10 @@
   </div>
 </section>
 <section class="tabela-container">
-  <table class="tabelaFormas">
+  <table class="tabela">
     <tr>
       <th>
-        Formas de Pagamento
+          MODALIDADES
       </th>
     </tr>
     <tr>
@@ -100,13 +100,12 @@
       <td>Parcelado 21x</td>
     </tr>
   </table>
-
   <div class="tabela-container-2">
     <div class="tabela">
       <table class="share-tpv">
         <tr>
-          <th>Share TPV (%)</th>
-          <th>Share TPV (R$)</th>
+          <th>SHARE TPV (%)</th>
+          <th>SHARE TPV (R$)</th>
         </tr>
         <tr>
           <td>50,16%</td>
@@ -197,13 +196,24 @@
           <td></td>
         </tr>
       </table>
-
     </div>
   </div>
-  <escapay-share-bandeiras [resultados]="resultados"></escapay-share-bandeiras>
-  <escapay-taxa-custo></escapay-taxa-custo>
-  <escapay-taxa-venda></escapay-taxa-venda>
-  <escapay-markup></escapay-markup>
-  <escapay-markup-bandeiras [resultados]="resultados"></escapay-markup-bandeiras>
-  <escapay-custo-client></escapay-custo-client>
+  <div class="tabela">
+    <escapay-share-bandeiras [resultados]="resultados"></escapay-share-bandeiras>
+  </div>
+  <div class="tabela">
+    <escapay-taxa-custo></escapay-taxa-custo>
+  </div>
+  <div class="tabela">
+    <escapay-taxa-venda></escapay-taxa-venda>
+  </div>
+  <div class="tabela">
+    <escapay-markup></escapay-markup>
+  </div>
+  <div class="tabela">
+    <escapay-markup-bandeiras [resultados]="resultados"></escapay-markup-bandeiras>
+  </div>
+  <div class="tabela">
+    <escapay-custo-client></escapay-custo-client>
+  </div>
 </section>

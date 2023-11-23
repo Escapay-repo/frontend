@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { tabelaCrud } from '../tabelaCrud';
 import { TabelaService } from '../tabela-create/tabela.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FormatadorService } from 'src/app/services/formatador.service';
 
 @Component({
   selector: 'escapay-tabela-delete',
@@ -13,7 +14,9 @@ export class TabelaDeleteComponent implements OnInit {
 
 
   constructor(private tabelaService: TabelaService, private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private formatadorService: FormatadorService
+    ) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id')
@@ -22,8 +25,15 @@ export class TabelaDeleteComponent implements OnInit {
     })
   }
 
+  formatarNumero(event: any): void {
+    const numeroDigitado = event.target.value;
+    const numeroFormatado = this.formatadorService.formatarNumero(numeroDigitado);
+      event.target.value = numeroFormatado;
+  }
+
   deleteTable(): void {
-    this.tabelaService.delete(this.table).subscribe(() => {
+    const id = this.route.snapshot.paramMap.get('id') 
+    this.tabelaService.delete(id!).subscribe(() => {
       this.tabelaService.showMessage('Tabela excluido')
       this.router.navigate([''])
     })
