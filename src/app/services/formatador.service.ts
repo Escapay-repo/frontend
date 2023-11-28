@@ -5,13 +5,14 @@ import { Injectable } from '@angular/core';
 })
 export class FormatadorService {
 
-  formatarNumero(input: string): string {
-    let numeros = input.replace(/[^\d]/g, '');
+  formatarNumero(input: number): number {
+    let numeros = input.toString().
+    replace(/[^\d]/g, '');
     if (numeros.length > 2) {
       numeros = numeros.substring(0, 2) + '.' + numeros.substring(2, 4);
     }
   
-    return numeros;
+    return parseFloat(numeros);
   }
 
   copiarNumero(input: string): string {
