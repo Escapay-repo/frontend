@@ -3,113 +3,113 @@ export interface tabelaCrud {
   key: string;
   tableName: string;
   debito: {
-    masterCard: { valor: number },
-    visa: { valor: number },
-    outros: { valor: number },
+    masterCard: number,
+    visa: number,
+    outros: number,
   };
   credito: {
-    masterCard: { valor: number },
-    visa: { valor: number },
-    outros: { valor: number },
+    masterCard: number,
+    visa: number,
+    outros: number,
   };
   duas: {
-    masterCard: { valor: number },
-    visa: { valor: number },
-    outros: { valor: number },
+    masterCard: number,
+    visa: number,
+    outros: number,
   };
   tres: {
-    masterCard: { valor: number },
-    visa: { valor: number },
-    outros: { valor: number },
+    masterCard: number,
+    visa: number,
+    outros: number,
   };
   quatro: {
-    masterCard: { valor: number },
-    visa: { valor: number },
-    outros: { valor: number },
+    masterCard: number,
+    visa: number,
+    outros: number,
   };
   cinco: {
-    masterCard: { valor: number },
-    visa: { valor: number },
-    outros: { valor: number },
+    masterCard: number,
+    visa: number,
+    outros: number,
   };
   seis: {
-    masterCard: { valor: number },
-    visa: { valor: number },
-    outros: { valor: number },
+    masterCard: number,
+    visa: number,
+    outros: number,
   };
   sete: {
-    masterCard: { valor: number },
-    visa: { valor: number },
-    outros: { valor: number },
+    masterCard: number,
+    visa: number,
+    outros: number,
   };
   oito: {
-    masterCard: { valor: number },
-    visa: { valor: number },
-    outros: { valor: number },
+    masterCard: number,
+    visa: number,
+    outros: number,
   };
   nove: {
-    masterCard: { valor: number },
-    visa: { valor: number },
-    outros: { valor: number },
+    masterCard: number,
+    visa: number,
+    outros: number,
   };
   dez: {
-    masterCard: { valor: number },
-    visa: { valor: number },
-    outros: { valor: number },
+    masterCard: number,
+    visa: number,
+    outros: number,
   };
   onze: {
-    masterCard: { valor: number },
-    visa: { valor: number },
-    outros: { valor: number },
+    masterCard: number,
+    visa: number,
+    outros: number,
   };
   doze: {
-    masterCard: { valor: number },
-    visa: { valor: number },
-    outros: { valor: number },
+    masterCard: number,
+    visa: number,
+    outros: number,
   };
   treze: {
-    masterCard: { valor: number },
-    visa: { valor: number },
-    outros: { valor: number },
+    masterCard: number,
+    visa: number,
+    outros: number,
   };
   quatorze: {
-    masterCard: { valor: number },
-    visa: { valor: number },
-    outros: { valor: number },
+    masterCard: number,
+    visa: number,
+    outros: number,
   };
   quinze: {
-    masterCard: { valor: number },
-    visa: { valor: number },
-    outros: { valor: number },
+    masterCard: number,
+    visa: number,
+    outros: number,
   };
   dezesseis: {
-    masterCard: { valor: number },
-    visa: { valor: number },
-    outros: { valor: number },
+    masterCard: number,
+    visa: number,
+    outros: number,
   };
   dezessete: {
-    masterCard: { valor: number },
-    visa: { valor: number },
-    outros: { valor: number },
+    masterCard: number,
+    visa: number,
+    outros: number,
   };
   dezoito: {
-    masterCard: { valor: number },
-    visa: { valor: number },
-    outros: { valor: number },
+    masterCard: number,
+    visa: number,
+    outros: number,
   };
   dezenove: {
-    masterCard: { valor: number },
-    visa: { valor: number },
-    outros: { valor: number },
+    masterCard: number,
+    visa: number,
+    outros: number,
   };
   vinte: {
-    masterCard: { valor: number },
-    visa: { valor: number },
-    outros: { valor: number },
+    masterCard: number,
+    visa: number,
+    outros: number,
   };
   vinteUm: {
-    masterCard: { valor: number },
-    visa: { valor: number },
-    outros: { valor: number },
+    masterCard: number,
+    visa: number,
+    outros: number,
   };
 }

@@ -50,10 +50,11 @@ import { ReceitaFranqueadoComponent } from './views/calculos-tpv/shared/receita-
 
 
 import localePt from '@angular/common/locales/pt';
-import { registerLocaleData } from '@angular/common';
+import { registerLocaleData, DecimalPipe } from '@angular/common';
 import { TaxaVendaComponent } from './views/calculos-tpv/shared/taxa-venda/taxa-venda.component';
 import { ComissaoCltComponent } from './views/calculos-tpv/shared/comissao-clt/comissao-clt.component';
 import { ReceitaTotalComponent } from './views/calculos-tpv/shared/receita-total/receita-total.component';
+import { FormatadorPorcentagemDirective } from './services/formatador-porcentagem.directive';
 
 
 
@@ -87,6 +88,7 @@ registerLocaleData(localePt);
     ReceitaFranqueadoComponent,
     ComissaoCltComponent,
     ReceitaTotalComponent,
+    FormatadorPorcentagemDirective,
   ],
   imports: [
     BrowserModule,
@@ -114,7 +116,8 @@ registerLocaleData(localePt);
     MatRadioModule,
   ],
   providers: [
-    {provide: LOCALE_ID, useValue: 'pt-BR' }
+    {provide: LOCALE_ID, useValue: 'pt-BR' },
+    DecimalPipe
 
   ],
   bootstrap: [AppComponent]

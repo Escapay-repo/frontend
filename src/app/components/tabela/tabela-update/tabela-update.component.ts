@@ -24,10 +24,14 @@ export class TabelaUpdateComponent implements OnInit {
     });
   }
 
-  formatarNumero(event: any): void {
-    const numeroDigitado = event.target.value;
-    const numeroFormatado = this.formatadorService.formatarNumero(numeroDigitado);
-      event.target.value = numeroFormatado;
+  formatarNumero(numeroDigitado: number): string{
+    const numeroFormatado = this.formatadorService.formatarVirgula(numeroDigitado);
+    return numeroFormatado;
+  }
+
+  formatarNumeroStringParaNumber(valor: string): number {
+    const numero = parseFloat(valor);
+    return isNaN(numero) ? 0 : numero;
   }
 
   updateTable(): void {

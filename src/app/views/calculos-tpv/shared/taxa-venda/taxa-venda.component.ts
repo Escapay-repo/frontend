@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TabelaService } from 'src/app/components/tabela/tabela-create/tabela.service';
 import { tabelaCrud } from 'src/app/components/tabela/tabelaCrud';
 import { TaxaVendaService } from './taxa-venda.service';
+import { FormatadorService } from 'src/app/services/formatador.service';
 
 @Component({
   selector: 'escapay-taxa-venda',
@@ -15,7 +16,8 @@ export class TaxaVendaComponent implements OnInit {
 
   constructor(private tabelaService: TabelaService,
     private route: ActivatedRoute,
-    private taxaVendaCompartilhada: TaxaVendaService
+    private taxaVendaCompartilhada: TaxaVendaService,
+    private formatadorService: FormatadorService
     ) { }
 
   ngOnInit(): void {
@@ -28,4 +30,9 @@ export class TaxaVendaComponent implements OnInit {
       });
     }
   } 
+
+  formatarNumero(numeroDigitado: number): string{
+    const numeroFormatado = this.formatadorService.formatarVirgula(numeroDigitado);
+    return numeroFormatado;
+  }
 }

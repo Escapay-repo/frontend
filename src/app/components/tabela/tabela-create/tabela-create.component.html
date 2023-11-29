@@ -1,253 +1,399 @@
 <mat-card class="cabecalho mat-elevation-z3">
-  <mat-card-title class="title">Preencha os campos em branco com as porcentagens desejadas</mat-card-title>
+        <mat-card-title class="title">Preencha os campos em branco com as porcentagens desejadas</mat-card-title>
 </mat-card>
-<div class="nome-tabela"><input type="text" class="nome-tabela-input" [(ngModel)]="table.tableName" placeholder="NOME DA TABELA"></div>
+<div class="nome-tabela"><input type="text" class="nome-tabela-input" [(ngModel)]="table.tableName"
+                placeholder="NOME DA TABELA"></div>
 <div class="tabela-container">
-  <div class="tabela">
-    <table>
-      <tr class="cabecalho-botao">
-        <th></th>
-        <th>
-          <button (click)="visaToMaster()" class="copy">Copiar Porcentagens Visa</button>
-        </th>
-        <th>
-          <button (click)="masterToVisa()" class="copy">Copiar Porcentagens MasterCard</button>
-        </th>
-        <th>
-          <button (click)="masterToOutros()" class="copy">Copiar Porcentagens MasterCard</button>
-        </th>
-      </tr>
-      <tr class="cabecalho-botao">
-        <th></th>
-        <th>
-          <button (click)="outrosToMaster()" class="copy">Copiar Porcentagens Outros</button>
-        </th>
-        <th>
-          <button (click)="outrosToVisa()" class="copy">Copiar Porcentagens Outros</button>
-        </th>
-        <th>
-          <button (click)="visaToOutros()" class="copy">Copiar Porcentagens Visa</button>
-        </th>
-      </tr>
-      <tr>
-        <th>Forma de Pagamento</th>
-        <th>MasterCard</th>
-        <th>Visa</th>
-        <th>Outros</th>
-      </tr>
-      <tr>
-        <td class="celulas">Débito</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 size="6" placeholder="%" [(ngModel)]="table.debito.masterCard.valor" (ngModelChange)="formatarNumero(table.debito.masterCard.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 size="6" placeholder="%" [(ngModel)]="table.debito.visa.valor" (ngModelChange)="formatarNumero(table.debito.visa.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 size="6" placeholder="%" [(ngModel)]="table.debito.outros.valor" (ngModelChange)="formatarNumero(table.debito.outros.valor)"
-/>%</td>
-      </tr>
-      <tr>
-        <td class="celulas">Crédito</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.credito.masterCard.valor" (ngModelChange)="formatarNumero(table.credito.masterCard.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.credito.visa.valor" (ngModelChange)="formatarNumero(table.credito.visa.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.credito.outros.valor" (ngModelChange)="formatarNumero(table.credito.outros.valor)"
-/>%</td>
-      </tr>
-      <tr>
-        <td class="celulas">2x</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.duas.masterCard.valor" (ngModelChange)="formatarNumero(table.duas.masterCard.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.duas.visa.valor" (ngModelChange)="formatarNumero(table.duas.visa.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.duas.outros.valor" (ngModelChange)="formatarNumero(table.duas.outros.valor)"
-/>%</td>
-      </tr>
-      <tr>
-        <td class="celulas">3x</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.tres.masterCard.valor" (ngModelChange)="formatarNumero(table.tres.masterCard.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.tres.visa.valor" (ngModelChange)="formatarNumero(table.tres.visa.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.tres.outros.valor" (ngModelChange)="formatarNumero(table.tres.outros.valor)"
-/>%</td>
-      </tr>
-      <tr>
-        <td class="celulas">4x</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.quatro.masterCard.valor" (ngModelChange)="formatarNumero(table.quatro.masterCard.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.quatro.visa.valor" (ngModelChange)="formatarNumero(table.quatro.visa.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.quatro.outros.valor" (ngModelChange)="formatarNumero(table.quatro.outros.valor)"
-/>%</td>
-      </tr>
-      <tr>
-        <td class="celulas">5x</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.cinco.masterCard.valor" (ngModelChange)="formatarNumero(table.cinco.masterCard.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.cinco.visa.valor" (ngModelChange)="formatarNumero(table.cinco.visa.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.cinco.outros.valor" (ngModelChange)="formatarNumero(table.cinco.outros.valor)"
-/>%</td>
-      </tr>
-      <tr>
-        <td class="celulas">6x</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.seis.masterCard.valor" (ngModelChange)="formatarNumero(table.seis.masterCard.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.seis.visa.valor" (ngModelChange)="formatarNumero(table.seis.visa.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.seis.outros.valor" (ngModelChange)="formatarNumero(table.seis.outros.valor)"
-/>%</td>
-      </tr>
-      <tr>
-        <td class="celulas">7x</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.sete.masterCard.valor" (ngModelChange)="formatarNumero(table.sete.masterCard.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.sete.visa.valor" (ngModelChange)="formatarNumero(table.sete.visa.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.sete.outros.valor" (ngModelChange)="formatarNumero(table.sete.outros.valor)"
-/>%</td>
-      </tr>
-      <tr>
-        <td class="celulas">8x</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.oito.masterCard.valor" (ngModelChange)="formatarNumero(table.oito.masterCard.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.oito.visa.valor" (ngModelChange)="formatarNumero(table.oito.visa.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.oito.outros.valor" (ngModelChange)="formatarNumero(table.oito.outros.valor)"
-/>%</td>
-      </tr>
-      <tr>
-        <td class="celulas">9x</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.nove.masterCard.valor" (ngModelChange)="formatarNumero(table.nove.masterCard.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.nove.visa.valor" (ngModelChange)="formatarNumero(table.nove.visa.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.nove.outros.valor" (ngModelChange)="formatarNumero(table.nove.outros.valor)"
-/>%</td>
-      </tr>
-      <tr>
-        <td class="celulas">10x</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.dez.masterCard.valor" (ngModelChange)="formatarNumero(table.dez.masterCard.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.dez.visa.valor" (ngModelChange)="formatarNumero(table.dez.visa.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.dez.outros.valor" (ngModelChange)="formatarNumero(table.dez.outros.valor)"
-/>%</td>
-      </tr>
-      <tr>
-        <td class="celulas">11x</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.onze.masterCard.valor" (ngModelChange)="formatarNumero(table.onze.masterCard.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.onze.visa.valor" (ngModelChange)="formatarNumero(table.onze.visa.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.onze.outros.valor" (ngModelChange)="formatarNumero(table.onze.outros.valor)"
-/>%</td>
-      </tr>
-      <tr>
-        <td class="celulas">12x</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.doze.masterCard.valor" (ngModelChange)="formatarNumero(table.doze.masterCard.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.doze.visa.valor" (ngModelChange)="formatarNumero(table.doze.visa.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.doze.outros.valor" (ngModelChange)="formatarNumero(table.doze.outros.valor)"
-/>%</td>
-      </tr>
-      <tr>
-        <td class="celulas">13x</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.treze.masterCard.valor" (ngModelChange)="formatarNumero(table.treze.masterCard.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.treze.visa.valor" (ngModelChange)="formatarNumero(table.treze.visa.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.treze.outros.valor" (ngModelChange)="formatarNumero(table.treze.outros.valor)"
-/>%</td>
-      </tr>
-      <tr>
-        <td class="celulas">14x</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.quatorze.masterCard.valor" (ngModelChange)="formatarNumero(table.quatorze.masterCard.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.quatorze.visa.valor" (ngModelChange)="formatarNumero(table.quatorze.visa.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.quatorze.outros.valor" (ngModelChange)="formatarNumero(table.quatorze.outros.valor)"
-/>%</td>
-      </tr>
-      <tr>
-        <td class="celulas">15x</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.quinze.masterCard.valor" (ngModelChange)="formatarNumero(table.quinze.masterCard.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.quinze.visa.valor" (ngModelChange)="formatarNumero(table.quinze.visa.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.quinze.outros.valor" (ngModelChange)="formatarNumero(table.quinze.outros.valor)"
-/>%</td>
-      </tr>
-      <tr>
-        <td class="celulas">16x</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.dezesseis.masterCard.valor" (ngModelChange)="formatarNumero(table.dezesseis.masterCard.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.dezesseis.visa.valor" (ngModelChange)="formatarNumero(table.dezesseis.visa.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.dezesseis.outros.valor" (ngModelChange)="formatarNumero(table.dezesseis.outros.valor)"
-/>%</td>
-      </tr>
-      <tr>
-        <td class="celulas">17x</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.dezessete.masterCard.valor" (ngModelChange)="formatarNumero(table.dezessete.masterCard.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.dezessete.visa.valor" (ngModelChange)="formatarNumero(table.dezessete.visa.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.dezessete.outros.valor" (ngModelChange)="formatarNumero(table.dezessete.outros.valor)"
-/>%</td>
-      </tr>
-      <tr>
-        <td class="celulas">18x</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.dezoito.masterCard.valor" (ngModelChange)="formatarNumero(table.dezoito.masterCard.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.dezoito.visa.valor" (ngModelChange)="formatarNumero(table.dezoito.visa.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.dezoito.outros.valor" (ngModelChange)="formatarNumero(table.dezoito.outros.valor)"
-/>%</td>
-      </tr>
-      <tr>
-        <td class="celulas">19x</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.dezenove.masterCard.valor" (ngModelChange)="formatarNumero(table.dezenove.masterCard.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.dezenove.visa.valor" (ngModelChange)="formatarNumero(table.dezenove.visa.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.dezenove.outros.valor" (ngModelChange)="formatarNumero(table.dezenove.outros.valor)"
-/>%</td>
-      </tr>
-      <tr>
-        <td class="celulas">20x</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.vinte.masterCard.valor" (ngModelChange)="formatarNumero(table.vinte.masterCard.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.vinte.visa.valor" (ngModelChange)="formatarNumero(table.vinte.visa.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.vinte.outros.valor" (ngModelChange)="formatarNumero(table.vinte.outros.valor)"
-/>%</td>
-      </tr>
-      <tr>
-        <td class="celulas">21x</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.vinteUm.masterCard.valor" (ngModelChange)="formatarNumero(table.vinteUm.masterCard.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.vinteUm.visa.valor" (ngModelChange)="formatarNumero(table.vinteUm.visa.valor)"
-/>%</td>
-        <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%" [(ngModel)]="table.vinteUm.outros.valor" (ngModelChange)="formatarNumero(table.vinteUm.outros.valor)"
-/>%</td>
-      </tr>
-    </table>
-  </div>
+        <div class="tabela">
+                <table>
+                        <tr class="cabecalho-botao">
+                                <th></th>
+                                <th>
+                                        <button (click)="visaToMaster()" class="copy">Copiar Porcentagens Visa</button>
+                                </th>
+                                <th>
+                                        <button (click)="masterToVisa()" class="copy">Copiar Porcentagens
+                                                MasterCard</button>
+                                </th>
+                                <th>
+                                        <button (click)="masterToOutros()" class="copy">Copiar Porcentagens
+                                                MasterCard</button>
+                                </th>
+                        </tr>
+                        <tr class="cabecalho-botao">
+                                <th></th>
+                                <th>
+                                        <button (click)="outrosToMaster()" class="copy">Copiar Porcentagens
+                                                Outros</button>
+                                </th>
+                                <th>
+                                        <button (click)="outrosToVisa()" class="copy">Copiar Porcentagens
+                                                Outros</button>
+                                </th>
+                                <th>
+                                        <button (click)="visaToOutros()" class="copy">Copiar Porcentagens Visa</button>
+                                </th>
+                        </tr>
+                        <tr>
+                                <th>Forma de Pagamento</th>
+                                <th>MasterCard</th>
+                                <th>Visa</th>
+                                <th>Outros</th>
+                        </tr>
+                        <tr>
+                                <td class="celulas">Débito</td>
+                                <!-- <td class="celulas"><input type="number" size="6" min=0 max=99 maxlength="5"
+                                                placeholder="%" [ngModel]="formatarNumero(table.debito.masterCard)"
+                                                (ngModelChange)="table.debito.masterCard = formatarNumeroStringParaNumber($event)" />%
+                                </td> -->
+                                <td class="celulas"><input escapayFormatadorPorcentagem type="number" size="6"
+                                                [(ngModel)]="table.debito.masterCard" maxlength="6" pattern="[0-9]*" />%
+                                </td>
+                                <td class="celulas"><input escapayFormatadorPorcentagem type="number" size="6"
+                                                [(ngModel)]="table.debito.visa" maxlength="6" pattern="[0-9]*" />%
+                                </td>
+                                <td class="celulas"><input escapayFormatadorPorcentagem type="number" size="6"
+                                                [(ngModel)]="table.debito.outros" maxlength="6" pattern="[0-9]*" />%
+                                </td>
+                                <!-- <td class="celulas"><input type="number" size="6" min=0 max=99 maxlength="5"
+                                                placeholder="%" [ngModel]="formatarNumero(table.debito.visa)"
+                                                (ngModelChange)="table.debito.visa = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 maxlength="5"
+                                                placeholder="%" [ngModel]="formatarNumero(table.debito.outros)"
+                                                (ngModelChange)="table.debito.outros = formatarNumeroStringParaNumber($event)" />%
+                                </td> -->
+                        </tr>
+                        <tr>
+                                <td class="celulas">Crédito</td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.credito.masterCard)"
+                                                (ngModelChange)="table.credito.masterCard = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.credito.visa)"
+                                                (ngModelChange)="table.credito.visa = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.credito.outros)"
+                                                (ngModelChange)="table.credito.outros = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">2x</td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.duas.masterCard)"
+                                                (ngModelChange)="table.duas.masterCard = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.duas.visa)"
+                                                (ngModelChange)="table.duas.visa = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.duas.outros)"
+                                                (ngModelChange)="table.duas.outros = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">3x</td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.tres.masterCard)"
+                                                (ngModelChange)="table.tres.masterCard = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.tres.visa)"
+                                                (ngModelChange)="table.tres.visa = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.tres.outros)"
+                                                (ngModelChange)="table.tres.outros = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">4x</td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.quatro.masterCard)"
+                                                (ngModelChange)="table.quatro.masterCard = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.quatro.visa)"
+                                                (ngModelChange)="table.quatro.visa = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.quatro.outros)"
+                                                (ngModelChange)="table.quatro.outros = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">5x</td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.cinco.masterCard)"
+                                                (ngModelChange)="table.cinco.masterCard = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.cinco.visa)"
+                                                (ngModelChange)="table.cinco.visa = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.cinco.outros)"
+                                                (ngModelChange)="table.cinco.outros = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">6x</td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.seis.masterCard)"
+                                                (ngModelChange)="table.seis.masterCard = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.seis.visa)"
+                                                (ngModelChange)="table.seis.visa = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.seis.outros)"
+                                                (ngModelChange)="table.seis.outros = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">7x</td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.sete.masterCard)"
+                                                (ngModelChange)="table.sete.masterCard = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.sete.visa)"
+                                                (ngModelChange)="table.sete.visa = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.sete.outros)"
+                                                (ngModelChange)="table.sete.outros = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">8x</td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.oito.masterCard)"
+                                                (ngModelChange)="table.oito.masterCard = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.oito.visa)"
+                                                (ngModelChange)="table.oito.visa = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.oito.outros)"
+                                                (ngModelChange)="table.oito.outros = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">9x</td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.nove.masterCard)"
+                                                (ngModelChange)="table.nove.masterCard = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.nove.visa)"
+                                                (ngModelChange)="table.nove.visa = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.nove.outros)"
+                                                (ngModelChange)="table.nove.outros = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">10x</td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.dez.masterCard)"
+                                                (ngModelChange)="table.dez.masterCard = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.dez.visa)"
+                                                (ngModelChange)="table.dez.visa = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.dez.outros)"
+                                                (ngModelChange)="table.dez.outros = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">11x</td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.onze.masterCard)"
+                                                (ngModelChange)="table.onze.masterCard = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.onze.visa)"
+                                                (ngModelChange)="table.onze.visa = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.onze.outros)"
+                                                (ngModelChange)="table.onze.outros = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">12x</td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.doze.masterCard)"
+                                                (ngModelChange)="table.doze.masterCard = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.doze.visa)"
+                                                (ngModelChange)="table.doze.visa = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.doze.outros)"
+                                                (ngModelChange)="table.doze.outros = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">13x</td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.treze.masterCard)"
+                                                (ngModelChange)="table.treze.masterCard = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.treze.visa)"
+                                                (ngModelChange)="table.treze.visa = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.treze.outros)"
+                                                (ngModelChange)="table.treze.outros = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">14x</td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.quatorze.masterCard)"
+                                                (ngModelChange)="table.quatorze.masterCard = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.quatorze.visa)"
+                                                (ngModelChange)="table.quatorze.visa = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.quatorze.outros)"
+                                                (ngModelChange)="table.quatorze.outros = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">15x</td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.quinze.masterCard)"
+                                                (ngModelChange)="table.quinze.masterCard = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.quinze.visa)"
+                                                (ngModelChange)="table.quinze.visa = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.quinze.outros)"
+                                                (ngModelChange)="table.quinze.outros = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">16x</td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.dezesseis.masterCard)"
+                                                (ngModelChange)="table.dezesseis.masterCard = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.dezesseis.visa)"
+                                                (ngModelChange)="table.dezesseis.visa = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.dezesseis.outros)"
+                                                (ngModelChange)="table.dezesseis.outros = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">17x</td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.dezessete.masterCard)"
+                                                (ngModelChange)="table.dezessete.masterCard = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.dezessete.visa)"
+                                                (ngModelChange)="table.dezessete.visa = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.dezessete.outros)"
+                                                (ngModelChange)="table.dezessete.outros = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">18x</td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.dezoito.masterCard)"
+                                                (ngModelChange)="table.dezoito.masterCard = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.dezoito.visa)"
+                                                (ngModelChange)="table.dezoito.visa = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.dezoito.outros)"
+                                                (ngModelChange)="table.dezoito.outros = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">19x</td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.dezenove.masterCard)"
+                                                (ngModelChange)="table.dezenove.masterCard = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.dezenove.visa)"
+                                                (ngModelChange)="table.dezenove.visa = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.dezenove.outros)"
+                                                (ngModelChange)="table.dezenove.outros = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">20x</td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.vinte.masterCard)"
+                                                (ngModelChange)="table.vinte.masterCard = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.vinte.visa)"
+                                                (ngModelChange)="table.vinte.visa = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.vinte.outros)"
+                                                (ngModelChange)="table.vinte.outros = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">21x</td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.vinteUm.masterCard)"
+                                                (ngModelChange)="table.vinteUm.masterCard = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.vinteUm.visa)"
+                                                (ngModelChange)="table.vinteUm.visa = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                                <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
+                                                [ngModel]="formatarNumero(table.vinteUm.outros)"
+                                                (ngModelChange)="table.vinteUm.outros = formatarNumeroStringParaNumber($event)" />%
+                                </td>
+                        </tr>
+                </table>
+        </div>
 
-  <div class="buttons-container">
-    <div class="buttons-container-space">
-      <button mat-raised-buton (click)="salvarTabela()" class="salvar">
-        Salvar
-        <mat-icon class="icon_save">done</mat-icon>
-      </button>
-    </div>
-    <div class="buttons-container-space">
-      <button mat-raised-buton (click)="cancel()" class="cancelar">
-        Cancelar
-        <mat-icon class="icon_close">close</mat-icon>
-      </button>
-    </div>
-  </div>
+        <div class="buttons-container">
+                <div class="buttons-container-space">
+                        <button mat-raised-buton (click)="salvarTabela()" class="salvar">
+                                Salvar
+                                <mat-icon class="icon_save">done</mat-icon>
+                        </button>
+                </div>
+                <div class="buttons-container-space">
+                        <button mat-raised-buton (click)="cancel()" class="cancelar">
+                                Cancelar
+                                <mat-icon class="icon_close">close</mat-icon>
+                        </button>
+                </div>
+        </div>
 </div>
