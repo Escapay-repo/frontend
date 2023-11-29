@@ -4,7 +4,6 @@ import { TabelaService } from './tabela.service';
 import { Router } from '@angular/router';
 import { FormatadorService } from 'src/app/services/formatador.service';
 import { DecimalPipe } from '@angular/common';
-
 @Component({
   selector: 'escapay-tabela-create',
   templateUrl: './tabela-create.component.html',
@@ -126,6 +125,7 @@ export class TabelaCreateComponent implements OnInit {
     }
   }
 
+
   constructor
     (private router: Router,
       private tabelaService: TabelaService,
@@ -153,9 +153,25 @@ export class TabelaCreateComponent implements OnInit {
 
   }
 
+  formatarNumeroComZero(numero: number): string {
+    console.log('numero', numero, typeof numero)
+    const numeroFormatado = numero.toFixed(2);
+    const partes = numeroFormatado.split('.');
+    console.log('numeroFormatado', numeroFormatado, typeof numeroFormatado)
+    if (partes[1] && partes[1].length === 1) {
+      return partes[0] + '.' + partes[1] + '0';
+    }
+    console.log('numeroFormatadodepois', numeroFormatado, typeof numeroFormatado)
+    return numeroFormatado;
+  }
+
   masterToVisa(): void {
-    this.table.credito.visa = Number(this.table.credito.masterCard.toFixed(2));
-    this.table.debito.visa =  Number(this.table.debito.masterCard.toFixed(2));
+    console.log('antes master',this.table.debito.masterCard, typeof this.table.debito.masterCard )
+    console.log('antes visa',this.table.debito.visa, typeof this.table.debito.visa )
+    this.table.debito.visa =  parseFloat(this.formatarNumeroComZero(this.table.debito.masterCard));
+    console.log('depois master',this.table.debito.masterCard, typeof this.table.debito.masterCard )
+    console.log('depois visa',this.table.debito.visa, typeof this.table.debito.visa )
+    this.table.credito.visa = parseFloat(this.formatarNumeroComZero(this.table.credito.masterCard));
     this.table.duas.visa = Number(this.table.duas.masterCard.toFixed(2));
     this.table.tres.visa = Number(this.table.tres.masterCard.toFixed(2));
     this.table.quatro.visa = Number(this.table.quatro.masterCard.toFixed(2));
@@ -302,7 +318,6 @@ export class TabelaCreateComponent implements OnInit {
     this.table.vinte.outros = Number(this.table.vinte.visa.toFixed(2));
     this.table.vinteUm.outros = Number(this.table.vinteUm.visa.toFixed(2));
   }
-
 
   salvarTabela(): void {
     this.table.debito.masterCard = parseFloat(this.table.debito.masterCard.toFixed(2));
