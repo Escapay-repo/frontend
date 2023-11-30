@@ -1,13 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, LOCALE_ID, OnInit } from '@angular/core';
 import { tabelaCrud } from '../tabelaCrud';
 import { TabelaService } from './tabela.service';
 import { Router } from '@angular/router';
-import { FormatadorService } from 'src/app/services/formatador.service';
-import { DecimalPipe } from '@angular/common';
+import { IConfig, provideNgxMask } from 'ngx-mask';
+
+export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
+
+
 @Component({
   selector: 'escapay-tabela-create',
   templateUrl: './tabela-create.component.html',
-  styleUrls: ['./tabela-create.component.css']
+  styleUrls: ['./tabela-create.component.css'],
+  providers:[
+    provideNgxMask()
+  ]
 })
 export class TabelaCreateComponent implements OnInit {
   table: tabelaCrud = {
@@ -129,194 +135,160 @@ export class TabelaCreateComponent implements OnInit {
   constructor
     (private router: Router,
       private tabelaService: TabelaService,
-      private formatadorService: FormatadorService,
-      private decimalPipe: DecimalPipe
     ) { }
-
-    
-    formatarNumero(numeroDigitado: number): string{
-      const numeroFormatado = this.formatadorService.formatarNumero(numeroDigitado);
-      return numeroFormatado;
-    }
-
-    formatarNumeroStringParaNumber(valor: string): number {
-      const numero = parseFloat(valor);
-      return isNaN(numero) ? 0 : numero;
-    }
-
-    converterParaNumero(valorFormatado: string): number {
-      const valorNumerico = parseFloat(valorFormatado.replace('%', '').replace('.', ''));
-      return isNaN(valorNumerico) ? 0 : valorNumerico;
-    }
-
+  
   ngOnInit(): void {
 
   }
 
-  formatarNumeroComZero(numero: number): string {
-    console.log('numero', numero, typeof numero)
-    const numeroFormatado = numero.toFixed(2);
-    const partes = numeroFormatado.split('.');
-    console.log('numeroFormatado', numeroFormatado, typeof numeroFormatado)
-    if (partes[1] && partes[1].length === 1) {
-      return partes[0] + '.' + partes[1] + '0';
-    }
-    console.log('numeroFormatadodepois', numeroFormatado, typeof numeroFormatado)
-    return numeroFormatado;
-  }
-
   masterToVisa(): void {
-    console.log('antes master',this.table.debito.masterCard, typeof this.table.debito.masterCard )
-    console.log('antes visa',this.table.debito.visa, typeof this.table.debito.visa )
-    this.table.debito.visa =  parseFloat(this.formatarNumeroComZero(this.table.debito.masterCard));
-    console.log('depois master',this.table.debito.masterCard, typeof this.table.debito.masterCard )
-    console.log('depois visa',this.table.debito.visa, typeof this.table.debito.visa )
-    this.table.credito.visa = parseFloat(this.formatarNumeroComZero(this.table.credito.masterCard));
-    this.table.duas.visa = Number(this.table.duas.masterCard.toFixed(2));
-    this.table.tres.visa = Number(this.table.tres.masterCard.toFixed(2));
-    this.table.quatro.visa = Number(this.table.quatro.masterCard.toFixed(2));
-    this.table.cinco.visa = Number(this.table.cinco.masterCard.toFixed(2));
-    this.table.seis.visa = Number(this.table.seis.masterCard.toFixed(2));
-    this.table.sete.visa = Number(this.table.sete.masterCard.toFixed(2));
-    this.table.oito.visa = Number(this.table.oito.masterCard.toFixed(2));
-    this.table.nove.visa = Number(this.table.nove.masterCard.toFixed(2));
-    this.table.dez.visa = Number(this.table.dez.masterCard.toFixed(2));
-    this.table.onze.visa = Number(this.table.onze.masterCard.toFixed(2));
-    this.table.doze.visa = Number(this.table.doze.masterCard.toFixed(2));
-    this.table.treze.visa = Number(this.table.treze.masterCard.toFixed(2));
-    this.table.quatorze.visa = Number(this.table.quatorze.masterCard.toFixed(2));
-    this.table.quinze.visa = Number(this.table.quinze.masterCard.toFixed(2));
-    this.table.dezesseis.visa = Number(this.table.dezesseis.masterCard.toFixed(2));
-    this.table.dezessete.visa = Number(this.table.dezessete.masterCard.toFixed(2));
-    this.table.dezoito.visa = Number(this.table.dezoito.masterCard.toFixed(2));
-    this.table.dezenove.visa = Number(this.table.dezenove.masterCard.toFixed(2));
-    this.table.vinte.visa = Number(this.table.vinte.masterCard.toFixed(2));
-    this.table.vinteUm.visa = Number(this.table.vinteUm.masterCard.toFixed(2));
+    this.table.debito.visa = this.table.debito.masterCard;
+    this.table.credito.visa = this.table.credito.masterCard;
+    this.table.duas.visa = this.table.duas.masterCard;
+    this.table.tres.visa = this.table.tres.masterCard;
+    this.table.quatro.visa = this.table.quatro.masterCard;
+    this.table.cinco.visa = this.table.cinco.masterCard;
+    this.table.seis.visa = this.table.seis.masterCard;
+    this.table.sete.visa = this.table.sete.masterCard;
+    this.table.oito.visa = this.table.oito.masterCard;
+    this.table.nove.visa = this.table.nove.masterCard;
+    this.table.dez.visa = this.table.dez.masterCard;
+    this.table.onze.visa = this.table.onze.masterCard;
+    this.table.doze.visa = this.table.doze.masterCard;
+    this.table.treze.visa = this.table.treze.masterCard;
+    this.table.quatorze.visa = this.table.quatorze.masterCard;
+    this.table.quinze.visa = this.table.quinze.masterCard;
+    this.table.dezesseis.visa = this.table.dezesseis.masterCard;
+    this.table.dezessete.visa = this.table.dezessete.masterCard;
+    this.table.dezoito.visa = this.table.dezoito.masterCard;
+    this.table.dezenove.visa = this.table.dezenove.masterCard;
+    this.table.vinte.visa = this.table.vinte.masterCard;
+    this.table.vinteUm.visa = this.table.vinteUm.masterCard;
   }
 
   masterToOutros(): void {
-    this.table.credito.outros = Number(this.table.credito.masterCard.toFixed(2));
-    this.table.debito.outros = Number(this.table.debito.masterCard.toFixed(2));
-    this.table.duas.outros = Number(this.table.duas.masterCard.toFixed(2));
-    this.table.tres.outros = Number(this.table.tres.masterCard.toFixed(2));
-    this.table.quatro.outros = Number(this.table.quatro.masterCard.toFixed(2));
-    this.table.cinco.outros = Number(this.table.cinco.masterCard.toFixed(2));
-    this.table.seis.outros = Number(this.table.seis.masterCard.toFixed(2));
-    this.table.sete.outros = Number(this.table.sete.masterCard.toFixed(2));
-    this.table.oito.outros = Number(this.table.oito.masterCard.toFixed(2));
-    this.table.nove.outros = Number(this.table.nove.masterCard.toFixed(2));
-    this.table.dez.outros = Number(this.table.dez.masterCard.toFixed(2));
-    this.table.onze.outros = Number(this.table.onze.masterCard.toFixed(2));
-    this.table.doze.outros = Number(this.table.doze.masterCard.toFixed(2));
-    this.table.treze.outros = Number(this.table.treze.masterCard.toFixed(2));
-    this.table.quatorze.outros = Number(this.table.quatorze.masterCard.toFixed(2));
-    this.table.quinze.outros = Number(this.table.quinze.masterCard.toFixed(2));
-    this.table.dezesseis.outros = Number(this.table.dezesseis.masterCard.toFixed(2));
-    this.table.dezessete.outros = Number(this.table.dezessete.masterCard.toFixed(2));
-    this.table.dezoito.outros = Number(this.table.dezoito.masterCard.toFixed(2));
-    this.table.dezenove.outros = Number(this.table.dezenove.masterCard.toFixed(2));
-    this.table.vinte.outros = Number(this.table.vinte.masterCard.toFixed(2));
-    this.table.vinteUm.outros = Number(this.table.vinteUm.masterCard.toFixed(2));
+    this.table.credito.outros = this.table.credito.masterCard;
+    this.table.debito.outros = this.table.debito.masterCard;
+    this.table.duas.outros = this.table.duas.masterCard;
+    this.table.tres.outros = this.table.tres.masterCard;
+    this.table.quatro.outros = this.table.quatro.masterCard;
+    this.table.cinco.outros = this.table.cinco.masterCard;
+    this.table.seis.outros = this.table.seis.masterCard;
+    this.table.sete.outros = this.table.sete.masterCard;
+    this.table.oito.outros = this.table.oito.masterCard;
+    this.table.nove.outros = this.table.nove.masterCard;
+    this.table.dez.outros = this.table.dez.masterCard;
+    this.table.onze.outros = this.table.onze.masterCard;
+    this.table.doze.outros = this.table.doze.masterCard;
+    this.table.treze.outros = this.table.treze.masterCard;
+    this.table.quatorze.outros = this.table.quatorze.masterCard;
+    this.table.quinze.outros = this.table.quinze.masterCard;
+    this.table.dezesseis.outros = this.table.dezesseis.masterCard;
+    this.table.dezessete.outros = this.table.dezessete.masterCard;
+    this.table.dezoito.outros = this.table.dezoito.masterCard;
+    this.table.dezenove.outros = this.table.dezenove.masterCard;
+    this.table.vinte.outros = this.table.vinte.masterCard;
+    this.table.vinteUm.outros = this.table.vinteUm.masterCard;
   }
 
   visaToMaster(): void {
-    this.table.credito.masterCard = Number(this.table.credito.visa.toFixed(2));
-    this.table.debito.masterCard = Number(this.table.debito.visa.toFixed(2));
-    this.table.duas.masterCard = Number(this.table.duas.visa.toFixed(2));
-    this.table.tres.masterCard = Number(this.table.tres.visa.toFixed(2));
-    this.table.quatro.masterCard = Number(this.table.quatro.visa.toFixed(2));
-    this.table.cinco.masterCard = Number(this.table.cinco.visa.toFixed(2));
-    this.table.seis.masterCard = Number(this.table.seis.visa.toFixed(2));
-    this.table.sete.masterCard = Number(this.table.sete.visa.toFixed(2));
-    this.table.oito.masterCard = Number(this.table.oito.visa.toFixed(2));
-    this.table.nove.masterCard = Number(this.table.nove.visa.toFixed(2));
-    this.table.dez.masterCard = Number(this.table.dez.visa.toFixed(2));
-    this.table.onze.masterCard = Number(this.table.onze.visa.toFixed(2));
-    this.table.doze.masterCard = Number(this.table.doze.visa.toFixed(2));
-    this.table.treze.masterCard = Number(this.table.treze.visa.toFixed(2));
-    this.table.quatorze.masterCard = Number(this.table.quatorze.visa.toFixed(2));
-    this.table.quinze.masterCard = Number(this.table.quinze.visa.toFixed(2));
-    this.table.dezesseis.masterCard = Number(this.table.dezesseis.visa.toFixed(2));
-    this.table.dezessete.masterCard = Number(this.table.dezessete.visa.toFixed(2));
-    this.table.dezoito.masterCard = Number(this.table.dezoito.visa.toFixed(2));
-    this.table.dezenove.masterCard = Number(this.table.dezenove.visa.toFixed(2));
-    this.table.vinte.masterCard = Number(this.table.vinte.visa.toFixed(2));
-    this.table.vinteUm.masterCard = Number(this.table.vinteUm.visa.toFixed(2));
+    this.table.credito.masterCard = this.table.credito.visa;
+    this.table.debito.masterCard = this.table.debito.visa;
+    this.table.duas.masterCard = this.table.duas.visa;
+    this.table.tres.masterCard = this.table.tres.visa;
+    this.table.quatro.masterCard = this.table.quatro.visa;
+    this.table.cinco.masterCard = this.table.cinco.visa;
+    this.table.seis.masterCard = this.table.seis.visa;
+    this.table.sete.masterCard = this.table.sete.visa;
+    this.table.oito.masterCard = this.table.oito.visa;
+    this.table.nove.masterCard = this.table.nove.visa;
+    this.table.dez.masterCard = this.table.dez.visa;
+    this.table.onze.masterCard = this.table.onze.visa;
+    this.table.doze.masterCard = this.table.doze.visa;
+    this.table.treze.masterCard = this.table.treze.visa;
+    this.table.quatorze.masterCard = this.table.quatorze.visa;
+    this.table.quinze.masterCard = this.table.quinze.visa;
+    this.table.dezesseis.masterCard = this.table.dezesseis.visa;
+    this.table.dezessete.masterCard = this.table.dezessete.visa;
+    this.table.dezoito.masterCard = this.table.dezoito.visa;
+    this.table.dezenove.masterCard = this.table.dezenove.visa;
+    this.table.vinte.masterCard = this.table.vinte.visa;
+    this.table.vinteUm.masterCard = this.table.vinteUm.visa;
   }
 
   outrosToMaster(): void {
-    this.table.credito.masterCard = Number(this.table.credito.outros.toFixed(2));
-    this.table.debito.masterCard = Number(this.table.debito.outros.toFixed(2));
-    this.table.duas.masterCard = Number(this.table.duas.outros.toFixed(2));
-    this.table.tres.masterCard = Number(this.table.tres.outros.toFixed(2));
-    this.table.quatro.masterCard = Number(this.table.quatro.outros.toFixed(2));
-    this.table.cinco.masterCard = Number(this.table.cinco.outros.toFixed(2));
-    this.table.seis.masterCard = Number(this.table.seis.outros.toFixed(2));
-    this.table.sete.masterCard = Number(this.table.sete.outros.toFixed(2));
-    this.table.oito.masterCard = Number(this.table.oito.outros.toFixed(2));
-    this.table.nove.masterCard = Number(this.table.nove.outros.toFixed(2));
-    this.table.dez.masterCard = Number(this.table.dez.outros.toFixed(2));
-    this.table.onze.masterCard = Number(this.table.onze.outros.toFixed(2));
-    this.table.doze.masterCard = Number(this.table.doze.outros.toFixed(2));
-    this.table.treze.masterCard = Number(this.table.treze.outros.toFixed(2));
-    this.table.quatorze.masterCard = Number(this.table.quatorze.outros.toFixed(2));
-    this.table.quinze.masterCard = Number(this.table.quinze.outros.toFixed(2));
-    this.table.dezesseis.masterCard = Number(this.table.dezesseis.outros.toFixed(2));
-    this.table.dezessete.masterCard = Number(this.table.dezessete.outros.toFixed(2));
-    this.table.dezoito.masterCard = Number(this.table.dezoito.outros.toFixed(2));
-    this.table.dezenove.masterCard = Number(this.table.dezenove.outros.toFixed(2));
-    this.table.vinte.masterCard = Number(this.table.vinte.outros.toFixed(2));
-    this.table.vinteUm.masterCard = Number(this.table.vinteUm.outros.toFixed(2));
+    this.table.credito.masterCard = this.table.credito.outros;
+    this.table.debito.masterCard = this.table.debito.outros;
+    this.table.duas.masterCard = this.table.duas.outros;
+    this.table.tres.masterCard = this.table.tres.outros;
+    this.table.quatro.masterCard = this.table.quatro.outros;
+    this.table.cinco.masterCard = this.table.cinco.outros;
+    this.table.seis.masterCard = this.table.seis.outros;
+    this.table.sete.masterCard = this.table.sete.outros;
+    this.table.oito.masterCard = this.table.oito.outros;
+    this.table.nove.masterCard = this.table.nove.outros;
+    this.table.dez.masterCard = this.table.dez.outros;
+    this.table.onze.masterCard = this.table.onze.outros;
+    this.table.doze.masterCard = this.table.doze.outros;
+    this.table.treze.masterCard = this.table.treze.outros;
+    this.table.quatorze.masterCard = this.table.quatorze.outros;
+    this.table.quinze.masterCard = this.table.quinze.outros;
+    this.table.dezesseis.masterCard = this.table.dezesseis.outros;
+    this.table.dezessete.masterCard = this.table.dezessete.outros;
+    this.table.dezoito.masterCard = this.table.dezoito.outros;
+    this.table.dezenove.masterCard = this.table.dezenove.outros;
+    this.table.vinte.masterCard = this.table.vinte.outros;
+    this.table.vinteUm.masterCard = this.table.vinteUm.outros;
   }
 
   outrosToVisa(): void {
-    this.table.credito.visa = Number(this.table.credito.outros.toFixed(2));
-    this.table.debito.visa = Number(this.table.debito.outros.toFixed(2));
-    this.table.duas.visa = Number(this.table.duas.outros.toFixed(2));
-    this.table.tres.visa = Number(this.table.tres.outros.toFixed(2));
-    this.table.quatro.visa = Number(this.table.quatro.outros.toFixed(2));
-    this.table.cinco.visa = Number(this.table.cinco.outros.toFixed(2));
-    this.table.seis.visa = Number(this.table.seis.outros.toFixed(2));
-    this.table.sete.visa = Number(this.table.sete.outros.toFixed(2));
-    this.table.oito.visa = Number(this.table.oito.outros.toFixed(2));
-    this.table.nove.visa = Number(this.table.nove.outros.toFixed(2));
-    this.table.dez.visa = Number(this.table.dez.outros.toFixed(2));
-    this.table.onze.visa = Number(this.table.onze.outros.toFixed(2));
-    this.table.doze.visa = Number(this.table.doze.outros.toFixed(2));
-    this.table.treze.visa = Number(this.table.treze.outros.toFixed(2));
-    this.table.quatorze.visa = Number(this.table.quatorze.outros.toFixed(2));
-    this.table.quinze.visa = Number(this.table.quinze.outros.toFixed(2));
-    this.table.dezesseis.visa = Number(this.table.dezesseis.outros.toFixed(2));
-    this.table.dezessete.visa = Number(this.table.dezessete.outros.toFixed(2));
-    this.table.dezoito.visa = Number(this.table.dezoito.outros.toFixed(2));
-    this.table.dezenove.visa = Number(this.table.dezenove.outros.toFixed(2));
-    this.table.vinte.visa = Number(this.table.vinte.outros.toFixed(2));
-    this.table.vinteUm.visa = Number(this.table.vinteUm.outros.toFixed(2));
+    this.table.credito.visa = this.table.credito.outros;
+    this.table.debito.visa = this.table.debito.outros;
+    this.table.duas.visa = this.table.duas.outros;
+    this.table.tres.visa = this.table.tres.outros;
+    this.table.quatro.visa = this.table.quatro.outros;
+    this.table.cinco.visa = this.table.cinco.outros;
+    this.table.seis.visa = this.table.seis.outros;
+    this.table.sete.visa = this.table.sete.outros;
+    this.table.oito.visa = this.table.oito.outros;
+    this.table.nove.visa = this.table.nove.outros;
+    this.table.dez.visa = this.table.dez.outros;
+    this.table.onze.visa = this.table.onze.outros;
+    this.table.doze.visa = this.table.doze.outros;
+    this.table.treze.visa = this.table.treze.outros;
+    this.table.quatorze.visa = this.table.quatorze.outros;
+    this.table.quinze.visa = this.table.quinze.outros;
+    this.table.dezesseis.visa = this.table.dezesseis.outros;
+    this.table.dezessete.visa = this.table.dezessete.outros;
+    this.table.dezoito.visa = this.table.dezoito.outros;
+    this.table.dezenove.visa = this.table.dezenove.outros;
+    this.table.vinte.visa = this.table.vinte.outros;
+    this.table.vinteUm.visa = this.table.vinteUm.outros;
   }
 
   visaToOutros(): void {
-    this.table.credito.outros = Number(this.table.credito.visa.toFixed(2));
-    this.table.debito.outros = Number(this.table.debito.visa.toFixed(2));
-    this.table.duas.outros = Number(this.table.duas.visa.toFixed(2));
-    this.table.tres.outros = Number(this.table.tres.visa.toFixed(2));
-    this.table.quatro.outros = Number(this.table.quatro.visa.toFixed(2));
-    this.table.cinco.outros = Number(this.table.cinco.visa.toFixed(2));
-    this.table.seis.outros = Number(this.table.seis.visa.toFixed(2));
-    this.table.sete.outros = Number(this.table.sete.visa.toFixed(2));
-    this.table.oito.outros = Number(this.table.oito.visa.toFixed(2));
-    this.table.nove.outros = Number(this.table.nove.visa.toFixed(2));
-    this.table.dez.outros = Number(this.table.dez.visa.toFixed(2));
-    this.table.onze.outros = Number(this.table.onze.visa.toFixed(2));
-    this.table.doze.outros = Number(this.table.doze.visa.toFixed(2));
-    this.table.treze.outros = Number(this.table.treze.visa.toFixed(2));
-    this.table.quatorze.outros = Number(this.table.quatorze.visa.toFixed(2));
-    this.table.quinze.outros = Number(this.table.quinze.visa.toFixed(2));
-    this.table.dezesseis.outros = Number(this.table.dezesseis.visa.toFixed(2));
-    this.table.dezessete.outros = Number(this.table.dezessete.visa.toFixed(2));
-    this.table.dezoito.outros = Number(this.table.dezoito.visa.toFixed(2));
-    this.table.dezenove.outros = Number(this.table.dezenove.visa.toFixed(2));
-    this.table.vinte.outros = Number(this.table.vinte.visa.toFixed(2));
-    this.table.vinteUm.outros = Number(this.table.vinteUm.visa.toFixed(2));
+    this.table.credito.outros = this.table.credito.visa;
+    this.table.debito.outros = this.table.debito.visa;
+    this.table.duas.outros = this.table.duas.visa;
+    this.table.tres.outros = this.table.tres.visa;
+    this.table.quatro.outros = this.table.quatro.visa;
+    this.table.cinco.outros = this.table.cinco.visa;
+    this.table.seis.outros = this.table.seis.visa;
+    this.table.sete.outros = this.table.sete.visa;
+    this.table.oito.outros = this.table.oito.visa;
+    this.table.nove.outros = this.table.nove.visa;
+    this.table.dez.outros = this.table.dez.visa;
+    this.table.onze.outros = this.table.onze.visa;
+    this.table.doze.outros = this.table.doze.visa;
+    this.table.treze.outros = this.table.treze.visa;
+    this.table.quatorze.outros = this.table.quatorze.visa;
+    this.table.quinze.outros = this.table.quinze.visa;
+    this.table.dezesseis.outros = this.table.dezesseis.visa;
+    this.table.dezessete.outros = this.table.dezessete.visa;
+    this.table.dezoito.outros = this.table.dezoito.visa;
+    this.table.dezenove.outros = this.table.dezenove.visa;
+    this.table.vinte.outros = this.table.vinte.visa;
+    this.table.vinteUm.outros = this.table.vinteUm.visa;
   }
 
   salvarTabela(): void {
@@ -421,17 +393,3 @@ export class TabelaCreateComponent implements OnInit {
     this.router.navigate([""])
   }
 }
-
-
-
-
-    // formatarNumero(event: any): void {
-      // console.log('event',event)
-      // if (event.length > 2) {
-
-      //   event = event.substring(0, 2) + '.' + event.substring(2, 4);
-      // }
-    //   const numeroDigitado = event;
-    //   const numeroFormatado = this.formatadorService.formatarNumero(numeroDigitado);
-    //     event = numeroFormatado;
-    // }

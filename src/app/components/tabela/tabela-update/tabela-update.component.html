@@ -1,357 +1,357 @@
 <mat-card class="cabecalho mat-elevation-z3">
-    <mat-card-title class="title">Alterar Tabela</mat-card-title>
-  </mat-card>
-  <div class="nome-tabela"><input type="text" class="nome-tabela-input" [(ngModel)]="table.tableName" placeholder="NOME DA TABELA"></div>
-  <div class="tabela-container">
-    <div class="tabela">
-      <table>
-        <tr>
-          <th>Forma de Pagamento</th>
-          <th>MasterCard</th>
-          <th>Visa</th>
-          <th>Outros</th>
-        </tr>
-        <tr>
-          <td class="celulas">Débito</td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 size="6" placeholder="%"
-                          [ngModel]="formatarNumero(table.debito.masterCard)"
-                          (ngModelChange)="table.debito.masterCard = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 size="6" placeholder="%"
-                          [ngModel]="formatarNumero(table.debito.visa)"
-                          (ngModelChange)="table.debito.visa = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 size="6" placeholder="%"
-                          [ngModel]="formatarNumero(table.debito.outros)"
-                          (ngModelChange)="table.debito.outros = formatarNumeroStringParaNumber($event)" />%
-          </td>
-  </tr>
-  <tr>
-          <td class="celulas">Crédito</td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.credito.masterCard)"
-                          (ngModelChange)="table.credito.masterCard = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.credito.visa)"
-                          (ngModelChange)="table.credito.visa = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.credito.outros)"
-                          (ngModelChange)="table.credito.outros = formatarNumeroStringParaNumber($event)" />%
-          </td>
-  </tr>
-  <tr>
-          <td class="celulas">2x</td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.duas.masterCard)"
-                          (ngModelChange)="table.duas.masterCard = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.duas.visa)"
-                          (ngModelChange)="table.duas.visa = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.duas.outros)"
-                          (ngModelChange)="table.duas.outros = formatarNumeroStringParaNumber($event)" />%
-          </td>
-  </tr>
-  <tr>
-          <td class="celulas">3x</td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.tres.masterCard)"
-                          (ngModelChange)="table.tres.masterCard = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.tres.visa)"
-                          (ngModelChange)="table.tres.visa = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.tres.outros)"
-                          (ngModelChange)="table.tres.outros = formatarNumeroStringParaNumber($event)" />%
-          </td>
-  </tr>
-  <tr>
-          <td class="celulas">4x</td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.quatro.masterCard)"
-                          (ngModelChange)="table.quatro.masterCard = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.quatro.visa)"
-                          (ngModelChange)="table.quatro.visa = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.quatro.outros)"
-                          (ngModelChange)="table.quatro.outros = formatarNumeroStringParaNumber($event)" />%
-          </td>
-  </tr>
-  <tr>
-          <td class="celulas">5x</td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.cinco.masterCard)"
-                          (ngModelChange)="table.cinco.masterCard = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.cinco.visa)"
-                          (ngModelChange)="table.cinco.visa = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.cinco.outros)"
-                          (ngModelChange)="table.cinco.outros = formatarNumeroStringParaNumber($event)" />%
-          </td>
-  </tr>
-  <tr>
-          <td class="celulas">6x</td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.seis.masterCard)"
-                          (ngModelChange)="table.seis.masterCard = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.seis.visa)"
-                          (ngModelChange)="table.seis.visa = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.seis.outros)"
-                          (ngModelChange)="table.seis.outros = formatarNumeroStringParaNumber($event)" />%
-          </td>
-  </tr>
-  <tr>
-          <td class="celulas">7x</td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.sete.masterCard)"
-                          (ngModelChange)="table.sete.masterCard = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.sete.visa)"
-                          (ngModelChange)="table.sete.visa = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.sete.outros)"
-                          (ngModelChange)="table.sete.outros = formatarNumeroStringParaNumber($event)" />%
-          </td>
-  </tr>
-  <tr>
-          <td class="celulas">8x</td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.oito.masterCard)"
-                          (ngModelChange)="table.oito.masterCard = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.oito.visa)"
-                          (ngModelChange)="table.oito.visa = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.oito.outros)"
-                          (ngModelChange)="table.oito.outros = formatarNumeroStringParaNumber($event)" />%
-          </td>
-  </tr>
-  <tr>
-          <td class="celulas">9x</td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.nove.masterCard)"
-                          (ngModelChange)="table.nove.masterCard = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.nove.visa)"
-                          (ngModelChange)="table.nove.visa = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.nove.outros)"
-                          (ngModelChange)="table.nove.outros = formatarNumeroStringParaNumber($event)" />%
-          </td>
-  </tr>
-  <tr>
-          <td class="celulas">10x</td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.dez.masterCard)"
-                          (ngModelChange)="table.dez.masterCard = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.dez.visa)"
-                          (ngModelChange)="table.dez.visa = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.dez.outros)"
-                          (ngModelChange)="table.dez.outros = formatarNumeroStringParaNumber($event)" />%
-          </td>
-  </tr>
-  <tr>
-          <td class="celulas">11x</td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.onze.masterCard)"
-                          (ngModelChange)="table.onze.masterCard = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.onze.visa)"
-                          (ngModelChange)="table.onze.visa = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.onze.outros)"
-                          (ngModelChange)="table.onze.outros = formatarNumeroStringParaNumber($event)" />%
-          </td>
-  </tr>
-  <tr>
-          <td class="celulas">12x</td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.doze.masterCard)"
-                          (ngModelChange)="table.doze.masterCard = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.doze.visa)"
-                          (ngModelChange)="table.doze.visa = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.doze.outros)"
-                          (ngModelChange)="table.doze.outros = formatarNumeroStringParaNumber($event)" />%
-          </td>
-  </tr>
-  <tr>
-          <td class="celulas">13x</td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.treze.masterCard)"
-                          (ngModelChange)="table.treze.masterCard = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.treze.visa)"
-                          (ngModelChange)="table.treze.visa = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.treze.outros)"
-                          (ngModelChange)="table.treze.outros = formatarNumeroStringParaNumber($event)" />%
-          </td>
-  </tr>
-  <tr>
-          <td class="celulas">14x</td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.quatorze.masterCard)"
-                          (ngModelChange)="table.quatorze.masterCard = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.quatorze.visa)"
-                          (ngModelChange)="table.quatorze.visa = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.quatorze.outros)"
-                          (ngModelChange)="table.quatorze.outros = formatarNumeroStringParaNumber($event)" />%
-          </td>
-  </tr>
-  <tr>
-          <td class="celulas">15x</td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.quinze.masterCard)"
-                          (ngModelChange)="table.quinze.masterCard = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.quinze.visa)"
-                          (ngModelChange)="table.quinze.visa = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.quinze.outros)"
-                          (ngModelChange)="table.quinze.outros = formatarNumeroStringParaNumber($event)" />%
-          </td>
-  </tr>
-  <tr>
-          <td class="celulas">16x</td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.dezesseis.masterCard)"
-                          (ngModelChange)="table.dezesseis.masterCard = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.dezesseis.visa)"
-                          (ngModelChange)="table.dezesseis.visa = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.dezesseis.outros)"
-                          (ngModelChange)="table.dezesseis.outros = formatarNumeroStringParaNumber($event)" />%
-          </td>
-  </tr>
-  <tr>
-          <td class="celulas">17x</td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.dezessete.masterCard)"
-                          (ngModelChange)="table.dezessete.masterCard = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.dezessete.visa)"
-                          (ngModelChange)="table.dezessete.visa = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.dezessete.outros)"
-                          (ngModelChange)="table.dezessete.outros = formatarNumeroStringParaNumber($event)" />%
-          </td>
-  </tr>
-  <tr>
-          <td class="celulas">18x</td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.dezoito.masterCard)"
-                          (ngModelChange)="table.dezoito.masterCard = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.dezoito.visa)"
-                          (ngModelChange)="table.dezoito.visa = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.dezoito.outros)"
-                          (ngModelChange)="table.dezoito.outros = formatarNumeroStringParaNumber($event)" />%
-          </td>
-  </tr>
-  <tr>
-          <td class="celulas">19x</td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.dezenove.masterCard)"
-                          (ngModelChange)="table.dezenove.masterCard = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.dezenove.visa)"
-                          (ngModelChange)="table.dezenove.visa = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.dezenove.outros)"
-                          (ngModelChange)="table.dezenove.outros = formatarNumeroStringParaNumber($event)" />%
-          </td>
-  </tr>
-  <tr>
-          <td class="celulas">20x</td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.vinte.masterCard)"
-                          (ngModelChange)="table.vinte.masterCard = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.vinte.visa)"
-                          (ngModelChange)="table.vinte.visa = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.vinte.outros)"
-                          (ngModelChange)="table.vinte.outros = formatarNumeroStringParaNumber($event)" />%
-          </td>
-  </tr>
-  <tr>
-          <td class="celulas">21x</td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.vinteUm.masterCard)"
-                          (ngModelChange)="table.vinteUm.masterCard = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.vinteUm.visa)"
-                          (ngModelChange)="table.vinteUm.visa = formatarNumeroStringParaNumber($event)" />%
-          </td>
-          <td class="celulas"><input type="number" size="6" min=0 max=99 placeholder="%"
-                          [ngModel]="formatarNumero(table.vinteUm.outros)"
-                          (ngModelChange)="table.vinteUm.outros = formatarNumeroStringParaNumber($event)" />%
-          </td>
-  </tr>
-      </table>
-    </div>
-  
-    <div class="buttons-container">
-      <button mat-raised-buton (click)="updateTable()" class="salvar" color="primary">
-        Atualizar
-      </button>
-  
-      <button mat-raised-buton (click)="cancel()" class="cancelar">
-        Cancelar
-      </button>
-    </div>
-  </div>
-  
+        <mat-card-title class="title">Alterar Tabela</mat-card-title>
+</mat-card>
+<div class="nome-tabela"><input type="text" class="nome-tabela-input" [(ngModel)]="table.tableName"
+                placeholder="NOME DA TABELA"></div>
+<div class="tabela-container">
+        <div class="tabela">
+                <table>
+                        <tr>
+                                <th>Forma de Pagamento</th>
+                                <th>MasterCard</th>
+                                <th>Visa</th>
+                                <th>Outros</th>
+                        </tr>
+                        <tr>
+                                <td class="celulas">Débito</td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.debito.masterCard" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.debito.visa" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.debito.outros" maxlength="6" />
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">Crédito</td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.credito.masterCard" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.credito.visa" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.credito.outros" maxlength="6" />
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">2x</td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.duas.masterCard" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.duas.visa" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.duas.outros" maxlength="6" />
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">3x</td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.tres.masterCard" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.tres.visa" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.tres.outros" maxlength="6" />
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">4x</td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.quatro.masterCard" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.quatro.visa" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.quatro.outros" maxlength="6" />
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">5x</td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.cinco.masterCard" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.cinco.visa" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.cinco.outros" maxlength="6" />
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">6x</td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.seis.masterCard" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.seis.visa" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.seis.outros" maxlength="6" />
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">7x</td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.sete.masterCard" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.sete.visa" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.sete.outros" maxlength="6" />
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">8x</td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.oito.masterCard" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.oito.visa" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.oito.outros" maxlength="6" />
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">9x</td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.nove.masterCard" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.nove.visa" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.nove.outros" maxlength="6" />
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">10x</td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.dez.masterCard" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.dez.visa" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.dez.outros" maxlength="6" />
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">11x</td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.onze.masterCard" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.onze.visa" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.onze.outros" maxlength="6" />
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">12x</td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.doze.masterCard" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.doze.visa" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.doze.outros" maxlength="6" />
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">13x</td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.treze.masterCard" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.treze.visa" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.treze.outros" maxlength="6" />
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">14x</td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.quatorze.masterCard" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.quatorze.visa" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.quatorze.outros" maxlength="6" />
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">15x</td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.quinze.masterCard" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.quinze.visa" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.quinze.outros" maxlength="6" />
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">16x</td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.dezesseis.masterCard" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.dezesseis.visa" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.dezesseis.outros" maxlength="6" />
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">17x</td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.dezessete.masterCard" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.dezessete.visa" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.dezessete.outros" maxlength="6" />
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">18x</td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.dezoito.masterCard" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.dezoito.visa" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.dezoito.outros" maxlength="6" />
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">19x</td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.dezenove.masterCard" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.dezenove.visa" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.dezenove.outros" maxlength="6" />
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">20x</td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.vinte.masterCard" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.vinte.visa" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.vinte.outros" maxlength="6" />
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="celulas">21x</td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.vinteUm.masterCard" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.vinteUm.visa" maxlength="6" />
+                                </td>
+                                <td class="celulas"><input mask="separator.2" suffix="%" thousandSeparator="."
+                                                [decimalMarker]="','" separatorLimit="10" size="6"
+                                                [(ngModel)]="table.vinteUm.outros" maxlength="6" />
+                                </td>
+                        </tr>
+                </table>
+        </div>
+
+        <div class="buttons-container">
+                <button mat-raised-buton (click)="updateTable()" class="salvar" color="primary">
+                        Atualizar
+                </button>
+
+                <button mat-raised-buton (click)="cancel()" class="cancelar">
+                        Cancelar
+                </button>
+        </div>
+</div>

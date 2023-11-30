@@ -3,11 +3,17 @@ import { tabelaCrud } from '../tabelaCrud';
 import { TabelaService } from '../tabela-create/tabela.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormatadorService } from 'src/app/services/formatador.service';
+import { IConfig, provideNgxMask } from 'ngx-mask';
+
+export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
 
 @Component({
   selector: 'escapay-tabela-update',
   templateUrl: './tabela-update.component.html',
-  styleUrls: ['./tabela-update.component.css']
+  styleUrls: ['./tabela-update.component.css'],
+  providers:[
+    provideNgxMask()
+  ]
 })
 export class TabelaUpdateComponent implements OnInit {
   table!: tabelaCrud
@@ -37,7 +43,6 @@ export class TabelaUpdateComponent implements OnInit {
   updateTable(): void {
     this.tabelaService.update(this.table.key, this.table).subscribe(() =>
       this.tabelaService.showMessage('Produto alterado'))
-      console.log('frontend', this.table, this.table.key)
     this.router.navigate([''])
   }
 
