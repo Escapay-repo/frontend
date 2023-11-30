@@ -23,4 +23,14 @@ export class HeaderService {
   set headerData(headerData: HeaderData) {
     this._headerData.next(headerData)
   }
+
+  private _showMenuButton = new BehaviorSubject<boolean>(true);
+
+get showMenuButton(): boolean {
+  return this._showMenuButton.value;
+}
+
+set showMenuButton(value: boolean) {
+  this._showMenuButton.next(value);
+}
 }

@@ -1,10 +1,22 @@
+.home {
+    height: 100%;
+}
+
+.home .container {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .home .title {
     font-size: 3rem;
     font-weight: 300;
     line-height: 1.5;
     padding: 1rem;
     text-align: center;
-    font-feature-settings: "liga"0;
+    font-feature-settings: "liga" 0;
     font-family: 'Roboto', sans-serif !important;
 
 }
@@ -25,15 +37,14 @@
     display: flex;
     background: none;
     margin-top: 10px;
+    height: 100%;
 }
-
-
 
 .button .menu {
     padding: 0;
     margin: 0 1rem;
 }
 
-.espacamento{
+.espacamento {
     padding: 10px;
 }
