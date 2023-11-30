@@ -24,7 +24,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/template/header/header.component';
 import { TabelaCreateComponent } from './components/tabela/tabela-create/tabela-create.component';
 import { TabelaDeleteComponent } from './components/tabela/tabela-delete/tabela-delete.component';
 import { TabelaUpdateComponent } from './components/tabela/tabela-update/tabela-update.component';
@@ -66,7 +65,6 @@ registerLocaleData(localePt);
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     FooterComponent,
     TabelaCreateComponent,
     TabelaDeleteComponent,

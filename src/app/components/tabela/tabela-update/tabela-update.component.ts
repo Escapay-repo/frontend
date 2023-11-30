@@ -42,7 +42,7 @@ export class TabelaUpdateComponent implements OnInit {
 
   updateTable(): void {
     this.tabelaService.update(this.table.key, this.table).subscribe(() =>
-      this.tabelaService.showMessage('Produto alterado'))
+      this.tabelaService.showMessage('Tabela atualizada'))
     this.router.navigate([''])
   }
 

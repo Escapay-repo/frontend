@@ -39,7 +39,7 @@ export class TabelaDeleteComponent implements OnInit {
   deleteTable(): void {
     const id = this.route.snapshot.paramMap.get('id') 
     this.tabelaService.delete(id!).subscribe(() => {
-      this.tabelaService.showMessage('Tabela excluido')
+      this.tabelaService.showMessage('Tabela excluida')
       this.router.navigate([''])
     })
 
