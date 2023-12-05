@@ -154,7 +154,7 @@
   
   .salvar {
     display: table-cell;
-    background-color: #b3dc2b;
+    background-color: rgb(135, 161, 45);
     border-radius: 8px;
     border-style: none;
     box-sizing: border-box;
@@ -178,12 +178,12 @@
   
   .salvar:hover,
   .salvar:focus {
-    background-color: #87a32c;
+    background-color: #ef9bbf;
   }
   
   .cancelar {
     display: table-cell;
-    background-color: rgb(255, 0, 0);
+    background-color: rgb(165, 18, 18);
     border-radius: 8px;
     border-style: none;
     box-sizing: border-box;
@@ -206,5 +206,5 @@
   
   .cancelar:hover,
   .cancelar:focus {
-    background-color: rgb(118, 20, 20);
+    background-color: #ef9bbf;
   }

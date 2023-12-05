@@ -4,19 +4,19 @@ import { MatSnackBar } from '@angular/material/snack-bar'
 import { HttpClient } from '@angular/common/http';
 import { tabelaCrud } from '../tabelaCrud';
 import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router'; 
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TabelaService {
 
-  baseUrl = "http://localhost:3001/tabelas"
+  baseUrl = "http://gusmfscoder.com.br:3001/tabelas"
 
-  constructor(private snackBar: MatSnackBar, 
+  constructor(private snackBar: MatSnackBar,
     private http: HttpClient,
     private router: Router
-    ) { }
+  ) { }
 
   showMessage(msg: string, isError: boolean = false) {
     this.snackBar.open(msg, 'X', {
@@ -30,14 +30,14 @@ export class TabelaService {
   create(tabela: tabelaCrud): Observable<tabelaCrud> {
     tabela.key = new Date().getTime().toString();
     const headers = { 'Content-Type': 'application/json' };
-    return this.http.post<tabelaCrud>(this.baseUrl, tabela, {headers}).pipe(
+    return this.http.post<tabelaCrud>(this.baseUrl, tabela, { headers, withCredentials: true }).pipe(
       map((obj) => obj),
       catchError(e => this.errorHandler(e))
     )
   }
 
   read(): Observable<tabelaCrud[]> {
-    return this.http.get<tabelaCrud[]>(this.baseUrl).pipe(
+    return this.http.get<tabelaCrud[]>(this.baseUrl, { withCredentials: true }).pipe(
       map((obj) => obj),
       catchError(e => this.errorHandler(e))
     )
@@ -45,7 +45,7 @@ export class TabelaService {
 
   readById(key: string): Observable<tabelaCrud> {
     const url = `${this.baseUrl}/${key}`
-    return this.http.get<tabelaCrud>(url).pipe(
+    return this.http.get<tabelaCrud>(url, { withCredentials: true }).pipe(
       map((obj) => obj),
       catchError(e => this.errorHandler(e))
     )
@@ -54,7 +54,7 @@ export class TabelaService {
 
   readByIdSelector(id: string): Observable<tabelaCrud> {
     const url = `${this.baseUrl}/${id}`
-    return this.http.get<tabelaCrud>(url);
+    return this.http.get<tabelaCrud>(url, { withCredentials: true });
   }
 
   update(key: string, data: tabelaCrud): Observable<tabelaCrud> {

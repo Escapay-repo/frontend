@@ -1,91 +1,3 @@
-/* .sidenav-container {
-  height: 100%;
-  font-weight: bold;
-  display: flex;
-}
-
-.sidenav {
-  width: 200px;
-  background-color: #a1bf37;
-  padding-top: 64px;
-}
-
-.sidenav .mat-toolbar {
-  background: inherit;
-}
-
-.mat-toolbar.mat-primary {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-}
-
-.buttonContainer {
-  margin-top: 50px;
-}
-
-.material-icons {
-  vertical-align: middle;
-  margin-left: 8px;
-  margin-right: 8px;
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.estiloBotao{
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 14px;
-  font-weight: 400;
-  font-family: "Roboto", sans-serif ;
-}
-
-.estiloBotao:hover {
-color: #ffffff ;
-  transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
-}
-
-.sidenav a:hover i {
-  color: rgb(255, 255, 255);
-  transition: color 0.3s ease;
-}
-
-.estiloBotao:hover::after {
-  transform: translateX(5px);
-  transition: transform 0.3s ease;
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  background-color: #dcdcdc;
-  position: fixed;
-  top: 0;
-  left: 0px;
-  right: 0;
-  z-index: 999;
-  width: calc(100% - 200px);
-}
-
-.header a{
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
-
-.header .logo {
-  max-height: 4.5rem;
-}
-
-.title-group{
-  padding-left: 20px;
-  font-size:x-large;
-  font-weight: bold;
-  
-}
-
-.title-group a{
-  color:black;
-} */
-
 .sidenav-container {
   height: 100%;
   font-weight: bold;
@@ -111,11 +23,7 @@ color: #ffffff ;
   position: sticky;
   top: 0;
   z-index: 1;
-  
-}
 
-.buttonContainer {
-  margin-top: 50px;
 }
 
 .material-icons {
@@ -153,7 +61,6 @@ color: #ffffff ;
   background-color: rgb(234, 237, 247);
   position: fixed;
   top: 0;
-  margin-left: 240px;
   right: 0;
   transition: margin-left 0.3s ease;
   z-index: 999;
@@ -163,16 +70,37 @@ color: #ffffff ;
   display: flex;
   align-items: center;
   text-decoration: none;
-  width: 100%;
-  margin-left: 240px;
 }
-.SideNavButton .logo {
+
+.SideNavButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-logo {
+  margin-top: 5px;
   max-height: 4.5rem;
+  margin-bottom: 10px;
 }
+
+.header .logo-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
 .header .logo {
   max-height: 4.5rem;
-  margin-left: -120px;
+  margin: 0 auto;
 }
+
+.menu-button {
+  color: black;
+  display: flex;
+  align-items: center;
+}
+
 .sidenav-closed .header .logo {
   display: none;
 }
@@ -188,7 +116,7 @@ color: #ffffff ;
 }
 
 .sidenav-closed .sidenav-container {
-  margin-left: -240px; 
+  margin-left: -240px;
 }
 
 .sidenav-closed .header {
@@ -204,6 +132,7 @@ router-outlet {
   flex: 1;
   display: block;
   margin: 0;
+  padding-top: 64px
 }
 
 .mat-sidenav-content {
@@ -211,4 +140,21 @@ router-outlet {
   overflow: auto;
   box-sizing: border-box;
   padding: 16px;
+  margin-left: 30%;
+}
+
+escapay-footer {
+  position: fixed;
+  bottom: 0;
+  z-index: 999;
+  margin-left: -37%;
+}
+
+.sidenav-closed escapay-footer {
+  position: fixed;
+  bottom: 0;
+  left: 240px;
+  margin-left: 30%;
+  z-index: 999;
+  transition: margin-left 0.3s ease;
 }

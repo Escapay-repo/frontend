@@ -1,12 +1,13 @@
 .footer { 
-    position: fixed;
-    bottom: 0;
-
-    display: flex;
-    justify-content: flex-end;
+    color: white; 
+    text-align: center;
+    font-size: 12px;
 }
 
 .footer > span {
-    font-size: 1.1rem;
+    font-size: 12px;
     font-weight: 300;
+    padding: 8px;
+    display: block;
+    text-align: center;
 }

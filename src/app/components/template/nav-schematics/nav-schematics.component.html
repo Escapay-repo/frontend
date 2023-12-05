@@ -4,7 +4,7 @@
     <mat-nav-list>
       <div class="SideNavButton">
         <a routerLink="/">
-          <img class="logo" src="assets/img/escapay-branco.png" alt="logo">
+          <img class="nav-logo" src="assets/img/escapay-light.png" alt="logo">
         </a>
         <a mat-list-item routerLink="/">
           <i class="material-icons">
@@ -28,61 +28,21 @@
     </mat-nav-list>
   </mat-sidenav>
 
-  <mat-sidenav-content>
-    <mat-toolbar class="buttonContainer">
-      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-    </mat-toolbar>
-
-
+  <mat-sidenav-content class="conteudo-central">
     <mat-toolbar class="header mat-elevation-z1">
-      <span>
-        <a routerLink="/">
-          <img class="logo" src="assets/img/escapay.png" alt="logo">
-        </a>
-      </span>
+      <div class="logo-container">
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+          *ngIf="isHandset$ | async">
+          <mat-icon aria-label="Side nav toggle icon" class="menu-button">menu</mat-icon>
+        </button>
+        <div class="logo">
+          <a routerLink="/">
+            <img class="logo" src="assets/img/escapay.png" alt="logo">
+          </a>
+        </div>
+      </div>
     </mat-toolbar>
-      <router-outlet class="router-container"></router-outlet>
+    <router-outlet class="router-container"></router-outlet>
+    <escapay-footer></escapay-footer>
   </mat-sidenav-content>
 </mat-sidenav-container>
-
-
-
-<!-- <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
-    <mat-nav-list>
-      <div class="SideNavButton">
-        <a mat-list-item routerLink="/">
-          <i class="material-icons">
-            home
-          </i>
-          <span class="estiloBotao">
-            Início
-          </span>
-        </a>
-      </div>
-      <div class="SideNavButton">
-      <a mat-list-item routerLink="tabela">
-        <i class="material-icons">
-          storefront
-        </i>
-        <span class="estiloBotao">
-          Criar Tabela
-        </span>
-      </a>
-      </div>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar class="buttonContainer">
-      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-    </mat-toolbar>
-    <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container> -->
