@@ -158,3 +158,27 @@ escapay-footer {
   z-index: 999;
   transition: margin-left 0.3s ease;
 }
+
+.escapay-footer {
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  position: fixed;
+  bottom: 0;
+  left: 30%; /* Ajuste conforme necessário */
+  z-index: 999;
+  transition: margin-left 0.3s ease;
+  margin-bottom: 0px; /* Ajuste conforme a altura do seu mat-toolbar */
+}
+
+.escapay-footer > mat-toolbar {
+  font-size: 12px;
+  font-weight: 300;
+  padding: 8px;
+  display: block;
+  text-align: center;
+}
+
+.router-container-with-margin {
+  margin-bottom: 56px; /* Ajuste conforme necessário */
+}

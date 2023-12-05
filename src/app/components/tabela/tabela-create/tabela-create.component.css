@@ -110,11 +110,11 @@ th {
 
 
 tr:nth-child(even) {
-  background-color: #cacaca;
+  background-color: #fafafa;
 }
 
 .cabecalho-botao {
-  background-color: white !important;
+  background-color: #fafafa !important;
   text-align: center;
 }
 

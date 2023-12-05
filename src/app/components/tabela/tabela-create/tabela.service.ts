@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-import { EMPTY, Observable, catchError, map, tap } from 'rxjs'
+import { EMPTY, Observable, catchError, map } from 'rxjs'
 import { MatSnackBar } from '@angular/material/snack-bar'
 import { HttpClient } from '@angular/common/http';
 import { tabelaCrud } from '../tabelaCrud';
-import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -11,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class TabelaService {
 
-  baseUrl = "http://gusmfscoder.com.br:3001/tabelas"
+  baseUrl = "https://api.gusmfscoder.com.br/tabelas"
 
   constructor(private snackBar: MatSnackBar,
     private http: HttpClient,
