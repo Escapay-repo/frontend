@@ -1,15 +1,18 @@
-.footer { 
-    color: #fafafa; 
+.footer {
+    color: #fafafa;
     text-align: center;
     font-size: 12px;
-    position: absolute;
+    position: fixed;
     bottom: 0;
-}
-
-.footer > span {
+    left: 0;
+    width: 100%;
+    z-index: 999;
+  }
+  
+  .footer > mat-toolbar {
     font-size: 12px;
     font-weight: 300;
     padding: 8px;
     display: block;
     text-align: center;
-}
+  }
