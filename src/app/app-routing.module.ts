@@ -6,6 +6,8 @@ import { CalculosTpvComponent } from './views/calculos-tpv/calculos-tpv.componen
 import { ListaComponent } from './views/lista/lista.component';
 import { TabelaUpdateComponent } from './components/tabela/tabela-update/tabela-update.component';
 import { TabelaDeleteComponent } from './components/tabela/tabela-delete/tabela-delete.component';
+import { LoginComponent } from './components/login/login/login.component';
+import { RegisterComponent } from './components/login/register/register.component';
 
 const routes: Routes = [
   {
@@ -30,6 +32,12 @@ const routes: Routes = [
   }, {
     path: "tabelaDelete/:id",
     component: TabelaDeleteComponent
+  }, {
+    path: "login",
+    component: LoginComponent
+  }, {
+    path: "registro",
+    component: RegisterComponent
   }
 ];
 

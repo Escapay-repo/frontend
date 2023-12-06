@@ -55,6 +55,8 @@ import { ComissaoCltComponent } from './views/calculos-tpv/shared/comissao-clt/c
 import { ReceitaTotalComponent } from './views/calculos-tpv/shared/receita-total/receita-total.component';
 import { FormatadorPorcentagemDirective } from './services/formatador-porcentagem.directive';
 import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
+import { RegisterComponent } from './components/login/register/register.component';
+import { LoginComponent } from './components/login/login/login.component';
 
 
 
@@ -88,6 +90,8 @@ registerLocaleData(localePt);
     ComissaoCltComponent,
     ReceitaTotalComponent,
     FormatadorPorcentagemDirective,
+    RegisterComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

@@ -27,27 +27,3 @@ export class NavSchematicsComponent {
       shareReplay()
     );
 }
-
-
-//   constructor(private headerService: HeaderService) { }
-
-//   get title(): string {
-//     return this.headerService.headerData.title
-//   }
-
-//   get icon(): string {
-//     return this.headerService.headerData.icon
-//   }
-
-//   get routeUrl(): string {
-//     return this.headerService.headerData.routeUrl
-//   }
-
-//   private breakpointObserver = inject(BreakpointObserver);
-
-//   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-//     .pipe(
-//       map(result => result.matches),
-//       shareReplay()
-//     );
-// }
