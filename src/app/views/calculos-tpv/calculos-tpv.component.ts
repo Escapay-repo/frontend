@@ -54,8 +54,8 @@ export class CalculosTpvComponent implements OnInit {
       const tableRows = document.querySelectorAll('.share-tpv tr');
 
       for (let i = 1; i < tableRows.length; i++) {
-        const shareTD = tableRows[i].querySelectorAll('td')[0];
-        const resultadoTD = tableRows[i].querySelectorAll('td')[1];
+        const shareTD = tableRows[i].querySelectorAll('td')[1];
+        const resultadoTD = tableRows[i].querySelectorAll('td')[2];
 
         if (shareTD && resultadoTD) {
           const shareText = shareTD.textContent;
