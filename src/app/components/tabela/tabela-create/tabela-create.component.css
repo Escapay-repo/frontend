@@ -384,7 +384,6 @@
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, .125);
   border-radius: 11px;
@@ -397,7 +396,6 @@
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #ffffff;
   background-clip: border-box;
   border: 1px solid #e8e8f7;
 }
@@ -635,9 +633,9 @@ input {
   transform: translateY(2px);
 }
 
-table {
-  width: 80%;
-}
+/* table {
+  width: 10%;
+} */
 
 th {
   text-align: center;
@@ -655,7 +653,7 @@ th {
 
 
 tr:nth-child(even) {
-  background-color: #fafafa;
+  background-color: #f4f2f2;
 }
 
 .cabecalho-botao {
