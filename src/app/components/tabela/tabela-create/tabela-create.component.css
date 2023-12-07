@@ -332,6 +332,7 @@
   margin-left: auto;
 }
 
+
 .main-content-title {
   font-weight: 500;
   font-size: 32px;
@@ -404,21 +405,10 @@
 .custom-card {
   margin-bottom: 20px;
   border: 0;
-  box-shadow: -7.829px 11.607px 20px 0px #e4e3f5;
-}
-
-.custom-card {
-  -webkit-box-shadow: 0 10px 30px 0 rgba(24, 28, 33, 0.05);
-  box-shadow: 0 10px 30px 0 rgba(24, 28, 33, 0.05);
 }
 
 .bg-primary {
   background-color: #87a12d !important;
-}
-
-.custom-card {
-  -webkit-box-shadow: 0 10px 30px 0 rgba(24, 28, 33, 0.05);
-  box-shadow: 0 10px 30px 0 rgba(24, 28, 33, 0.05);
 }
 
 .bg-primary {
