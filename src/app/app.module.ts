@@ -57,6 +57,7 @@ import { FormatadorPorcentagemDirective } from './services/formatador-porcentage
 import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
 import { RegisterComponent } from './components/login/register/register.component';
 import { LoginComponent } from './components/login/login/login.component';
+import { UserComponent } from './components/login/user/user.component';
 
 
 
@@ -92,6 +93,7 @@ registerLocaleData(localePt);
     FormatadorPorcentagemDirective,
     RegisterComponent,
     LoginComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,

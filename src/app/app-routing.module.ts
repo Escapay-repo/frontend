@@ -8,36 +8,47 @@ import { TabelaUpdateComponent } from './components/tabela/tabela-update/tabela-
 import { TabelaDeleteComponent } from './components/tabela/tabela-delete/tabela-delete.component';
 import { LoginComponent } from './components/login/login/login.component';
 import { RegisterComponent } from './components/login/register/register.component';
+import { UserComponent } from './components/login/user/user.component';
+import { authGuard } from './components/login/auth.guard';
 
 const routes: Routes = [
   {
-    path:"",
+    path: "",
     component: HomeComponent
   },
   {
     path: "tabela",
-    component: TabelaCreateComponent
+    component: TabelaCreateComponent,
+    canActivate: [authGuard]
   },
   {
     path: "tabelaTpv/:id",
-    component: CalculosTpvComponent
+    component: CalculosTpvComponent,
+    canActivate: [authGuard]
   },
   {
     path: "listaTabelas",
-    component: ListaComponent
+    component: ListaComponent,
+    canActivate: [authGuard]
   },
   {
     path: "tabelaUpdate/:id",
-    component: TabelaUpdateComponent
+    component: TabelaUpdateComponent,
+    canActivate: [authGuard]
   }, {
     path: "tabelaDelete/:id",
-    component: TabelaDeleteComponent
+    component: TabelaDeleteComponent,
+    canActivate: [authGuard]
   }, {
     path: "login",
     component: LoginComponent
   }, {
     path: "registro",
     component: RegisterComponent
+  }, {
+    path: "user",
+    component: UserComponent,
+    canActivate: [authGuard]
   }
 ];
 

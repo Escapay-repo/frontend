@@ -37,113 +37,157 @@
         </tr>
         <tr>
           <td>Débito</td>
-          <td>50,16%</td>
-          <td></td>
+          <td>
+            <input type="number" [(ngModel)]="porcentagemDebito" (input)="validarPorcentagem()"> %
+          </td>
+          <td>{{ shareDebito | currency: 'BRL' }}</td>
         </tr>
         <tr>
           <td>Crédito</td>
-          <td>11,57%</td>
-          <td></td>
+          <td>
+            <input type="number" [(ngModel)]="porcentagemCredito" (input)="validarPorcentagem()"> %
+          </td>
+          <td>{{ shareCredito | currency: 'BRL' }}</td>
         </tr>
         <tr>
           <td>Parcelado 2x</td>
-          <td>6,45%</td>
-          <td></td>
+          <td>
+            <input type="number" [(ngModel)]="porcentagem2x" (input)="validarPorcentagem()"> %
+          </td>
+          <td>{{ share2x | currency: 'BRL' }}</td>
         </tr>
         <tr>
           <td>Parcelado 3x</td>
-          <td>7,75%</td>
-          <td></td>
+          <td>
+            <input type="number" [(ngModel)]="porcentagem3x" (input)="validarPorcentagem()"> %
+          </td>
+          <td>{{ share3x | currency: 'BRL' }}</td>
         </tr>
         <tr>
           <td>Parcelado 4x</td>
-          <td>5,07%</td>
-          <td></td>
+          <td>
+            <input type="number" [(ngModel)]="porcentagem4x" (input)="validarPorcentagem()"> %
+          </td>
+          <td>{{ share4x | currency: 'BRL' }}</td>
         </tr>
         <tr>
           <td>Parcelado 5x</td>
-          <td>3,96%</td>
-          <td></td>
+          <td>
+            <input type="number" [(ngModel)]="porcentagem5x" (input)="validarPorcentagem()"> %
+          </td>
+          <td>{{ share5x | currency: 'BRL' }}</td>
         </tr>
         <tr>
           <td>Parcelado 6x</td>
-          <td>3,96%</td>
-          <td></td>
+          <td>
+            <input type="number" [(ngModel)]="porcentagem6x" (input)="validarPorcentagem()"> %
+          </td>
+          <td>{{ share6x | currency: 'BRL' }}</td>
         </tr>
         <tr>
           <td>Parcelado 7x</td>
-          <td>1,15%</td>
-          <td></td>
+          <td>
+            <input type="number" [(ngModel)]="porcentagem7x" (input)="validarPorcentagem()"> %
+          </td>
+          <td>{{ share7x | currency: 'BRL' }}</td>
         </tr>
         <tr>
           <td>Parcelado 8x</td>
-          <td>1,57%</td>
-          <td></td>
+          <td>
+            <input type="number" [(ngModel)]="porcentagem8x" (input)="validarPorcentagem()"> %
+          </td>
+          <td>{{ share8x | currency: 'BRL' }}</td>
         </tr>
         <tr>
           <td>Parcelado 9x</td>
-          <td>0,41%</td>
-          <td></td>
+          <td>
+            <input type="number" [(ngModel)]="porcentagem9x" (input)="validarPorcentagem()"> %
+          </td>
+          <td>{{ share9x | currency: 'BRL' }}</td>
         </tr>
         <tr>
           <td>Parcelado 10x</td>
-          <td>3,78%</td>
-          <td></td>
+          <td>
+            <input type="number" [(ngModel)]="porcentagem10x" (input)="validarPorcentagem()"> %
+          </td>
+          <td>{{ share10x | currency: 'BRL' }}</td>
         </tr>
         <tr>
           <td>Parcelado 11x</td>
-          <td>0,09%</td>
-          <td></td>
+          <td>
+            <input type="number" [(ngModel)]="porcentagem11x" (input)="validarPorcentagem()"> %
+          </td>
+          <td>{{ share11x | currency: 'BRL' }}</td>
         </tr>
         <tr>
           <td>Parcelado 12x</td>
-          <td>4,06%</td>
-          <td></td>
+          <td>
+            <input type="number" [(ngModel)]="porcentagem12x" (input)="validarPorcentagem()"> %
+          </td>
+          <td>{{ share12x | currency: 'BRL' }}</td>
         </tr>
         <tr>
           <td>Parcelado 13x</td>
-          <td>0</td>
-          <td></td>
+          <td>
+            <input type="number" [(ngModel)]="porcentagem13x" (input)="validarPorcentagem()"> %
+          </td>
+          <td>{{ share13x | currency: 'BRL' }}</td>
         </tr>
         <tr>
           <td>Parcelado 14x</td>
-          <td>0</td>
-          <td></td>
+          <td>
+            <input type="number" [(ngModel)]="porcentagem14x" (input)="validarPorcentagem()"> %
+          </td>
+          <td>{{ share14x | currency: 'BRL' }}</td>
         </tr>
         <tr>
           <td>Parcelado 15x</td>
-          <td>0</td>
-          <td></td>
+          <td>
+            <input type="number" [(ngModel)]="porcentagem15x" (input)="validarPorcentagem()"> %
+          </td>
+          <td>{{ share15x | currency: 'BRL' }}</td>
         </tr>
         <tr>
           <td>Parcelado 16x</td>
-          <td>0</td>
-          <td></td>
+          <td>
+            <input type="number" [(ngModel)]="porcentagem16x" (input)="validarPorcentagem()"> %
+          </td>
+          <td>{{ share16x | currency: 'BRL' }}</td>
         </tr>
         <tr>
           <td>Parcelado 17x</td>
-          <td>0</td>
-          <td></td>
+          <td>
+            <input type="number" [(ngModel)]="porcentagem17x" (input)="validarPorcentagem()"> %
+          </td>
+          <td>{{ share17x | currency: 'BRL' }}</td>
         </tr>
         <tr>
           <td>Parcelado 18x</td>
-          <td>0</td>
-          <td></td>
+          <td>
+            <input type="number" [(ngModel)]="porcentagem18x" (input)="validarPorcentagem()"> %
+          </td>
+          <td>{{ share18x | currency: 'BRL' }}</td>
         </tr>
         <tr>
           <td>Parcelado 19x</td>
-          <td>0</td>
-          <td></td>
+          <td>
+            <input type="number" [(ngModel)]="porcentagem19x" (input)="validarPorcentagem()"> %
+          </td>
+          <td>{{ share19x | currency: 'BRL' }}</td>
         </tr>
         <tr>
           <td>Parcelado 20x</td>
-          <td>0</td>
-          <td></td>
+          <td>
+            <input type="number" [(ngModel)]="porcentagem20x" (input)="validarPorcentagem()"> %
+          </td>
+          <td>{{ share20x | currency: 'BRL' }}</td>
         </tr>
         <tr>
           <td>Parcelado 21x</td>
-          <td>0</td>
-          <td></td>
+          <td>
+            <input type="number" [(ngModel)]="porcentagem21x" (input)="validarPorcentagem()"> %
+          </td>
+          <td>{{ share21x | currency: 'BRL' }}</td>
         </tr>
       </table>
     </div>

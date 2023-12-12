@@ -1,23 +1,27 @@
 <div class="container">
-    <div class="card">
-      <h2>Cadastro</h2>
-      <div class="form-group">
-        <label for="username">Nome completo:</label>
-        <input type="text" id="username" class="input-field" placeholder="Digite seu nome" [(ngModel)]="user.name">
-      </div>
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" class="input-field" placeholder="Digite seu email" [(ngModel)]="user.email">
-      </div>
-      <div class="form-group">
-        <label for="password">Senha:</label>
-        <input type="password" id="password" class="input-field" placeholder="Digite sua senha" [(ngModel)]="user.password">
-      </div>
-      <div class="form-group">
-        <label for="confirmPassword">Confirme sua Senha:</label>
-        <input type="password" id="confirmPassword" class="input-field" placeholder="Confirme sua senha" [(ngModel)]="confirmPassword">
-      </div>
-      <button class="button" (click)="register()">Cadastrar</button>
-      <p class="padding">Já possui uma conta? <a routerLink="/login" class="link">Faça login aqui</a>.</p>
+  <div class="card">
+    <h2>Cadastro</h2>
+    <div class="form-group">
+      <label for="username">Nome completo:</label>
+      <input type="text" id="username" class="input-field" placeholder="Digite seu nome" [(ngModel)]="user.name"
+        required="true" (keyup.enter)="register()">
     </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" class="input-field" placeholder="Digite seu email" [(ngModel)]="user.email"
+        required="true" (keyup.enter)="register()">
+    </div>
+    <div class="form-group">
+      <label for="password">Senha:</label>
+      <input type="password" id="password" class="input-field" placeholder="Digite sua senha"
+        [(ngModel)]="user.password" required="true" (keyup.enter)="register()">
+    </div>
+    <div class="form-group">
+      <label for="confirmPassword">Confirme sua Senha:</label>
+      <input type="password" id="confirmPassword" class="input-field" placeholder="Confirme sua senha"
+        [(ngModel)]="confirmPassword" required="true" (keyup.enter)="register()">
+    </div>
+    <button class="button" (click)="register()">Cadastrar</button>
+    <p class="padding">Já possui uma conta? <a routerLink="/login" class="link">Faça login aqui</a>.</p>
   </div>
+</div>
