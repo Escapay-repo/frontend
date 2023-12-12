@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { EMPTY, Observable, catchError, map } from 'rxjs'
 import { MatSnackBar } from '@angular/material/snack-bar'
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { tabelaCrud } from '../tabelaCrud';
 import { Router } from '@angular/router';
 
@@ -17,6 +17,14 @@ export class TabelaService {
     private router: Router
   ) { }
 
+  private getHeaders(): HttpHeaders {
+    const token = localStorage.getItem('token');
+    return new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': token || ''
+    });
+  }
+
   showMessage(msg: string, isError: boolean = false) {
     this.snackBar.open(msg, 'X', {
       duration: 3000,
@@ -28,15 +36,16 @@ export class TabelaService {
 
   create(tabela: tabelaCrud): Observable<tabelaCrud> {
     tabela.key = new Date().getTime().toString();
-    const headers = { 'Content-Type': 'application/json' };
-    return this.http.post<tabelaCrud>(this.baseUrl, tabela, { headers, withCredentials: true }).pipe(
+    const headers = this.getHeaders();
+    return this.http.post<tabelaCrud>(this.baseUrl, tabela, { headers }).pipe(
       map((obj) => obj),
       catchError(e => this.errorHandler(e))
     )
   }
 
   read(): Observable<tabelaCrud[]> {
-    return this.http.get<tabelaCrud[]>(this.baseUrl, { withCredentials: true }).pipe(
+    const headers = this.getHeaders();
+    return this.http.get<tabelaCrud[]>(this.baseUrl, { headers, withCredentials: true }).pipe(
       map((obj) => obj),
       catchError(e => this.errorHandler(e))
     )
@@ -44,7 +53,8 @@ export class TabelaService {
 
   readById(key: string): Observable<tabelaCrud> {
     const url = `${this.baseUrl}/${key}`
-    return this.http.get<tabelaCrud>(url, { withCredentials: true }).pipe(
+    const headers = this.getHeaders();
+    return this.http.get<tabelaCrud>(url, { headers }).pipe(
       map((obj) => obj),
       catchError(e => this.errorHandler(e))
     )
@@ -53,12 +63,14 @@ export class TabelaService {
 
   readByIdSelector(id: string): Observable<tabelaCrud> {
     const url = `${this.baseUrl}/${id}`
-    return this.http.get<tabelaCrud>(url, { withCredentials: true });
+    const headers = this.getHeaders();
+    return this.http.get<tabelaCrud>(url, { headers, withCredentials: true });
   }
 
   update(key: string, data: tabelaCrud): Observable<tabelaCrud> {
     const url = `${this.baseUrl}/update/${key}`
-    return this.http.put<tabelaCrud>(url, data).pipe(
+    const headers = this.getHeaders();
+    return this.http.put<tabelaCrud>(url, data, { headers }).pipe(
       map((obj) => obj),
       catchError(e => this.errorHandler(e))
     )
@@ -66,7 +78,8 @@ export class TabelaService {
 
   delete(id: string): Observable<tabelaCrud> {
     const url = `${this.baseUrl}/delete/${id}`
-    return this.http.delete<tabelaCrud>(url).pipe(
+    const headers = this.getHeaders();
+    return this.http.delete<tabelaCrud>(url, { headers }).pipe(
       map((obj) => obj),
       catchError(e => this.errorHandler(e))
     )

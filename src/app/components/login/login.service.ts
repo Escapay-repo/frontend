@@ -15,6 +15,7 @@ interface User {
   providedIn: 'root'
 })
 export class LoginService {
+  // private apiUrl = 'http://localhost:3001/users';
   private apiUrl = 'https://api.gusmfscoder.com.br/users';
   private token: string = '';
 
@@ -65,8 +66,8 @@ export class LoginService {
     console.error(error);
 
     if (error instanceof HttpErrorResponse) {
-      if (error.status === 400 && error.error && error.error.error === 'Email já está em uso.') {
-        this.showMessage('Email já está em uso.', true);
+      if (error.status === 400 && error.error && error.error.error === 'Email já  está  em uso.') {
+        this.showMessage('Email já  está  em uso.', true);
       } else {
         this.showMessage('Ocorreu um Erro', true);
       }
