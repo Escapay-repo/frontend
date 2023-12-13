@@ -1,5 +1,4 @@
 <div>
-
     <table>
         <tr>
             <th>MASTER</th>
@@ -7,9 +6,18 @@
             <th>OUTROS</th>
         </tr>
         <tr>
-            <td>50%</td>
-            <td>38%</td>
-            <td>12%</td>
+            <td>
+                <input class="input-text" mask="separator.2" suffix="%" thousandSeparator="." [decimalMarker]="','"
+                    separatorLimit="10" size="6" maxlength="6" [(ngModel)]="masterShare" (input)="validarPorcentagem()">
+            </td>
+            <td>
+                <input class="input-text" mask="separator.2" suffix="%" thousandSeparator="." [decimalMarker]="','"
+                    separatorLimit="10" size="6" maxlength="6" [(ngModel)]="visaShare" (input)="validarPorcentagem()">
+            </td>
+            <td>
+                <input class="input-text" mask="separator.2" suffix="%" thousandSeparator="." [decimalMarker]="','"
+                    separatorLimit="10" size="6" maxlength="6" [(ngModel)]="outrosShare" (input)="validarPorcentagem()">
+            </td>
         </tr>
     </table>
 </div>

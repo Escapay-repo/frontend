@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { EMPTY, Observable, catchError, map } from 'rxjs'
 import { MatSnackBar } from '@angular/material/snack-bar'
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { tabelaCrud } from '../tabelaCrud';
 import { Router } from '@angular/router';
 
@@ -10,7 +10,8 @@ import { Router } from '@angular/router';
 })
 export class TabelaService {
 
-  baseUrl = "https://api.gusmfscoder.com.br/tabelas"
+  baseUrl = "https://api.gusmfscoder.com.br/tabelas";
+  // baseUrl = 'http://localhost:3001/tabelas';
 
   constructor(private snackBar: MatSnackBar,
     private http: HttpClient,
@@ -85,10 +86,16 @@ export class TabelaService {
     )
   }
 
-  errorHandler(e: any): Observable<any> {
-    console.log(e)
-    this.showMessage('Ocorreu um Erro', true)
-    return EMPTY
+  errorHandler(error: any): Observable<any> {
+    console.error(error);
+    if (error instanceof HttpErrorResponse) {
+      if (error.status === 401 && error.error) {
+        this.showMessage('Acesso não autorizado, por favor faça login.', true);
+      } else {
+        this.showMessage('Ocorreu um Erro', true);
+      }
+    }
+    return EMPTY;
   }
 
   getTableById(id: string): Observable<tabelaCrud> {

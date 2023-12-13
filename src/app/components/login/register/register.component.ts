@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { LoginService } from '../login.service';
 import { catchError } from 'rxjs/operators'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'escapay-register',
@@ -12,7 +13,7 @@ export class RegisterComponent {
   user = { name: '', email: '', password: '', admin: false, token: '' };
   confirmPassword = '';
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private router: Router) { }
 
   register() {
     if (this.user.name.length < 3) {
@@ -50,7 +51,7 @@ export class RegisterComponent {
       .subscribe({
         next: response => {
           console.log('Usuário cadastrado com sucesso:', response);
-          // Você pode adicionar redirecionamento para a página de login ou outras ações necessárias após o cadastro
+          this.router.navigate(['/']);
         },
         error: error => {
           console.error('Erro ao cadastrar usuário:', error);

@@ -18,3 +18,11 @@ td {
     padding: 10px;
     border: 1px solid #ddd;
 }
+
+.input-share {
+    text-align: center;
+}
+
+.input-text {
+    text-align: center;
+}

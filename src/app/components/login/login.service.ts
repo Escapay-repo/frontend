@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { EMPTY, Observable, catchError, map } from 'rxjs';
+import { BehaviorSubject, EMPTY, Observable, catchError, map } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 interface User {
@@ -18,6 +18,8 @@ export class LoginService {
   // private apiUrl = 'http://localhost:3001/users';
   private apiUrl = 'https://api.gusmfscoder.com.br/users';
   private token: string = '';
+  private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
+
 
   constructor(private snackBar: MatSnackBar,
     private http: HttpClient,
@@ -37,6 +39,7 @@ export class LoginService {
         if (userResponse.token) {
           this.token = userResponse.token;
           localStorage.setItem('token', this.token);
+          this.isAuthenticatedSubject.next(true);
         }
         return userResponse;
       }),
@@ -46,11 +49,27 @@ export class LoginService {
 
   logout() {
     return this.http.post(`${this.apiUrl}/logout`, {}).pipe(
+      map(() => {
+        this.clearToken();
+      })
     );
+  }
+
+  isAuthenticated(): boolean {
+    const token = localStorage.getItem('token');
+    const isAuthenticated = !!token;
+    this.isAuthenticatedSubject.next(isAuthenticated);
+    console.log('autenticado', isAuthenticated)
+    return isAuthenticated;
+  }
+
+  getAuthStatus(): Observable<boolean> {
+    return this.isAuthenticatedSubject.asObservable();
   }
 
   clearToken() {
     localStorage.removeItem('token');
+    this.isAuthenticatedSubject.next(false);
   }
 
   showMessage(msg: string, isError: boolean = false) {
@@ -64,7 +83,6 @@ export class LoginService {
 
   errorHandler(error: any): Observable<any> {
     console.error(error);
-
     if (error instanceof HttpErrorResponse) {
       if (error.status === 400 && error.error && error.error.error === 'Email já  está  em uso.') {
         this.showMessage('Email já  está  em uso.', true);
@@ -72,7 +90,6 @@ export class LoginService {
         this.showMessage('Ocorreu um Erro', true);
       }
     }
-
     return EMPTY;
   }
 

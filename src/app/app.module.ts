@@ -5,10 +5,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card'
@@ -45,6 +45,7 @@ import { MarkupBandeirasComponent } from './views/calculos-tpv/shared/markup-ban
 import { MarkupComponent } from './views/calculos-tpv/shared/markup/markup.component';
 import { CustoClientComponent } from './views/calculos-tpv/shared/custo-client/custo-client.component';
 import { ReceitaFranqueadoComponent } from './views/calculos-tpv/shared/receita-franqueado/receita-franqueado.component';
+import { LogicaService } from './views/calculos-tpv/logica.service';
 
 
 
@@ -121,11 +122,12 @@ registerLocaleData(localePt);
     MatRadioModule,
     NgxMaskDirective,
     NgxMaskPipe
-    
+
   ],
   providers: [
-    {provide: LOCALE_ID, useValue: 'pt-BR' },
-    DecimalPipe
+    { provide: LOCALE_ID, useValue: 'pt-BR' },
+    DecimalPipe,
+    LogicaService,
   ],
   bootstrap: [AppComponent]
 })

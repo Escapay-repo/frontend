@@ -10,6 +10,7 @@ import { LoginComponent } from './components/login/login/login.component';
 import { RegisterComponent } from './components/login/register/register.component';
 import { UserComponent } from './components/login/user/user.component';
 import { authGuard } from './components/login/auth.guard';
+import { reverseAuthGuard } from './components/login/reverse-auth.guard';
 
 const routes: Routes = [
   {
@@ -41,17 +42,18 @@ const routes: Routes = [
     canActivate: [authGuard]
   }, {
     path: "login",
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [reverseAuthGuard]
   }, {
     path: "registro",
-    component: RegisterComponent
+    component: RegisterComponent,
+    canActivate: [reverseAuthGuard]
   }, {
     path: "user",
     component: UserComponent,
     canActivate: [authGuard]
   }
 ];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
