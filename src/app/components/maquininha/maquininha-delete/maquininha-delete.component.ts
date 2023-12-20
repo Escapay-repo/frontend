@@ -1,26 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { tabelaCrud } from '../tabelaCrud';
-import { TabelaService } from '../tabela-create/tabela.service';
+import { maquininhaCrud } from '../../tabela/maquininhaCrud';
+import { MaquininhaService } from '../maquininha.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormatadorService } from 'src/app/services/formatador.service';
 
 @Component({
-  selector: 'escapay-tabela-delete',
-  templateUrl: './tabela-delete.component.html',
-  styleUrls: ['./tabela-delete.component.css']
+  selector: 'escapay-maquininha-delete',
+  templateUrl: './maquininha-delete.component.html',
+  styleUrls: ['../../tabela/tabela-delete/tabela-delete.component.css']
 })
-export class TabelaDeleteComponent implements OnInit {
-  table!: tabelaCrud
+export class MaquininhaDeleteComponent implements OnInit {
+  table!: maquininhaCrud
 
 
-  constructor(private tabelaService: TabelaService, private router: Router,
+  constructor(private maquininhaService: MaquininhaService, private router: Router,
     private route: ActivatedRoute,
     private formatadorService: FormatadorService
   ) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id')
-    this.tabelaService.readById(id!).subscribe(table => {
+    this.maquininhaService.readById(id!).subscribe(table => {
       this.table = table
     })
   }
@@ -38,15 +38,15 @@ export class TabelaDeleteComponent implements OnInit {
 
   deleteTable(): void {
     const id = this.route.snapshot.paramMap.get('id')
-    this.tabelaService.delete(id!).subscribe(() => {
-      this.tabelaService.showMessage('Tabela excluida')
-      this.router.navigate([''])
+    this.maquininhaService.delete(id!).subscribe(() => {
+      this.maquininhaService.showMessage('Tabela excluida')
+      this.router.navigate(['/maquininhaHome'])
     })
 
   }
 
   cancel(): void {
-    this.router.navigate([''])
+    this.router.navigate(['/maquininhaHome'])
 
   }
 

@@ -15,10 +15,12 @@ interface User {
   providedIn: 'root'
 })
 export class LoginService {
-  // private apiUrl = 'http://localhost:3001/users';
-  private apiUrl = 'https://api.gusmfscoder.com.br/users';
+  private apiUrl = 'http://localhost:3001/users';
+  // private apiUrl = 'https://api.gusmfscoder.com.br/users';
   private token: string = '';
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
+  private currentUserSubject = new BehaviorSubject<User | null>(null);
+
 
 
   constructor(private snackBar: MatSnackBar,
@@ -40,11 +42,16 @@ export class LoginService {
           this.token = userResponse.token;
           localStorage.setItem('token', this.token);
           this.isAuthenticatedSubject.next(true);
+          this.currentUserSubject.next(userResponse);
+          console.log('usersubject', this.currentUserSubject)
         }
         return userResponse;
       }),
       catchError(e => this.errorHandler(e))
     );
+  }
+  getUser(): Observable<User | null> {
+    return this.currentUserSubject.asObservable();
   }
 
   logout() {
@@ -62,6 +69,12 @@ export class LoginService {
     console.log('autenticado', isAuthenticated)
     return isAuthenticated;
   }
+
+  isAdmin(): boolean {
+    const currentUser = this.currentUserSubject.value;
+    return currentUser ? currentUser.admin : false;
+  }
+
 
   getAuthStatus(): Observable<boolean> {
     return this.isAuthenticatedSubject.asObservable();

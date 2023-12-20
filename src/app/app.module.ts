@@ -59,6 +59,12 @@ import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
 import { RegisterComponent } from './components/login/register/register.component';
 import { LoginComponent } from './components/login/login/login.component';
 import { UserComponent } from './components/login/user/user.component';
+import { MaquininhaCreateComponent } from './components/maquininha/maquininha-create/maquininha-create.component';
+import { MaquininhaReadComponent } from './components/maquininha/maquininha-read/maquininha-read.component';
+import { MaquininhaUpdateComponent } from './components/maquininha/maquininha-update/maquininha-update.component';
+import { MaquininhaDeleteComponent } from './components/maquininha/maquininha-delete/maquininha-delete.component';
+import { MaquininhaHomeComponent } from './views/maquininha-home/maquininha-home.component';
+import { CreateMaquininhaComponent } from './components/button/create-maquininha/create-maquininha.component';
 
 
 
@@ -95,6 +101,12 @@ registerLocaleData(localePt);
     RegisterComponent,
     LoginComponent,
     UserComponent,
+    MaquininhaCreateComponent,
+    MaquininhaReadComponent,
+    MaquininhaUpdateComponent,
+    MaquininhaDeleteComponent,
+    MaquininhaHomeComponent,
+    CreateMaquininhaComponent,
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,11 @@ import { RegisterComponent } from './components/login/register/register.componen
 import { UserComponent } from './components/login/user/user.component';
 import { authGuard } from './components/login/auth.guard';
 import { reverseAuthGuard } from './components/login/reverse-auth.guard';
+import { MaquininhaCreateComponent } from './components/maquininha/maquininha-create/maquininha-create.component';
+import { MaquininhaHomeComponent } from './views/maquininha-home/maquininha-home.component';
+import { MaquininhaUpdateComponent } from './components/maquininha/maquininha-update/maquininha-update.component';
+import { MaquininhaDeleteComponent } from './components/maquininha/maquininha-delete/maquininha-delete.component';
+import { adminAuthGuard } from './components/login/admin-auth.guard';
 
 const routes: Routes = [
   {
@@ -52,7 +57,23 @@ const routes: Routes = [
     path: "user",
     component: UserComponent,
     canActivate: [authGuard]
-  }
+  }, {
+    path: "maquininhaCreate",
+    component: MaquininhaCreateComponent,
+    // canActivate: [adminAuthGuard],
+  }, {
+    path: "maquininhaHome",
+    component: MaquininhaHomeComponent,
+    // canActivate: [adminAuthGuard],
+  }, {
+    path: "maquininhaUpdate/:id",
+    component: MaquininhaUpdateComponent,
+    // canActivate: [adminAuthGuard],
+  }, {
+    path: "maquininhaDelete/:id",
+    component: MaquininhaDeleteComponent,
+    // canActivate: [adminAuthGuard],
+  },
 ];
 
 @NgModule({

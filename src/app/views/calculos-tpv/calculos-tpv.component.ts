@@ -4,6 +4,9 @@ import { TabelaService } from 'src/app/components/tabela/tabela-create/tabela.se
 import { tabelaCrud } from 'src/app/components/tabela/tabelaCrud';
 import { HeaderService } from 'src/app/components/template/header/header.service';
 import { IConfig, provideNgxMask } from 'ngx-mask';
+import { maquininhaCrud } from 'src/app/components/tabela/maquininhaCrud';
+import { LogicaService } from './logica.service';
+import { TaxaCustoService } from './shared/taxa-custo/taxa-custo.service';
 
 export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
 
@@ -70,10 +73,16 @@ export class CalculosTpvComponent implements OnInit {
   share20x: number = 0;
   share21x: number = 0;
 
+  maquininhasDisponiveis: maquininhaCrud[] = [];
+  maquininhaSelecionadaId: string | null = null;
+  maquininhaTable!: maquininhaCrud
+
 
   constructor(private headerService: HeaderService,
     private tabelaService: TabelaService,
     private route: ActivatedRoute,
+    private logicaService: LogicaService,
+    private taxaCustoService: TaxaCustoService,
   ) {
     headerService.headerData = {
       title: "Tabelas",
@@ -91,7 +100,31 @@ export class CalculosTpvComponent implements OnInit {
         this.currentTable = table;
       });
     });
+
+    //parte responsável por carregar taxas da maquininha
+    const id = this.route.snapshot.paramMap.get('id')
+    console.log('inicial', this.maquininhasDisponiveis)
+    if (id) {
+      this.logicaService.readMaquininha().subscribe(maquininhas => {
+        this.maquininhasDisponiveis = maquininhas;
+        console.log('maquininha taxa', this.maquininhasDisponiveis)
+      });
+    }
   }
+
+  // atualiza maquininha selecionada no dropdown
+  atualizarMaquininha(): void {
+    const maquininhaId = this.maquininhaSelecionadaId;
+    console.log('dropdown antes', this.maquininhasDisponiveis, this.maquininhaSelecionadaId, maquininhaId)
+    if (maquininhaId) {
+      console.log('dropdown final', maquininhaId)
+      this.logicaService.readMaquininhaById(maquininhaId).subscribe(maquininhaTable => {
+        this.maquininhaTable = maquininhaTable;
+        this.taxaCustoService.atualizarTabelaDados(maquininhaTable);
+      });
+    }
+  }
+
 
   formatInput() {
     const valorSemPontos = this.formattedValue.replace(/\./g, '');
@@ -186,31 +219,5 @@ export class CalculosTpvComponent implements OnInit {
   }
 }
 
-// calcular() {
-//   if (!isNaN(this.inputValue)) {
-//     this.resultados = [];
-//     const tableRows = document.querySelectorAll('.share-tpv tr');
-
-//     for (let i = 1; i < tableRows.length; i++) {
-//       const shareTD = tableRows[i].querySelectorAll('td')[1];
-//       const resultadoTD = tableRows[i].querySelectorAll('td')[2];
-
-//       if (shareTD && resultadoTD) {
-//         const shareText = shareTD.textContent;
-//         if (shareText) {
-//           const shareValue = parseFloat(shareText.replace('%', '').replace(',', '.'));
-//           if (!isNaN(shareValue)) {
-//             const resultado = (this.inputValue * shareValue) / 100;
-//             const formattedResultado = resultado.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-//             resultadoTD.textContent = formattedResultado;
-//             this.resultados.push(resultado);
-
-//           }
-//         }
-//       }
-//     }
-//     this.resultadosAtualizados.emit(this.resultados);
-//   }
-// }
 
 

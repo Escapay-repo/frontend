@@ -1,0 +1,158 @@
+<mat-card class="cabecalho mat-elevation-z3">
+    <mat-card-title class="title">Excluir Tabela</mat-card-title>
+</mat-card>
+<div class="nome-tabela">{{table.tableName}}</div>
+<div class="tabela-container">
+    <div class="tabela">
+        <table>
+            <tr>
+                <th>Forma de Pagamento</th>
+                <th>MasterCard</th>
+                <th>Visa</th>
+                <th>Outros</th>
+            </tr>
+            <tr>
+                <td class="celulas">Débito</td>
+                <td class="celulas">{{formatarNumero(table.debito.masterCard)}}%</td>
+                <td class="celulas">{{formatarNumero(table.debito.visa)}}%</td>
+                <td class="celulas">{{formatarNumero(table.debito.outros)}}%</td>
+            </tr>
+            <tr>
+                <td class="celulas">Crédito</td>
+                <td class="celulas">{{formatarNumero(table.credito.masterCard)}}%</td>
+                <td class="celulas">{{formatarNumero(table.credito.visa)}}%</td>
+                <td class="celulas">{{formatarNumero(table.credito.outros)}}%</td>
+            </tr>
+            <tr>
+                <td class="celulas">2x</td>
+                <td class="celulas">{{formatarNumero(table.duas.masterCard)}}%</td>
+                <td class="celulas">{{formatarNumero(table.duas.visa)}}%</td>
+                <td class="celulas">{{formatarNumero(table.duas.outros)}}%</td>
+            </tr>
+            <tr>
+                <td class="celulas">3x</td>
+                <td class="celulas">{{formatarNumero(table.tres.masterCard)}}%</td>
+                <td class="celulas">{{formatarNumero(table.tres.visa)}}%</td>
+                <td class="celulas">{{formatarNumero(table.tres.outros)}}%</td>
+            </tr>
+            <tr>
+                <td class="celulas">4x</td>
+                <td class="celulas">{{formatarNumero(table.quatro.masterCard)}}%</td>
+                <td class="celulas">{{formatarNumero(table.quatro.visa)}}%</td>
+                <td class="celulas">{{formatarNumero(table.quatro.outros)}}%</td>
+            </tr>
+            <tr>
+                <td class="celulas">5x</td>
+                <td class="celulas">{{formatarNumero(table.cinco.masterCard)}}%</td>
+                <td class="celulas">{{formatarNumero(table.cinco.visa)}}%</td>
+                <td class="celulas">{{formatarNumero(table.cinco.outros)}}%</td>
+            </tr>
+            <tr>
+                <td class="celulas">6x</td>
+                <td class="celulas">{{formatarNumero(table.seis.masterCard)}}%</td>
+                <td class="celulas">{{formatarNumero(table.seis.visa)}}%</td>
+                <td class="celulas">{{formatarNumero(table.seis.outros)}}%</td>
+            </tr>
+            <tr>
+                <td class="celulas">7x</td>
+                <td class="celulas">{{formatarNumero(table.sete.masterCard)}}%</td>
+                <td class="celulas">{{formatarNumero(table.sete.visa)}}%</td>
+                <td class="celulas">{{formatarNumero(table.sete.outros)}}%</td>
+            </tr>
+            <tr>
+                <td class="celulas">8x</td>
+                <td class="celulas">{{formatarNumero(table.oito.masterCard)}}%</td>
+                <td class="celulas">{{formatarNumero(table.oito.visa)}}%</td>
+                <td class="celulas">{{formatarNumero(table.oito.outros)}}%</td>
+            </tr>
+            <tr>
+                <td class="celulas">9x</td>
+                <td class="celulas">{{formatarNumero(table.nove.masterCard)}}%</td>
+                <td class="celulas">{{formatarNumero(table.nove.visa)}}%</td>
+                <td class="celulas">{{formatarNumero(table.nove.outros)}}%</td>
+            </tr>
+            <tr>
+                <td class="celulas">10x</td>
+                <td class="celulas">{{formatarNumero(table.dez.masterCard)}}%</td>
+                <td class="celulas">{{formatarNumero(table.dez.visa)}}%</td>
+                <td class="celulas">{{formatarNumero(table.dez.outros)}}%</td>
+            </tr>
+            <tr>
+                <td class="celulas">11x</td>
+                <td class="celulas">{{formatarNumero(table.onze.masterCard)}}%</td>
+                <td class="celulas">{{formatarNumero(table.onze.visa)}}%</td>
+                <td class="celulas">{{formatarNumero(table.onze.outros)}}%</td>
+            </tr>
+            <tr>
+                <td class="celulas">12x</td>
+                <td class="celulas">{{formatarNumero(table.doze.masterCard)}}%</td>
+                <td class="celulas">{{formatarNumero(table.doze.visa)}}%</td>
+                <td class="celulas">{{formatarNumero(table.doze.outros)}}%</td>
+            </tr>
+            <tr>
+                <td class="celulas">13x</td>
+                <td class="celulas">{{formatarNumero(table.treze.masterCard)}}%</td>
+                <td class="celulas">{{formatarNumero(table.treze.visa)}}%</td>
+                <td class="celulas">{{formatarNumero(table.treze.outros)}}%</td>
+            </tr>
+            <tr>
+                <td class="celulas">14x</td>
+                <td class="celulas">{{formatarNumero(table.quatorze.masterCard)}}%</td>
+                <td class="celulas">{{formatarNumero(table.quatorze.visa)}}%</td>
+                <td class="celulas">{{formatarNumero(table.quatorze.outros)}}%</td>
+            </tr>
+            <tr>
+                <td class="celulas">15x</td>
+                <td class="celulas">{{formatarNumero(table.quinze.masterCard)}}%</td>
+                <td class="celulas">{{formatarNumero(table.quinze.visa)}}%</td>
+                <td class="celulas">{{formatarNumero(table.quinze.outros)}}%</td>
+            </tr>
+            <tr>
+                <td class="celulas">16x</td>
+                <td class="celulas">{{formatarNumero(table.dezesseis.masterCard)}}%</td>
+                <td class="celulas">{{formatarNumero(table.dezesseis.visa)}}%</td>
+                <td class="celulas">{{formatarNumero(table.dezesseis.outros)}}%</td>
+            </tr>
+            <tr>
+                <td class="celulas">17x</td>
+                <td class="celulas">{{formatarNumero(table.dezessete.masterCard)}}%</td>
+                <td class="celulas">{{formatarNumero(table.dezessete.visa)}}%</td>
+                <td class="celulas">{{formatarNumero(table.dezessete.outros)}}%</td>
+            </tr>
+            <tr>
+                <td class="celulas">18x</td>
+                <td class="celulas">{{formatarNumero(table.dezoito.masterCard)}}%</td>
+                <td class="celulas">{{formatarNumero(table.dezoito.visa)}}%</td>
+                <td class="celulas">{{formatarNumero(table.dezoito.outros)}}%</td>
+            </tr>
+            <tr>
+                <td class="celulas">19x</td>
+                <td class="celulas">{{formatarNumero(table.dezenove.masterCard)}}%</td>
+                <td class="celulas">{{formatarNumero(table.dezenove.visa)}}%</td>
+                <td class="celulas">{{formatarNumero(table.dezenove.outros)}}%</td>
+            </tr>
+            <tr>
+                <td class="celulas">20x</td>
+                <td class="celulas">{{formatarNumero(table.vinte.masterCard)}}%</td>
+                <td class="celulas">{{formatarNumero(table.vinte.visa)}}%</td>
+                <td class="celulas">{{formatarNumero(table.vinte.outros)}}%</td>
+            </tr>
+            <tr>
+                <td class="celulas">21x</td>
+                <td class="celulas">{{formatarNumero(table.vinteUm.masterCard)}}%</td>
+                <td class="celulas">{{formatarNumero(table.vinteUm.visa)}}%</td>
+                <td class="celulas">{{formatarNumero(table.vinteUm.outros)}}%</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="buttons-container">
+        <button mat-raised-buton (click)="deleteTable()" class="deletar" color="warn">
+            Deletar
+        </button>
+
+        <button mat-raised-buton (click)="cancel()" class="cancelar">
+            Cancelar
+        </button>
+    </div>
+</div>

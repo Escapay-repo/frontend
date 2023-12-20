@@ -12,10 +12,24 @@
     <!-- <div class="soma-porcentagens">
       Soma das porcentagens: {{ calcularSomaPorcentagens() }}%
     </div> -->
-
   </div>
-
   <div class="escapay-container">
+    <div class="dropdown-container">
+      <table>
+        <tr>
+          <th class="dropdownth"><label for="tabelaDropdown">Selecione a tabela:</label></th>
+        </tr>
+        <tr>
+          <td class="dropdowntd">
+            <select id="tabelaDropdown" (change)="atualizarMaquininha()" [(ngModel)]="maquininhaSelecionadaId">
+              <option *ngFor="let maquininha of maquininhasDisponiveis" [value]="maquininha._id">
+                {{ maquininha.tableName }}
+              </option>
+            </select>
+          </td>
+        </tr>
+      </table>
+    </div>
     <div>
       <escapay-share-bandeiras-total></escapay-share-bandeiras-total>
     </div>
@@ -223,7 +237,7 @@
     <escapay-share-bandeiras [resultados]="resultados"></escapay-share-bandeiras>
   </div>
   <div class="tabela">
-    <escapay-taxa-custo></escapay-taxa-custo>
+    <escapay-taxa-custo [tabelaSelecionada]="maquininhaTable"></escapay-taxa-custo>
   </div>
   <div class="tabela">
     <escapay-taxa-venda></escapay-taxa-venda>
