@@ -155,27 +155,3 @@ export class TaxaCustoComponent implements OnInit {
   }
 }
 
-// atualizarTabela(): void {
-//   const maquininhaId = this.maquininhaSelecionadaId;
-//   console.log('dropdown antes', this.maquininhasDisponiveis, this.maquininhaSelecionadaId, maquininhaId)
-//   if (maquininhaId) {
-//     console.log('dropdown final', maquininhaId)
-//     this.maquininhaService.readById(maquininhaId).subscribe(maquininhaTable => {
-//       this.maquininhaTable = maquininhaTable;
-//       this.taxaCustoService.atualizarTabelaDados(maquininhaTable);
-//     });
-//   }
-// }
-// tabelaDados: { master: number, visa: number, outros: number }[] = [];
-//     this.maquininhaService.readById(id).subscribe(table => {
-//       this.table = table;
-//       this.taxaCustoService.atualizarTabelaDados(table);
-//     });
-//   }
-//}
-//   formatarNumero(numeroDigitado: number): string {
-//     const numeroFormatado = this.formatadorService.formatarVirgula(numeroDigitado);
-//     return numeroFormatado;
-//   }
-// }
-

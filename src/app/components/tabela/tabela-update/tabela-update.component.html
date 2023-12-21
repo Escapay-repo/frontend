@@ -6,7 +6,44 @@
 <div class="tabela-container">
         <div class="tabela">
                 <table>
+                        <tr class="cabecalho-botao">
+                                <th></th>
+                                <th>
+                                        <button (click)="visaToMaster()" class="copy">Copiar
+                                                de
+                                                Visa</button>
+                                </th>
+                                <th>
+                                        <button (click)="masterToVisa()" class="copy">Copiar
+                                                de
+                                                MasterCard</button>
+                                </th>
+                                <th>
+                                        <button (click)="masterToOutros()" class="copy">Copiar
+                                                de
+                                                MasterCard</button>
+                                </th>
+                        </tr>
+                        <tr class="cabecalho-botao">
+                                <th></th>
+                                <th>
+                                        <button (click)="outrosToMaster()" class="copy">Copiar
+                                                de
+                                                Outros</button>
+                                </th>
+                                <th>
+                                        <button (click)="outrosToVisa()" class="copy">Copiar
+                                                de
+                                                Outros</button>
+                                </th>
+                                <th>
+                                        <button (click)="visaToOutros()" class="copy">Copiar
+                                                de
+                                                Visa</button>
+                                </th>
+                        </tr>
                         <tr>
+
                                 <th>Forma de Pagamento</th>
                                 <th>MasterCard</th>
                                 <th>Visa</th>

@@ -1,122 +1,211 @@
 <div class="tabela-container">
-    <div class="tabela">
-        <table class="tabela">
-            <tr>
-                <th>MARKUP % MASTER</th>
-                <th>MARKUP % VISA</th>
-                <th>MARKUP % OUTROS</th>
-        </tr>
-        <tr>
-            <td>{{ convertToNumber(table.debito.masterCard) - convertToNumber(taxaCusto.debito.masterCard) | number: '1.2-2'}} %</td>
-            <td>{{ convertToNumber(table.debito.visa) - convertToNumber(taxaCusto.debito.visa) | number: '1.2-2' }}%</td>
-            <td>{{ convertToNumber(table.debito.outros) - convertToNumber(taxaCusto.debito.outros) | number: '1.2-2' }}%</td>
-          </tr>
-          <tr>
-            <td>{{ convertToNumber(table.credito.masterCard) - convertToNumber(taxaCusto.credito.masterCard) | number: '1.2-2'  }} %</td>
-            <td>{{ convertToNumber(table.credito.visa) - convertToNumber(taxaCusto.credito.visa) | number: '1.2-2' }}%</td>
-            <td>{{ convertToNumber(table.credito.outros) - convertToNumber(taxaCusto.credito.outros) | number: '1.2-2' }}%</td>
-          </tr>
-          <tr>
-            <td>{{ convertToNumber(table.duas.masterCard) - convertToNumber(taxaCusto.duas.masterCard) | number: '1.2-2'  }} %</td>
-            <td>{{ convertToNumber(table.duas.visa) - convertToNumber(taxaCusto.duas.visa) | number: '1.2-2' }}%</td>
-            <td>{{ convertToNumber(table.duas.outros) - convertToNumber(taxaCusto.duas.outros) | number: '1.2-2' }}%</td>
-          </tr>
-          <tr>
-            <td>{{ convertToNumber(table.tres.masterCard) - convertToNumber(taxaCusto.tres.masterCard) | number: '1.2-2'  }} %</td>
-            <td>{{ convertToNumber(table.tres.visa) - convertToNumber(taxaCusto.tres.visa) | number: '1.2-2' }}%</td>
-            <td>{{ convertToNumber(table.tres.outros) - convertToNumber(taxaCusto.tres.outros) | number: '1.2-2' }}%</td>
-          </tr>
-          <tr>
-            <td>{{ convertToNumber(table.quatro.masterCard) - convertToNumber(taxaCusto.quatro.masterCard) | number: '1.2-2'  }} %</td>
-            <td>{{ convertToNumber(table.quatro.visa) - convertToNumber(taxaCusto.quatro.visa) | number: '1.2-2' }}%</td>
-            <td>{{ convertToNumber(table.quatro.outros) - convertToNumber(taxaCusto.quatro.outros) | number: '1.2-2' }}%</td>
-          </tr>
-          <tr>
-            <td>{{ convertToNumber(table.cinco.masterCard) - convertToNumber(taxaCusto.cinco.masterCard) | number: '1.2-2'  }} %</td>
-            <td>{{ convertToNumber(table.cinco.visa) - convertToNumber(taxaCusto.cinco.visa) | number: '1.2-2' }}%</td>
-            <td>{{ convertToNumber(table.cinco.outros) - convertToNumber(taxaCusto.cinco.outros) | number: '1.2-2' }}%</td>
-          </tr>
-          <tr>
-            <td>{{ convertToNumber(table.seis.masterCard) - convertToNumber(taxaCusto.seis.masterCard) | number: '1.2-2'  }} %</td>
-            <td>{{ convertToNumber(table.seis.visa) - convertToNumber(taxaCusto.seis.visa) | number: '1.2-2' }}%</td>
-            <td>{{ convertToNumber(table.seis.outros) - convertToNumber(taxaCusto.seis.outros) | number: '1.2-2' }}%</td>
-          </tr>
-          <tr>
-            <td>{{ convertToNumber(table.sete.masterCard) - convertToNumber(taxaCusto.sete.masterCard) | number: '1.2-2'  }} %</td>
-            <td>{{ convertToNumber(table.sete.visa) - convertToNumber(taxaCusto.sete.visa) | number: '1.2-2' }}%</td>
-            <td>{{ convertToNumber(table.sete.outros) - convertToNumber(taxaCusto.sete.outros) | number: '1.2-2' }}%</td>
-          </tr>
-          <tr>
-            <td>{{ convertToNumber(table.oito.masterCard) - convertToNumber(taxaCusto.oito.masterCard) | number: '1.2-2'  }} %</td>
-            <td>{{ convertToNumber(table.oito.visa) - convertToNumber(taxaCusto.oito.visa) | number: '1.2-2' }}%</td>
-            <td>{{ convertToNumber(table.oito.outros) - convertToNumber(taxaCusto.oito.outros) | number: '1.2-2' }}%</td>
-          </tr>
-          <tr>
-            <td>{{ convertToNumber(table.nove.masterCard) - convertToNumber(taxaCusto.nove.masterCard) | number: '1.2-2'  }} %</td>
-            <td>{{ convertToNumber(table.nove.visa) - convertToNumber(taxaCusto.nove.visa) | number: '1.2-2' }}%</td>
-            <td>{{ convertToNumber(table.nove.outros) - convertToNumber(taxaCusto.nove.outros) | number: '1.2-2' }}%</td>
-          </tr>
-          <tr>
-            <td>{{ convertToNumber(table.dez.masterCard) - convertToNumber(taxaCusto.dez.masterCard) | number: '1.2-2'  }} %</td>
-            <td>{{ convertToNumber(table.dez.visa) - convertToNumber(taxaCusto.dez.visa) | number: '1.2-2' }}%</td>
-            <td>{{ convertToNumber(table.dez.outros) - convertToNumber(taxaCusto.dez.outros) | number: '1.2-2' }}%</td>
-          </tr>
-          <tr>
-            <td>{{ convertToNumber(table.onze.masterCard) - convertToNumber(taxaCusto.onze.masterCard) | number: '1.2-2'  }} %</td>
-            <td>{{ convertToNumber(table.onze.visa) - convertToNumber(taxaCusto.onze.visa) | number: '1.2-2' }}%</td>
-            <td>{{ convertToNumber(table.onze.outros) - convertToNumber(taxaCusto.onze.outros) | number: '1.2-2' }}%</td>
-          </tr>
-          <tr>
-            <td>{{ convertToNumber(table.doze.masterCard) - convertToNumber(taxaCusto.doze.masterCard) | number: '1.2-2'  }} %</td>
-            <td>{{ convertToNumber(table.doze.visa) - convertToNumber(taxaCusto.doze.visa) | number: '1.2-2' }}%</td>
-            <td>{{ convertToNumber(table.doze.outros) - convertToNumber(taxaCusto.doze.outros) | number: '1.2-2' }}%</td>
-          </tr>
-          <tr>
-            <td>{{ convertToNumber(table.treze.masterCard) - convertToNumber(taxaCusto.treze.masterCard) | number: '1.2-2'  }} %</td>
-            <td>{{ convertToNumber(table.treze.visa) - convertToNumber(taxaCusto.treze.visa) | number: '1.2-2' }}%</td>
-            <td>{{ convertToNumber(table.treze.outros) - convertToNumber(taxaCusto.treze.outros) | number: '1.2-2' }}%</td>
-          </tr>
-          <tr>
-            <td>{{ convertToNumber(table.quatorze.masterCard) - convertToNumber(taxaCusto.quatorze.masterCard) | number: '1.2-2'  }} %</td>
-            <td>{{ convertToNumber(table.quatorze.visa) - convertToNumber(taxaCusto.quatorze.visa) | number: '1.2-2' }}%</td>
-            <td>{{ convertToNumber(table.quatorze.outros) - convertToNumber(taxaCusto.quatorze.outros) | number: '1.2-2' }}%</td>
-          </tr>
-          <tr>
-            <td>{{ convertToNumber(table.quatorze.masterCard) - convertToNumber(taxaCusto.quatorze.masterCard) | number: '1.2-2'  }} %</td>
-            <td>{{ convertToNumber(table.quatorze.visa) - convertToNumber(taxaCusto.quatorze.visa) | number: '1.2-2' }}%</td>
-            <td>{{ convertToNumber(table.quatorze.outros) - convertToNumber(taxaCusto.quatorze.outros) | number: '1.2-2' }}%</td>
-          </tr>
-          <tr>
-            <td>{{ convertToNumber(table.quinze.masterCard) - convertToNumber(taxaCusto.quinze.masterCard) | number: '1.2-2'  }} %</td>
-            <td>{{ convertToNumber(table.quinze.visa) - convertToNumber(taxaCusto.quinze.visa) | number: '1.2-2' }}%</td>
-            <td>{{ convertToNumber(table.quinze.outros) - convertToNumber(taxaCusto.quinze.outros) | number: '1.2-2' }}%</td>
-          </tr>
-          <tr>
-            <td>{{ convertToNumber(table.dezesseis.masterCard) - convertToNumber(taxaCusto.dezesseis.masterCard) | number: '1.2-2'  }} %</td>
-            <td>{{ convertToNumber(table.dezesseis.visa) - convertToNumber(taxaCusto.dezesseis.visa) | number: '1.2-2' }}%</td>
-            <td>{{ convertToNumber(table.dezesseis.outros) - convertToNumber(taxaCusto.dezesseis.outros) | number: '1.2-2' }}%</td>
-          </tr>
-          <tr>
-            <td>{{ convertToNumber(table.dezessete.masterCard) - convertToNumber(taxaCusto.dezessete.masterCard) | number: '1.2-2'  }} %</td>
-            <td>{{ convertToNumber(table.dezessete.visa) - convertToNumber(taxaCusto.dezessete.visa) | number: '1.2-2' }}%</td>
-            <td>{{ convertToNumber(table.dezessete.outros) - convertToNumber(taxaCusto.dezessete.outros) | number: '1.2-2' }}%</td>
-          </tr>
-          <tr>
-            <td>{{ convertToNumber(table.dezoito.masterCard) - convertToNumber(taxaCusto.dezoito.masterCard) | number: '1.2-2'  }} %</td>
-            <td>{{ convertToNumber(table.dezoito.visa) - convertToNumber(taxaCusto.dezoito.visa) | number: '1.2-2' }}%</td>
-            <td>{{ convertToNumber(table.dezoito.outros) - convertToNumber(taxaCusto.dezoito.outros) | number: '1.2-2' }}%</td>
-          </tr>
-          <tr>
-            <td>{{ convertToNumber(table.vinte.masterCard) - convertToNumber(taxaCusto.vinte.masterCard) | number: '1.2-2'  }} %</td>
-            <td>{{ convertToNumber(table.vinte.visa) - convertToNumber(taxaCusto.vinte.visa) | number: '1.2-2' }}%</td>
-            <td>{{ convertToNumber(table.vinte.outros) - convertToNumber(taxaCusto.vinte.outros) | number: '1.2-2' }}%</td>
-          </tr>
-          <tr>
-            <td>{{ convertToNumber(table.vinteUm.masterCard) - convertToNumber(taxaCusto.vinteUm.masterCard) | number: '1.2-2'  }} %</td>
-            <td>{{ convertToNumber(table.vinteUm.visa) - convertToNumber(taxaCusto.vinteUm.visa) | number: '1.2-2' }}%</td>
-            <td>{{ convertToNumber(table.vinteUm.outros) - convertToNumber(taxaCusto.vinteUm.outros) | number: '1.2-2' }}%</td>
-          </tr>
+  <div class="tabela">
+    <table class="tabela">
+      <tr>
+        <th>MARKUP % MASTER</th>
+        <th>MARKUP % VISA</th>
+        <th>MARKUP % OUTROS</th>
+      </tr>
+      <tr>
+        <td>{{ convertToNumber(table.debito.masterCard) - convertToNumber(maquininhaTable.debito.masterCard) | number:
+          '1.2-2'}} %</td>
+        <td>{{ convertToNumber(table.debito.visa) - convertToNumber(maquininhaTable.debito.visa) | number: '1.2-2' }}%
+        </td>
+        <td>{{ convertToNumber(table.debito.outros) - convertToNumber(maquininhaTable.debito.outros) | number: '1.2-2'
+          }}%
+        </td>
+      </tr>
+      <tr>
+        <td>{{ convertToNumber(table.credito.masterCard) - convertToNumber(maquininhaTable.credito.masterCard) | number:
+          '1.2-2' }} %</td>
+        <td>{{ convertToNumber(table.credito.visa) - convertToNumber(maquininhaTable.credito.visa) | number: '1.2-2' }}%
+        </td>
+        <td>{{ convertToNumber(table.credito.outros) - convertToNumber(maquininhaTable.credito.outros) | number: '1.2-2'
+          }}%
+        </td>
+      </tr>
+      <tr>
+        <td>{{ convertToNumber(table.duas.masterCard) - convertToNumber(maquininhaTable.duas.masterCard) | number:
+          '1.2-2' }}
+          %</td>
+        <td>{{ convertToNumber(table.duas.visa) - convertToNumber(maquininhaTable.duas.visa) | number: '1.2-2' }}%</td>
+        <td>{{ convertToNumber(table.duas.outros) - convertToNumber(maquininhaTable.duas.outros) | number: '1.2-2' }}%
+        </td>
+      </tr>
+      <tr>
+        <td>{{ convertToNumber(table.tres.masterCard) - convertToNumber(maquininhaTable.tres.masterCard) | number:
+          '1.2-2' }}
+          %</td>
+        <td>{{ convertToNumber(table.tres.visa) - convertToNumber(maquininhaTable.tres.visa) | number: '1.2-2' }}%</td>
+        <td>{{ convertToNumber(table.tres.outros) - convertToNumber(maquininhaTable.tres.outros) | number: '1.2-2' }}%
+        </td>
+      </tr>
+      <tr>
+        <td>{{ convertToNumber(table.quatro.masterCard) - convertToNumber(maquininhaTable.quatro.masterCard) | number:
+          '1.2-2'
+          }} %</td>
+        <td>{{ convertToNumber(table.quatro.visa) - convertToNumber(maquininhaTable.quatro.visa) | number: '1.2-2' }}%
+        </td>
+        <td>{{ convertToNumber(table.quatro.outros) - convertToNumber(maquininhaTable.quatro.outros) | number: '1.2-2'
+          }}%
+        </td>
+      </tr>
+      <tr>
+        <td>{{ convertToNumber(table.cinco.masterCard) - convertToNumber(maquininhaTable.cinco.masterCard) | number:
+          '1.2-2'
+          }} %</td>
+        <td>{{ convertToNumber(table.cinco.visa) - convertToNumber(maquininhaTable.cinco.visa) | number: '1.2-2' }}%
+        </td>
+        <td>{{ convertToNumber(table.cinco.outros) - convertToNumber(maquininhaTable.cinco.outros) | number: '1.2-2' }}%
+        </td>
+      </tr>
+      <tr>
+        <td>{{ convertToNumber(table.seis.masterCard) - convertToNumber(maquininhaTable.seis.masterCard) | number:
+          '1.2-2' }}
+          %</td>
+        <td>{{ convertToNumber(table.seis.visa) - convertToNumber(maquininhaTable.seis.visa) | number: '1.2-2' }}%</td>
+        <td>{{ convertToNumber(table.seis.outros) - convertToNumber(maquininhaTable.seis.outros) | number: '1.2-2' }}%
+        </td>
+      </tr>
+      <tr>
+        <td>{{ convertToNumber(table.sete.masterCard) - convertToNumber(maquininhaTable.sete.masterCard) | number:
+          '1.2-2' }}
+          %</td>
+        <td>{{ convertToNumber(table.sete.visa) - convertToNumber(maquininhaTable.sete.visa) | number: '1.2-2' }}%</td>
+        <td>{{ convertToNumber(table.sete.outros) - convertToNumber(maquininhaTable.sete.outros) | number: '1.2-2' }}%
+        </td>
+      </tr>
+      <tr>
+        <td>{{ convertToNumber(table.oito.masterCard) - convertToNumber(maquininhaTable.oito.masterCard) | number:
+          '1.2-2' }}
+          %</td>
+        <td>{{ convertToNumber(table.oito.visa) - convertToNumber(maquininhaTable.oito.visa) | number: '1.2-2' }}%</td>
+        <td>{{ convertToNumber(table.oito.outros) - convertToNumber(maquininhaTable.oito.outros) | number: '1.2-2' }}%
+        </td>
+      </tr>
+      <tr>
+        <td>{{ convertToNumber(table.nove.masterCard) - convertToNumber(maquininhaTable.nove.masterCard) | number:
+          '1.2-2' }}
+          %</td>
+        <td>{{ convertToNumber(table.nove.visa) - convertToNumber(maquininhaTable.nove.visa) | number: '1.2-2' }}%</td>
+        <td>{{ convertToNumber(table.nove.outros) - convertToNumber(maquininhaTable.nove.outros) | number: '1.2-2' }}%
+        </td>
+      </tr>
+      <tr>
+        <td>{{ convertToNumber(table.dez.masterCard) - convertToNumber(maquininhaTable.dez.masterCard) | number: '1.2-2'
+          }} %
+        </td>
+        <td>{{ convertToNumber(table.dez.visa) - convertToNumber(maquininhaTable.dez.visa) | number: '1.2-2' }}%</td>
+        <td>{{ convertToNumber(table.dez.outros) - convertToNumber(maquininhaTable.dez.outros) | number: '1.2-2' }}%
+        </td>
+      </tr>
+      <tr>
+        <td>{{ convertToNumber(table.onze.masterCard) - convertToNumber(maquininhaTable.onze.masterCard) | number:
+          '1.2-2' }}
+          %</td>
+        <td>{{ convertToNumber(table.onze.visa) - convertToNumber(maquininhaTable.onze.visa) | number: '1.2-2' }}%</td>
+        <td>{{ convertToNumber(table.onze.outros) - convertToNumber(maquininhaTable.onze.outros) | number: '1.2-2' }}%
+        </td>
+      </tr>
+      <tr>
+        <td>{{ convertToNumber(table.doze.masterCard) - convertToNumber(maquininhaTable.doze.masterCard) | number:
+          '1.2-2' }}
+          %</td>
+        <td>{{ convertToNumber(table.doze.visa) - convertToNumber(maquininhaTable.doze.visa) | number: '1.2-2' }}%</td>
+        <td>{{ convertToNumber(table.doze.outros) - convertToNumber(maquininhaTable.doze.outros) | number: '1.2-2' }}%
+        </td>
+      </tr>
+      <tr>
+        <td>{{ convertToNumber(table.treze.masterCard) - convertToNumber(maquininhaTable.treze.masterCard) | number:
+          '1.2-2'
+          }} %</td>
+        <td>{{ convertToNumber(table.treze.visa) - convertToNumber(maquininhaTable.treze.visa) | number: '1.2-2' }}%
+        </td>
+        <td>{{ convertToNumber(table.treze.outros) - convertToNumber(maquininhaTable.treze.outros) | number: '1.2-2' }}%
+        </td>
+      </tr>
+      <tr>
+        <td>{{ convertToNumber(table.quatorze.masterCard) - convertToNumber(maquininhaTable.quatorze.masterCard) |
+          number:
+          '1.2-2' }} %</td>
+        <td>{{ convertToNumber(table.quatorze.visa) - convertToNumber(maquininhaTable.quatorze.visa) | number: '1.2-2'
+          }}%
+        </td>
+        <td>{{ convertToNumber(table.quatorze.outros) - convertToNumber(maquininhaTable.quatorze.outros) | number:
+          '1.2-2' }}%
+        </td>
+      </tr>
+      <tr>
+        <td>{{ convertToNumber(table.quatorze.masterCard) - convertToNumber(maquininhaTable.quatorze.masterCard) |
+          number:
+          '1.2-2' }} %</td>
+        <td>{{ convertToNumber(table.quatorze.visa) - convertToNumber(maquininhaTable.quatorze.visa) | number: '1.2-2'
+          }}%
+        </td>
+        <td>{{ convertToNumber(table.quatorze.outros) - convertToNumber(maquininhaTable.quatorze.outros) | number:
+          '1.2-2' }}%
+        </td>
+      </tr>
+      <tr>
+        <td>{{ convertToNumber(table.quinze.masterCard) - convertToNumber(maquininhaTable.quinze.masterCard) | number:
+          '1.2-2'
+          }} %</td>
+        <td>{{ convertToNumber(table.quinze.visa) - convertToNumber(maquininhaTable.quinze.visa) | number: '1.2-2' }}%
+        </td>
+        <td>{{ convertToNumber(table.quinze.outros) - convertToNumber(maquininhaTable.quinze.outros) | number: '1.2-2'
+          }}%
+        </td>
+      </tr>
+      <tr>
+        <td>{{ convertToNumber(table.dezesseis.masterCard) - convertToNumber(maquininhaTable.dezesseis.masterCard) |
+          number:
+          '1.2-2' }} %</td>
+        <td>{{ convertToNumber(table.dezesseis.visa) - convertToNumber(maquininhaTable.dezesseis.visa) | number: '1.2-2'
+          }}%
+        </td>
+        <td>{{ convertToNumber(table.dezesseis.outros) - convertToNumber(maquininhaTable.dezesseis.outros) | number:
+          '1.2-2'
+          }}%</td>
+      </tr>
+      <tr>
+        <td>{{ convertToNumber(table.dezessete.masterCard) - convertToNumber(maquininhaTable.dezessete.masterCard) |
+          number:
+          '1.2-2' }} %</td>
+        <td>{{ convertToNumber(table.dezessete.visa) - convertToNumber(maquininhaTable.dezessete.visa) | number: '1.2-2'
+          }}%
+        </td>
+        <td>{{ convertToNumber(table.dezessete.outros) - convertToNumber(maquininhaTable.dezessete.outros) | number:
+          '1.2-2'
+          }}%</td>
+      </tr>
+      <tr>
+        <td>{{ convertToNumber(table.dezoito.masterCard) - convertToNumber(maquininhaTable.dezoito.masterCard) | number:
+          '1.2-2' }} %</td>
+        <td>{{ convertToNumber(table.dezoito.visa) - convertToNumber(maquininhaTable.dezoito.visa) | number: '1.2-2' }}%
+        </td>
+        <td>{{ convertToNumber(table.dezoito.outros) - convertToNumber(maquininhaTable.dezoito.outros) | number: '1.2-2'
+          }}%
+        </td>
+      </tr>
+      <tr>
+        <td>{{ convertToNumber(table.vinte.masterCard) - convertToNumber(maquininhaTable.vinte.masterCard) | number:
+          '1.2-2'
+          }} %</td>
+        <td>{{ convertToNumber(table.vinte.visa) - convertToNumber(maquininhaTable.vinte.visa) | number: '1.2-2' }}%
+        </td>
+        <td>{{ convertToNumber(table.vinte.outros) - convertToNumber(maquininhaTable.vinte.outros) | number: '1.2-2' }}%
+        </td>
+      </tr>
+      <tr>
+        <td>{{ convertToNumber(table.vinteUm.masterCard) - convertToNumber(maquininhaTable.vinteUm.masterCard) | number:
+          '1.2-2' }} %</td>
+        <td>{{ convertToNumber(table.vinteUm.visa) - convertToNumber(maquininhaTable.vinteUm.visa) | number: '1.2-2' }}%
+        </td>
+        <td>{{ convertToNumber(table.vinteUm.outros) - convertToNumber(maquininhaTable.vinteUm.outros) | number: '1.2-2'
+          }}%
+        </td>
+      </tr>
     </table>
 
-    </div>
+  </div>
 </div>

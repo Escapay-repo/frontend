@@ -110,7 +110,7 @@ export class ReceitaFranqueadoComponent implements OnInit {
       ((this.resultados[21] * this.masterShare / 100) * (this.convertToNumber(this.table.vinteUm.masterCard) - this.convertToNumber(this.taxaCusto.vinteUm.masterCard))) / 100 +
       ((this.resultados[21] * this.visaShare / 100) * (this.convertToNumber(this.table.vinteUm.visa) - this.convertToNumber(this.taxaCusto.vinteUm.visa))) / 100 +
       ((this.resultados[21] * this.outrosShare / 100) * (this.convertToNumber(this.table.vinteUm.outros) - this.convertToNumber(this.taxaCusto.vinteUm.outros))) / 100
-    ) * 0.845) * 0.40
+    ) * 0.94) * 0.40
     return valor;
   }
 }

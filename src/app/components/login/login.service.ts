@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject, EMPTY, Observable, catchError, map } from 'rxjs';
+import { BehaviorSubject, EMPTY, Observable, catchError, map, of } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 interface User {
@@ -15,8 +15,8 @@ interface User {
   providedIn: 'root'
 })
 export class LoginService {
-  private apiUrl = 'http://localhost:3001/users';
-  // private apiUrl = 'https://api.gusmfscoder.com.br/users';
+  // private apiUrl = 'http://localhost:3001/users';
+  private apiUrl = 'https://api.gusmfscoder.com.br/users';
   private token: string = '';
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
   private currentUserSubject = new BehaviorSubject<User | null>(null);
@@ -72,6 +72,7 @@ export class LoginService {
 
   isAdmin(): boolean {
     const currentUser = this.currentUserSubject.value;
+    console.log('currentUser', currentUser)
     return currentUser ? currentUser.admin : false;
   }
 

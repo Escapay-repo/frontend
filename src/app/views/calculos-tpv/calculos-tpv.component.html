@@ -17,7 +17,7 @@
     <div class="dropdown-container">
       <table>
         <tr>
-          <th class="dropdownth"><label for="tabelaDropdown">Selecione a tabela:</label></th>
+          <th class="dropdownth"><label for="tabelaDropdown">Selecionar Custo:</label></th>
         </tr>
         <tr>
           <td class="dropdowntd">
@@ -243,10 +243,11 @@
     <escapay-taxa-venda></escapay-taxa-venda>
   </div>
   <div class="tabela">
-    <escapay-markup></escapay-markup>
+    <escapay-markup [tabelaSelecionada]="maquininhaTable"></escapay-markup>
   </div>
   <div class="tabela">
-    <escapay-markup-bandeiras [resultados]="resultados"></escapay-markup-bandeiras>
+    <escapay-markup-bandeiras [resultados]="resultados"
+      [tabelaSelecionada]="maquininhaTable"></escapay-markup-bandeiras>
   </div>
   <div class="tabela">
     <escapay-custo-client></escapay-custo-client>

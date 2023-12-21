@@ -31,7 +31,7 @@ export class ReceitaTotalComponent implements OnInit {
   }
 
   calcularSoma(): number {
-    const valor =((
+    const valor = ((
       ((this.resultados[0] * 0.5) * (this.convertToNumber(this.table.debito.masterCard) - this.convertToNumber(this.taxaCusto.debito.masterCard))) / 100 +
       ((this.resultados[0] * 0.38) * (this.convertToNumber(this.table.debito.visa) - this.convertToNumber(this.taxaCusto.debito.visa))) / 100 +
       ((this.resultados[0] * 0.12) * (this.convertToNumber(this.table.debito.outros) - this.convertToNumber(this.taxaCusto.debito.outros))) / 100 +
@@ -97,8 +97,8 @@ export class ReceitaTotalComponent implements OnInit {
       ((this.resultados[20] * 0.12) * (this.convertToNumber(this.table.vinte.outros) - this.convertToNumber(this.taxaCusto.vinte.outros))) / 100 +
       ((this.resultados[21] * 0.5) * (this.convertToNumber(this.table.vinteUm.masterCard) - this.convertToNumber(this.taxaCusto.vinteUm.masterCard))) / 100 +
       ((this.resultados[21] * 0.38) * (this.convertToNumber(this.table.vinteUm.visa) - this.convertToNumber(this.taxaCusto.vinteUm.visa))) / 100 +
-      ((this.resultados[21] * 0.12) * (this.convertToNumber(this.table.vinteUm.outros) - this.convertToNumber(this.taxaCusto.vinteUm.outros))) / 100    
-    ) * 0.845)
+      ((this.resultados[21] * 0.12) * (this.convertToNumber(this.table.vinteUm.outros) - this.convertToNumber(this.taxaCusto.vinteUm.outros))) / 100
+    ) * 0.94)
     return valor;
   }
 }
