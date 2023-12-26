@@ -15,6 +15,7 @@ export class NavSchematicsComponent implements OnInit {
   @Input() showMenuButton: boolean = true;
   @Output() menuButtonClick = new EventEmitter<void>();
   isLoggedIn: boolean = false;
+  isAdmin: boolean = false;
 
   toggleMenu() {
     this.menuButtonClick.emit();
@@ -34,7 +35,9 @@ export class NavSchematicsComponent implements OnInit {
       this.isLoggedIn = isAuthenticated;
     });
     this.isLoggedIn = this.loginService.isAuthenticated();
-
+    this.loginService.isAdmin().subscribe((isAdmin) => {
+      this.isAdmin = isAdmin;
+    });
   }
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)

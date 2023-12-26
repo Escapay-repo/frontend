@@ -25,7 +25,7 @@ const routes: Routes = [
   {
     path: "tabela",
     component: TabelaCreateComponent,
-    canActivate: [authGuard]
+    canActivate: [adminAuthGuard],
   },
   {
     path: "tabelaTpv/:id",
@@ -40,11 +40,11 @@ const routes: Routes = [
   {
     path: "tabelaUpdate/:id",
     component: TabelaUpdateComponent,
-    canActivate: [authGuard]
+    canActivate: [adminAuthGuard],
   }, {
     path: "tabelaDelete/:id",
     component: TabelaDeleteComponent,
-    canActivate: [authGuard]
+    canActivate: [adminAuthGuard],
   }, {
     path: "login",
     component: LoginComponent,
@@ -60,19 +60,19 @@ const routes: Routes = [
   }, {
     path: "maquininhaCreate",
     component: MaquininhaCreateComponent,
-    // canActivate: [adminAuthGuard],
+    canActivate: [adminAuthGuard],
   }, {
     path: "maquininhaHome",
     component: MaquininhaHomeComponent,
-    // canActivate: [adminAuthGuard],
+    canActivate: [adminAuthGuard],
   }, {
     path: "maquininhaUpdate/:id",
     component: MaquininhaUpdateComponent,
-    // canActivate: [adminAuthGuard],
+    canActivate: [adminAuthGuard],
   }, {
     path: "maquininhaDelete/:id",
     component: MaquininhaDeleteComponent,
-    // canActivate: [adminAuthGuard],
+    canActivate: [adminAuthGuard],
   },
 ];
 

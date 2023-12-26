@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject, EMPTY, Observable, catchError, map, of } from 'rxjs';
+import { BehaviorSubject, EMPTY, Observable, catchError, map, of, tap } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
-interface User {
+export interface User {
   name: string;
   email: string;
   password: string;
   admin: boolean;
   token: string;
 }
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -35,15 +37,32 @@ export class LoginService {
     );
   }
 
+  // login(credentials: { email: string, password: string }): Observable<User> {
+  //   return this.http.post<User>(`${this.apiUrl}/login`, credentials, { withCredentials: true }).pipe(
+  //     map((userResponse) => {
+  //       if (userResponse.token) {
+  //         this.token = userResponse.token;
+  //         localStorage.setItem('token', this.token);
+  //         localStorage.setItem('isAdmin', userResponse.admin.toString()); // Armazenar a variável admin no localStorage
+  //         this.isAuthenticatedSubject.next(true);
+  //         this.currentUserSubject.next(userResponse);
+  //         console.log('usersubject', this.currentUserSubject);
+  //       }
+  //       return userResponse;
+  //     }),
+  //     catchError(e => this.errorHandler(e))
+  //   );
+  // }
+
   login(credentials: { email: string, password: string }): Observable<User> {
     return this.http.post<User>(`${this.apiUrl}/login`, credentials, { withCredentials: true }).pipe(
       map((userResponse) => {
         if (userResponse.token) {
           this.token = userResponse.token;
           localStorage.setItem('token', this.token);
+          // localStorage.setItem('isAdmin', userResponse.admin.toString());
           this.isAuthenticatedSubject.next(true);
           this.currentUserSubject.next(userResponse);
-          console.log('usersubject', this.currentUserSubject)
         }
         return userResponse;
       }),
@@ -57,8 +76,10 @@ export class LoginService {
   logout() {
     return this.http.post(`${this.apiUrl}/logout`, {}).pipe(
       map(() => {
-        this.clearToken();
-      })
+        localStorage.removeItem('token');  // Remover o token do localStorage
+        this.isAuthenticatedSubject.next(false);  // Definir o status de autenticação como falso
+      }),
+      catchError(e => this.errorHandler(e))
     );
   }
 
@@ -66,16 +87,24 @@ export class LoginService {
     const token = localStorage.getItem('token');
     const isAuthenticated = !!token;
     this.isAuthenticatedSubject.next(isAuthenticated);
-    console.log('autenticado', isAuthenticated)
     return isAuthenticated;
   }
 
-  isAdmin(): boolean {
-    const currentUser = this.currentUserSubject.value;
-    console.log('currentUser', currentUser)
-    return currentUser ? currentUser.admin : false;
+  isAdmin(): Observable<boolean> {
+    return this.getUser().pipe(
+      tap(user => console.log('Value from getUser:', user)),
+      map(user => {
+        if (user) {
+          return user.admin || localStorage.getItem('isAdmin') === 'true';
+        }
+        return false;
+      }),
+      catchError(err => {
+        console.error('Error fetching user details:', err);
+        return of(false);
+      })
+    );
   }
-
 
   getAuthStatus(): Observable<boolean> {
     return this.isAuthenticatedSubject.asObservable();
@@ -83,6 +112,7 @@ export class LoginService {
 
   clearToken() {
     localStorage.removeItem('token');
+    localStorage.removeItem('isAdmin');
     this.isAuthenticatedSubject.next(false);
   }
 
@@ -109,5 +139,29 @@ export class LoginService {
 
   getToken(): string {
     return this.token;
+  }
+
+  getUserDetails(): Observable<User | null> {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      console.error('Token not found');
+      return of(null);
+    }
+
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': token
+    });
+
+    return this.http.get<User>(`${this.apiUrl}/me`, { headers, withCredentials: true }).pipe(
+      map(user => {
+        this.currentUserSubject.next(user);
+        return user;
+      }),
+      catchError(e => {
+        console.error('Erro ao obter detalhes do usuário:', e);
+        return of(null);
+      })
+    );
   }
 }

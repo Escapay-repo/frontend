@@ -15,7 +15,7 @@
           </span>
         </a>
       </div>
-      <div class="SideNavButton">
+      <div class="SideNavButton" *ngIf="isAdmin">
         <a mat-list-item routerLink="tabela">
           <i class="material-icons">
             add_chart
@@ -45,7 +45,7 @@
           </span>
         </a>
       </div>
-      <div class="SideNavButton">
+      <div class="SideNavButton" *ngIf="isAdmin">
         <a mat-list-item routerLink="maquininhaHome">
           <i class="material-icons">
             price_change

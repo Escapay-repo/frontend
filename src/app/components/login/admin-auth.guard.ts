@@ -3,14 +3,6 @@ import { LoginService } from './login.service';
 import { inject } from '@angular/core';
 import { map, of, switchMap } from 'rxjs';
 
-interface User {
-  name: string;
-  email: string;
-  password: string;
-  admin: boolean;
-  token: string;
-}
-
 export const adminAuthGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
   const loginService = inject(LoginService);
@@ -18,24 +10,25 @@ export const adminAuthGuard: CanActivateFn = (route, state) => {
   return loginService.getAuthStatus().pipe(
     switchMap(isAuthenticated => {
       if (!isAuthenticated) {
-        router.navigate(['user']);
+        router.navigate(['/']);
         return of(false);
       }
-      return loginService.getUser().pipe(
-        map(user => {
-          if (user && loginService.isAdmin()) {
-            console.log('User is an admin:', user);
+      return loginService.isAdmin().pipe(
+        map(isAdmin => {
+          if (isAdmin) {
+            console.log('User is an admin:', isAdmin);
             return true;
           } else {
-            console.log('User is not an admin:', user);
-            router.navigate(['user']);
+            console.log('User is not an admin:', isAdmin);
+            loginService.showMessage('Sem Permissões.', true);
+            router.navigate(['/']);
             return false;
           }
         })
       );
     })
   );
-};
+}
 
 //   const loginService = inject(LoginService)
 //   return loginService.getAuthStatus().pipe(

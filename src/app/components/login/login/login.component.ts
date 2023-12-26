@@ -17,6 +17,8 @@ export class LoginComponent {
     const credentials = { email: this.email, password: this.password };
     this.loginService.login(credentials).subscribe({
       next: (response) => {
+        const isAdmin = response.admin;
+        localStorage.setItem('isAdmin', isAdmin.toString());
         const token = this.loginService.getToken();
         localStorage.setItem('token', token);
         this.router.navigate(['/']);
