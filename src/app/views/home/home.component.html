@@ -33,7 +33,7 @@
                         <div mat-list-item class="menu mat-elevation-z1">
                             <escapay-tabela-read></escapay-tabela-read>
                         </div>
-                        <div class="button">
+                        <div class="button" *ngIf="isAdmin">
                             <escapay-create></escapay-create>
                         </div>
                     </div>

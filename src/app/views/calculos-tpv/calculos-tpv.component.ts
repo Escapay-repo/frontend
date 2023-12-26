@@ -28,27 +28,27 @@ export class CalculosTpvComponent implements OnInit {
   formattedValue: string = '1.000.000';
 
   porcentagemDebito: number = 0;
-  porcentagemCredito: number = 0;
-  porcentagem2x: number = 0;
-  porcentagem3x: number = 0;
-  porcentagem4x: number = 0;
-  porcentagem5x: number = 0;
-  porcentagem6x: number = 0;
-  porcentagem7x: number = 0;
-  porcentagem8x: number = 0;
+  porcentagemCredito: number = 28.78;
+  porcentagem2x: number = 11.94;
+  porcentagem3x: number = 17.70;
+  porcentagem4x: number = 7.25;
+  porcentagem5x: number = 4.48;
+  porcentagem6x: number = 4.26;
+  porcentagem7x: number = 0.85;
+  porcentagem8x: number = 2.13;
   porcentagem9x: number = 0;
-  porcentagem10x: number = 0;
-  porcentagem11x: number = 0;
-  porcentagem12x: number = 0;
-  porcentagem13x: number = 0;
+  porcentagem10x: number = 10.45;
+  porcentagem11x: number = 1.07;
+  porcentagem12x: number = 7.25;
+  porcentagem13x: number = 0.43;
   porcentagem14x: number = 0;
-  porcentagem15x: number = 0;
+  porcentagem15x: number = 0.21;
   porcentagem16x: number = 0;
-  porcentagem17x: number = 0;
-  porcentagem18x: number = 0;
-  porcentagem19x: number = 0;
-  porcentagem20x: number = 0;
-  porcentagem21x: number = 0;
+  porcentagem17x: number = 0.21;
+  porcentagem18x: number = 1.28;
+  porcentagem19x: number = 0.43;
+  porcentagem20x: number = 0.21;
+  porcentagem21x: number = 0.64;
 
   shareDebito: number = 0;
   shareCredito: number = 0;
@@ -103,11 +103,14 @@ export class CalculosTpvComponent implements OnInit {
 
     //parte responsável por carregar taxas da maquininha
     const id = this.route.snapshot.paramMap.get('id')
-    console.log('inicial', this.maquininhasDisponiveis)
     if (id) {
       this.logicaService.readMaquininha().subscribe(maquininhas => {
         this.maquininhasDisponiveis = maquininhas;
         console.log('maquininha taxa', this.maquininhasDisponiveis)
+        if (this.maquininhasDisponiveis.length > 0) {
+          this.maquininhaSelecionadaId = this.maquininhasDisponiveis[0]._id;
+          this.atualizarMaquininha(); // Chame a função para atualizar com o primeiro item selecionado
+        }
       });
     }
   }

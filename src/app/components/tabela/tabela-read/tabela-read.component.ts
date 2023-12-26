@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { tabelaCrud } from '../tabelaCrud';
 import { TabelaService } from '../tabela-create/tabela.service';
+import { LoginService } from '../../login/login.service';
 
 @Component({
   selector: 'escapay-tabela-read',
@@ -9,15 +10,19 @@ import { TabelaService } from '../tabela-create/tabela.service';
 })
 export class TabelaReadComponent implements OnInit {
   tables!: tabelaCrud[]
-  displayedColumns = [ 'tableName', 'action']
+  displayedColumns = ['tableName', 'action']
+  isAdmin: boolean = false;
 
-  constructor(private tabelaService: TabelaService) { }
+  constructor(private tabelaService: TabelaService,
+    private loginService: LoginService) { }
 
   ngOnInit(): void {
     this.tabelaService.read().subscribe(tables => {
       this.tables = tables
     })
-    
+    this.loginService.isAdmin().subscribe((isAdmin) => {
+      this.isAdmin = isAdmin;
+    });
   }
   onClickNavigateToDetails(rowId: string): void {
     const prefix = '/tabelaTpv';

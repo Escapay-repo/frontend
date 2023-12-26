@@ -38,8 +38,8 @@ export class LogicaService {
   readMaquininha(): Observable<maquininhaCrud[]> {
     const headers = this.getHeaders();
     return this.http.get<maquininhaCrud[]>(
-      // 'http://localhost:3001/maquininha'
-      'https://api.gusmfscoder.com.br/maquininha'
+      'http://localhost:3001/maquininha'
+      // 'https://api.gusmfscoder.com.br/maquininha'
       , { headers, withCredentials: true }).pipe(
         map((obj) => obj),
         catchError(e => this.errorHandler(e))
@@ -48,8 +48,8 @@ export class LogicaService {
 
   readMaquininhaById(key: string): Observable<maquininhaCrud> {
     const url =
-      // `http://localhost:3001/maquininha/${key}`
-      `https://api.gusmfscoder.com.br/maquininha/${key}`
+      `http://localhost:3001/maquininha/${key}`
+    // `https://api.gusmfscoder.com.br/maquininha/${key}`
     const headers = this.getHeaders();
     return this.http.get<maquininhaCrud>(url, { headers }).pipe(
       map((obj) => obj),
