@@ -107,10 +107,10 @@ export class CalculosTpvComponent implements OnInit {
       this.logicaService.readMaquininha().subscribe(maquininhas => {
         this.maquininhasDisponiveis = maquininhas;
         console.log('maquininha taxa', this.maquininhasDisponiveis)
-        // if (this.maquininhasDisponiveis.length > 0) {
-        //   this.maquininhaSelecionadaId = this.maquininhasDisponiveis[0]._id;
-        //   this.atualizarMaquininha(); // Chame a função para atualizar com o primeiro item selecionado
-        // }
+        if (this.maquininhasDisponiveis.length > 0) {
+          this.maquininhaSelecionadaId = this.maquininhasDisponiveis[0]._id;
+          this.atualizarMaquininha(); // Chame a função para atualizar com o primeiro item selecionado
+        }
       });
     }
   }
