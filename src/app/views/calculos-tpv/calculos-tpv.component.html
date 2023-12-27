@@ -1,7 +1,7 @@
 <section class="TPV">
   <div class="TpvContainer">
     <div>
-      <h1 class="titulo">{{currentTable.tableName}}</h1>
+      <h1 class="titulo">Insira o TPV</h1>
     </div>
     <div class="inputTPV">
       R$<input type="text" [(ngModel)]="formattedValue" (input)="formatInput()">
@@ -50,13 +50,16 @@
       <escapay-share-bandeiras-total></escapay-share-bandeiras-total>
     </div>
     <div>
-      <escapay-receita-franqueado [resultados]="resultados"></escapay-receita-franqueado>
+      <escapay-receita-franqueado [resultados]="resultados" [maquininhaSelecionada]="maquininhaTable"
+        [tabelaSelecionada]="tabela"></escapay-receita-franqueado>
     </div>
     <div>
-      <escapay-comissao-clt [resultados]="resultados"></escapay-comissao-clt>
+      <escapay-comissao-clt [resultados]="resultados" [maquininhaSelecionada]="maquininhaTable"
+        [tabelaSelecionada]="tabela"></escapay-comissao-clt>
     </div>
     <div>
-      <escapay-receita-total [resultados]="resultados"></escapay-receita-total>
+      <escapay-receita-total [resultados]="resultados" [maquininhaSelecionada]="maquininhaTable"
+        [tabelaSelecionada]="tabela"></escapay-receita-total>
     </div>
   </div>
 </section>
@@ -65,9 +68,15 @@
     <div class="tabela">
       <table class="share-tpv">
         <tr>
-          <th>MODALIDADES</th>
-          <th>SHARE TPV (%)</th>
-          <th>SHARE TPV (R$)</th>
+          <th>MODALIDADES
+            <img class="nav-master" src="assets/img/master.png" alt="logo">
+          </th>
+          <th>SHARE TPV (%)
+            <img class="nav-master" src="assets/img/master.png" alt="logo">
+          </th>
+          <th>SHARE TPV (R$)
+            <img class="nav-master" src="assets/img/master.png" alt="logo">
+          </th>
         </tr>
         <tr>
           <td>Débito</td>

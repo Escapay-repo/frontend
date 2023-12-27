@@ -30,3 +30,12 @@ td {
 tr:nth-child(even) {
     background-color: #e3e4e6;
 }
+
+.nav-oculto {
+    width: 40px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-top: 0.3rem;
+    opacity: 0;
+}
