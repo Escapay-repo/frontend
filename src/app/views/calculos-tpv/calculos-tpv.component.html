@@ -4,14 +4,12 @@
       <h1 class="titulo">Insira o TPV</h1>
     </div>
     <div class="inputTPV">
-      R$<input type="text" [(ngModel)]="formattedValue" (input)="formatInput()">
+      <input type="text" mask="separator.2" prefix="R$" thousandSeparator="." [decimalMarker]="','"
+        [(ngModel)]="inputValue">
     </div>
     <div class="div_calcular">
       <button mat-raised-button class="calcular" (click)="calcular()">Calcular</button>
     </div>
-    <!-- <div class="soma-porcentagens">
-      Soma das porcentagens: {{ calcularSomaPorcentagens() }}%
-    </div> -->
   </div>
   <div class="escapay-container">
     <div class="dropdown-container">

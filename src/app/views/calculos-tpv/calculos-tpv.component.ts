@@ -97,7 +97,7 @@ export class CalculosTpvComponent implements OnInit {
 
   ngOnInit(): void {
     this.calcular();
-    this.formatInput();
+    // this.formatInput();
     this.route.params.subscribe(params => {
       this.currentTableId = params['id'];
       this.tabelaService.readById(this.currentTableId).subscribe(table => {
@@ -159,13 +159,13 @@ export class CalculosTpvComponent implements OnInit {
   }
 
 
-  formatInput() {
-    const valorSemPontos = this.formattedValue.replace(/\./g, '');
-    const partes = valorSemPontos.split(',');
-    const valorFinal = partes[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.') + (partes[1] ? ',' + partes[1].substring(0, 3) : '');
-    this.formattedValue = valorFinal;
-    this.inputValue = parseFloat(valorSemPontos.replace(',', '.'));
-  }
+  // formatInput() {
+  //   const valorSemPontos = this.formattedValue.replace(/\./g, '');
+  //   const partes = valorSemPontos.split(',');
+  //   const valorFinal = partes[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.') + (partes[1] ? ',' + partes[1].substring(0, 3) : '');
+  //   this.formattedValue = valorFinal;
+  //   this.inputValue = parseFloat(valorSemPontos.replace(',', '.'));
+  // }
 
   validarPorcentagem() {
     let porcentagemTotal =
