@@ -1,0 +1,23 @@
+.nav-master {
+    width: 40px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-top: 0.3rem;
+}
+
+.nav-visa {
+    width: 65px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-top: 0.3rem;
+}
+
+.nav-outros {
+    width: 90px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-top: 0.3rem;
+}

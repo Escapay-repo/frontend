@@ -2,9 +2,17 @@
   <div *ngIf="maquininhaTable" class="tabela">
     <table>
       <tr>
-        <th>TAXA DE CUSTO MASTER</th>
-        <th>TAXA DE CUSTO VISA</th>
-        <th>TAXA DE CUSTO OUTROS</th>
+        <th>TAXA DE CUSTO
+          <img class="nav-master" src="assets/img/master.png" alt="logo">
+        </th>
+        <th>TAXA DE CUSTO
+          <img class="nav-visa" src="assets/img/visa.png" alt="logo">
+
+        </th>
+        <th>TAXA DE CUSTO
+          <img class="nav-outros" src="assets/img/outros.png" alt="logo">
+
+        </th>
       </tr>
       <tr>
         <td>{{maquininhaTable.debito.masterCard}}%</td>

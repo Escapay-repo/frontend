@@ -4,15 +4,15 @@ import { LogicaService } from '../../logica.service';
 @Component({
   selector: 'escapay-share-bandeiras',
   templateUrl: './share-bandeiras.component.html',
-  styleUrls: ['./share-bandeiras.component.css']
+  styleUrls: ['./share-bandeiras.component.css', '../../../../styles/bandeiras.css']
 })
 export class ShareBandeirasComponent implements OnInit {
 
   constructor(private logicaService: LogicaService) { }
 
-  masterShare: number = 0;
-  visaShare: number = 0;
-  outrosShare: number = 0;
+  masterShare: number = 50;
+  visaShare: number = 38;
+  outrosShare: number = 12;
   @Input() resultados: Array<number> = [];
 
   ngOnInit() {

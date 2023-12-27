@@ -77,6 +77,10 @@ export class CalculosTpvComponent implements OnInit {
   maquininhaSelecionadaId: string | null = null;
   maquininhaTable!: maquininhaCrud
 
+  tabelasDisponiveis: tabelaCrud[] = [];
+  tabelaSelecionadaId: string | null = null;
+  tabela!: tabelaCrud
+
 
   constructor(private headerService: HeaderService,
     private tabelaService: TabelaService,
@@ -102,14 +106,27 @@ export class CalculosTpvComponent implements OnInit {
     });
 
     //parte responsável por carregar taxas da maquininha
-    const id = this.route.snapshot.paramMap.get('id')
-    if (id) {
+    const maquininhaId = this.route.snapshot.paramMap.get('id')
+    if (maquininhaId) {
       this.logicaService.readMaquininha().subscribe(maquininhas => {
         this.maquininhasDisponiveis = maquininhas;
         console.log('maquininha taxa', this.maquininhasDisponiveis)
         if (this.maquininhasDisponiveis.length > 0) {
           this.maquininhaSelecionadaId = this.maquininhasDisponiveis[0]._id;
-          this.atualizarMaquininha(); // Chame a função para atualizar com o primeiro item selecionado
+          this.atualizarMaquininha();
+        }
+      });
+    }
+
+    //parte responsável por carregar taxas da tabela
+    const tabelaId = this.route.snapshot.paramMap.get('id')
+    if (tabelaId) {
+      this.logicaService.readTabela().subscribe(tabelas => {
+        this.tabelasDisponiveis = tabelas;
+        console.log('maquininha taxa', this.tabelasDisponiveis)
+        if (this.tabelasDisponiveis.length > 0) {
+          this.tabelaSelecionadaId = this.tabelasDisponiveis[0]._id;
+          this.atualizarMaquininha();
         }
       });
     }
@@ -124,6 +141,19 @@ export class CalculosTpvComponent implements OnInit {
       this.logicaService.readMaquininhaById(maquininhaId).subscribe(maquininhaTable => {
         this.maquininhaTable = maquininhaTable;
         this.taxaCustoService.atualizarTabelaDados(maquininhaTable);
+      });
+    }
+  }
+
+  // atualiza maquininha selecionada no dropdown
+  atualizarTabela(): void {
+    const tabelasId = this.tabelaSelecionadaId;
+    console.log('dropdown antes', this.tabelasDisponiveis, this.tabelaSelecionadaId, tabelasId)
+    if (tabelasId) {
+      console.log('dropdown final', tabelasId)
+      this.logicaService.readTabelaById(tabelasId).subscribe(tabelasTable => {
+        this.tabela = tabelasTable;
+        this.taxaCustoService.atualizarTabelaDados(tabelasTable);
       });
     }
   }

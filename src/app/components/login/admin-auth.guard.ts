@@ -29,19 +29,3 @@ export const adminAuthGuard: CanActivateFn = (route, state) => {
     })
   );
 }
-
-//   const loginService = inject(LoginService)
-//   return loginService.getAuthStatus().pipe(
-//     switchMap(() => loginService.getUser()),
-//     map((user) => {
-//       if (user && user.admin) {
-//         console.log('usersubjecttrue', user?.admin, loginService.getUser())
-//         return true;
-//       } else {
-//         console.log('usersubjectfalse', user?.admin, loginService.getUser())
-//         router.navigate(['user']);
-//         return false;
-//       }
-//     })
-//   );
-// };

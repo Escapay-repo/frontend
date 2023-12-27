@@ -2,9 +2,15 @@
   <div class="tabela">
     <table class="tabela">
       <tr>
-        <th>MARKUP % MASTER</th>
-        <th>MARKUP % VISA</th>
-        <th>MARKUP % OUTROS</th>
+        <th>MARKUP %
+          <img class="nav-master" src="assets/img/master.png" alt="logo">
+        </th>
+        <th>MARKUP %
+          <img class="nav-visa" src="assets/img/visa.png" alt="logo">
+        </th>
+        <th>MARKUP %
+          <img class="nav-outros" src="assets/img/outros.png" alt="logo">
+        </th>
       </tr>
       <tr>
         <td>{{ convertToNumber(table.debito.masterCard) - convertToNumber(maquininhaTable.debito.masterCard) | number:

@@ -20,9 +20,9 @@ export class ShareBandeirasTotalComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  masterShare: number = 0;
-  visaShare: number = 0;
-  outrosShare: number = 0;
+  masterShare: number = 50;
+  visaShare: number = 38;
+  outrosShare: number = 12;
 
   validarPorcentagem() {
     let porcentagemTotal =

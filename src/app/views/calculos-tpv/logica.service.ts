@@ -1,3 +1,4 @@
+import { tabelaCrud } from './../../components/tabela/tabelaCrud';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -38,8 +39,8 @@ export class LogicaService {
   readMaquininha(): Observable<maquininhaCrud[]> {
     const headers = this.getHeaders();
     return this.http.get<maquininhaCrud[]>(
-      'http://localhost:3001/maquininha'
-      // 'https://api.gusmfscoder.com.br/maquininha'
+      // 'http://localhost:3001/maquininha'
+      'https://api.gusmfscoder.com.br/maquininha'
       , { headers, withCredentials: true }).pipe(
         map((obj) => obj),
         catchError(e => this.errorHandler(e))
@@ -48,10 +49,31 @@ export class LogicaService {
 
   readMaquininhaById(key: string): Observable<maquininhaCrud> {
     const url =
-      `http://localhost:3001/maquininha/${key}`
-    // `https://api.gusmfscoder.com.br/maquininha/${key}`
+      // `http://localhost:3001/maquininha/${key}`
+      `https://api.gusmfscoder.com.br/maquininha/${key}`
     const headers = this.getHeaders();
     return this.http.get<maquininhaCrud>(url, { headers }).pipe(
+      map((obj) => obj),
+      catchError(e => this.errorHandler(e))
+    )
+  }
+  readTabela(): Observable<tabelaCrud[]> {
+    const headers = this.getHeaders();
+    return this.http.get<tabelaCrud[]>(
+      // 'http://localhost:3001/tabelas'
+      'https://api.gusmfscoder.com.br/tabelas'
+      , { headers, withCredentials: true }).pipe(
+        map((obj) => obj),
+        catchError(e => this.errorHandler(e))
+      )
+  }
+
+  readTabelaById(key: string): Observable<tabelaCrud> {
+    const url =
+      // `http://localhost:3001/tabelas/${key}`
+      `https://api.gusmfscoder.com.br/tabelas/${key}`
+    const headers = this.getHeaders();
+    return this.http.get<tabelaCrud>(url, { headers }).pipe(
       map((obj) => obj),
       catchError(e => this.errorHandler(e))
     )

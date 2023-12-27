@@ -23,8 +23,6 @@ export class LoginService {
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
   private currentUserSubject = new BehaviorSubject<User | null>(null);
 
-
-
   constructor(private snackBar: MatSnackBar,
     private http: HttpClient,
   ) { }
@@ -37,30 +35,13 @@ export class LoginService {
     );
   }
 
-  // login(credentials: { email: string, password: string }): Observable<User> {
-  //   return this.http.post<User>(`${this.apiUrl}/login`, credentials, { withCredentials: true }).pipe(
-  //     map((userResponse) => {
-  //       if (userResponse.token) {
-  //         this.token = userResponse.token;
-  //         localStorage.setItem('token', this.token);
-  //         localStorage.setItem('isAdmin', userResponse.admin.toString()); // Armazenar a variável admin no localStorage
-  //         this.isAuthenticatedSubject.next(true);
-  //         this.currentUserSubject.next(userResponse);
-  //         console.log('usersubject', this.currentUserSubject);
-  //       }
-  //       return userResponse;
-  //     }),
-  //     catchError(e => this.errorHandler(e))
-  //   );
-  // }
-
   login(credentials: { email: string, password: string }): Observable<User> {
     return this.http.post<User>(`${this.apiUrl}/login`, credentials, { withCredentials: true }).pipe(
       map((userResponse) => {
         if (userResponse.token) {
           this.token = userResponse.token;
           localStorage.setItem('token', this.token);
-          // localStorage.setItem('isAdmin', userResponse.admin.toString());
+          localStorage.setItem('isAdmin', userResponse.admin.toString());
           this.isAuthenticatedSubject.next(true);
           this.currentUserSubject.next(userResponse);
         }
@@ -92,7 +73,6 @@ export class LoginService {
 
   isAdmin(): Observable<boolean> {
     return this.getUser().pipe(
-      tap(user => console.log('Value from getUser:', user)),
       map(user => {
         if (user) {
           return user.admin || localStorage.getItem('isAdmin') === 'true';

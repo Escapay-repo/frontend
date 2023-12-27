@@ -8,10 +8,10 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'escapay-taxa-custo',
   templateUrl: './taxa-custo.component.html',
-  styleUrls: ['./taxa-custo.component.css']
+  styleUrls: ['./taxa-custo.component.css', '../../../../styles/bandeiras.css']
 })
 export class TaxaCustoComponent implements OnInit {
-  @Input() tabelaSelecionada: maquininhaCrud | null = null;
+  @Input() maquininhaSelecionada: maquininhaCrud | null = null;
   maquininhasDisponiveis: maquininhaCrud[] = [];
   maquininhaTable: maquininhaCrud = {
     _id: '',
@@ -141,13 +141,13 @@ export class TaxaCustoComponent implements OnInit {
     });
   }
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['tabelaSelecionada'] && changes['tabelaSelecionada'].currentValue) {
-      const maquininhaId = changes['tabelaSelecionada'].currentValue._id;
-      this.atualizarTabela(maquininhaId);
+    if (changes['maquininhaSelecionada'] && changes['maquininhaSelecionada'].currentValue) {
+      const maquininhaId = changes['maquininhaSelecionada'].currentValue._id;
+      this.atualizarMaquininha(maquininhaId);
     }
   }
 
-  atualizarTabela(maquininhaId: string): void {
+  atualizarMaquininha(maquininhaId: string): void {
     this.maquininhaService.readById(maquininhaId).subscribe(maquininhaTable => {
       this.maquininhaTable = maquininhaTable;
       this.taxaCustoService.atualizarTabelaDados(maquininhaTable);

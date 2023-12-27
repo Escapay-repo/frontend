@@ -6,7 +6,7 @@ import { tabelaCrud } from 'src/app/components/tabela/tabelaCrud';
 @Component({
   selector: 'escapay-custo-client',
   templateUrl: './custo-client.component.html',
-  styleUrls: ['./custo-client.component.css']
+  styleUrls: ['./custo-client.component.css', '../../../../styles/bandeiras.css']
 })
 export class CustoClientComponent implements OnInit {
   table!: tabelaCrud

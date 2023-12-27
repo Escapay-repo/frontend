@@ -19,8 +19,4 @@ export class MaquininhaReadComponent implements OnInit {
     })
 
   }
-  onClickNavigateToDetails(rowId: string): void {
-    const prefix = '/tabelaTpv';
-    this.maquininhaService.navigateToDetails(prefix, rowId);
-  }
 }

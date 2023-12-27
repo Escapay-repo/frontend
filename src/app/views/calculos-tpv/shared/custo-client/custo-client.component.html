@@ -3,9 +3,15 @@
         <table>
             <tr>
                 <th>SIMULADO</th>
-                <th>CUSTO CLIENTE MASTER</th>
-                <th>CUSTO CLIENTE VISA</th>
-                <th>CUSTO CLIENTE OUTROS</th>
+                <th>CUSTO CLIENTE
+                    <img class="nav-master" src="assets/img/master.png" alt="logo">
+                </th>
+                <th>CUSTO CLIENTE
+                    <img class="nav-visa" src="assets/img/visa.png" alt="logo">
+                </th>
+                <th>CUSTO CLIENTE
+                    <img class="nav-outros" src="assets/img/outros.png" alt="logo">
+                </th>
                 <th>TAXA</th>
             </tr>
             <tr>
@@ -20,7 +26,8 @@
                 <td>{{ (1000/ ((100 - convertToNumber(table.credito.masterCard))/100)) | currency:'BRL' }}</td>
                 <td>{{ (1000/ ((100 - convertToNumber(table.credito.visa))/100)) | currency:'BRL' }}</td>
                 <td>{{ (1000/ ((100 - convertToNumber(table.credito.outros))/100)) | currency:'BRL' }}</td>
-                <td>{{ ((custoReais(convertToNumber(table.credito.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%</td>
+                <td>{{ ((custoReais(convertToNumber(table.credito.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%
+                </td>
             </tr>
             <tr>
                 <td>{{1000 | currency:'BRL'}}</td>
@@ -111,7 +118,8 @@
                 <td>{{ (1000/ ((100 - convertToNumber(table.quatorze.masterCard))/100)) | currency:'BRL' }}</td>
                 <td>{{ (1000/ ((100 - convertToNumber(table.quatorze.visa))/100)) | currency:'BRL' }}</td>
                 <td>{{ (1000/ ((100 - convertToNumber(table.quatorze.outros))/100)) | currency:'BRL' }}</td>
-                <td>{{ ((custoReais(convertToNumber(table.quatorze.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%</td>
+                <td>{{ ((custoReais(convertToNumber(table.quatorze.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%
+                </td>
             </tr>
             <tr>
                 <td>{{1000 | currency:'BRL'}}</td>
@@ -125,28 +133,32 @@
                 <td>{{ (1000/ ((100 - convertToNumber(table.dezesseis.masterCard))/100)) | currency:'BRL' }}</td>
                 <td>{{ (1000/ ((100 - convertToNumber(table.dezesseis.visa))/100)) | currency:'BRL' }}</td>
                 <td>{{ (1000/ ((100 - convertToNumber(table.dezesseis.outros))/100)) | currency:'BRL' }}</td>
-                <td>{{ ((custoReais(convertToNumber(table.dezesseis.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%</td>
+                <td>{{ ((custoReais(convertToNumber(table.dezesseis.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%
+                </td>
             </tr>
             <tr>
                 <td>{{1000 | currency:'BRL'}}</td>
                 <td>{{ (1000/ ((100 - convertToNumber(table.dezessete.masterCard))/100)) | currency:'BRL' }}</td>
                 <td>{{ (1000/ ((100 - convertToNumber(table.dezessete.visa))/100)) | currency:'BRL' }}</td>
                 <td>{{ (1000/ ((100 - convertToNumber(table.dezessete.outros))/100)) | currency:'BRL' }}</td>
-                <td>{{ ((custoReais(convertToNumber(table.dezessete.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%</td>
+                <td>{{ ((custoReais(convertToNumber(table.dezessete.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%
+                </td>
             </tr>
             <tr>
                 <td>{{1000 | currency:'BRL'}}</td>
                 <td>{{ (1000/ ((100 - convertToNumber(table.dezoito.masterCard))/100)) | currency:'BRL' }}</td>
                 <td>{{ (1000/ ((100 - convertToNumber(table.dezoito.visa))/100)) | currency:'BRL' }}</td>
                 <td>{{ (1000/ ((100 - convertToNumber(table.dezoito.outros))/100)) | currency:'BRL' }}</td>
-                <td>{{ ((custoReais(convertToNumber(table.dezoito.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%</td>
+                <td>{{ ((custoReais(convertToNumber(table.dezoito.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%
+                </td>
             </tr>
             <tr>
                 <td>{{1000 | currency:'BRL'}}</td>
                 <td>{{ (1000/ ((100 - convertToNumber(table.dezenove.masterCard))/100)) | currency:'BRL' }}</td>
                 <td>{{ (1000/ ((100 - convertToNumber(table.dezenove.visa))/100)) | currency:'BRL' }}</td>
                 <td>{{ (1000/ ((100 - convertToNumber(table.dezenove.outros))/100)) | currency:'BRL' }}</td>
-                <td>{{ ((custoReais(convertToNumber(table.dezenove.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%</td>
+                <td>{{ ((custoReais(convertToNumber(table.dezenove.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%
+                </td>
             </tr>
             <tr>
                 <td>{{1000 | currency:'BRL'}}</td>
@@ -160,7 +172,8 @@
                 <td>{{ (1000/ ((100 - convertToNumber(table.vinteUm.masterCard))/100)) | currency:'BRL' }}</td>
                 <td>{{ (1000/ ((100 - convertToNumber(table.vinteUm.visa))/100)) | currency:'BRL' }}</td>
                 <td>{{ (1000/ ((100 - convertToNumber(table.vinteUm.outros))/100)) | currency:'BRL' }}</td>
-                <td>{{ ((custoReais(convertToNumber(table.vinteUm.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%</td>
+                <td>{{ ((custoReais(convertToNumber(table.vinteUm.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%
+                </td>
             </tr>
         </table>
 

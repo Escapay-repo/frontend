@@ -1,10 +1,18 @@
 <div class="tabela-container">
-  <div class="tabela">
+  <div *ngIf="table" class="tabela">
     <table>
       <tr>
-        <th>CUSTO LOJA MASTERCARD</th>
-        <th>CUSTO LOJA VISA</th>
-        <th>CUSTO LOJA OUTROS</th>
+        <th>CUSTO LOJA
+          <img class="nav-master" src="assets/img/master.png" alt="logo">
+        </th>
+        <th>CUSTO LOJA
+          <img class="nav-visa" src="assets/img/visa.png" alt="logo">
+
+        </th>
+        <th>CUSTO LOJA
+          <img class="nav-outros" src="assets/img/outros.png" alt="logo">
+
+        </th>
       </tr>
       <tr>
         <td>{{ table.debito.masterCard }}%</td>

@@ -30,6 +30,22 @@
         </tr>
       </table>
     </div>
+    <div class="dropdown-container">
+      <table>
+        <tr>
+          <th class="dropdownth"><label for="tabelaDropdown">Selecionar Tabela:</label></th>
+        </tr>
+        <tr>
+          <td class="dropdowntd">
+            <select id="tabelaDropdown" (change)="atualizarTabela()" [(ngModel)]="tabelaSelecionadaId">
+              <option *ngFor="let tabela of tabelasDisponiveis" [value]="tabela._id">
+                {{ tabela.tableName }}
+              </option>
+            </select>
+          </td>
+        </tr>
+      </table>
+    </div>
     <div>
       <escapay-share-bandeiras-total></escapay-share-bandeiras-total>
     </div>
@@ -237,17 +253,17 @@
     <escapay-share-bandeiras [resultados]="resultados"></escapay-share-bandeiras>
   </div>
   <div class="tabela">
-    <escapay-taxa-custo [tabelaSelecionada]="maquininhaTable"></escapay-taxa-custo>
+    <escapay-taxa-custo [maquininhaSelecionada]="maquininhaTable"></escapay-taxa-custo>
   </div>
   <div class="tabela">
-    <escapay-taxa-venda></escapay-taxa-venda>
+    <escapay-taxa-venda [tabelaSelecionada]="tabela"></escapay-taxa-venda>
   </div>
   <div class="tabela">
-    <escapay-markup [tabelaSelecionada]="maquininhaTable"></escapay-markup>
+    <escapay-markup [maquininhaSelecionada]="maquininhaTable" [tabelaSelecionada]="tabela"></escapay-markup>
   </div>
   <div class="tabela">
-    <escapay-markup-bandeiras [resultados]="resultados"
-      [tabelaSelecionada]="maquininhaTable"></escapay-markup-bandeiras>
+    <escapay-markup-bandeiras [resultados]="resultados" [maquininhaSelecionada]="maquininhaTable"
+      [tabelaSelecionada]="tabela"></escapay-markup-bandeiras>
   </div>
   <div class="tabela">
     <escapay-custo-client></escapay-custo-client>
