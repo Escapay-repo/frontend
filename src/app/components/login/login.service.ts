@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, EMPTY, Observable, catchError, map, of, tap } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 export interface User {
   _id?: string;
@@ -46,6 +47,7 @@ export class LoginService {
 
   constructor(private snackBar: MatSnackBar,
     private http: HttpClient,
+    private router: Router,
   ) { }
 
   register(user: User): Observable<any> {
@@ -123,14 +125,6 @@ export class LoginService {
     return isAuthenticated;
   }
 
-  // isAuthenticated(): boolean {
-  //   const token = localStorage.getItem('token');
-  //   const isAdmin = localStorage.getItem('isAdmin') === 'true';
-  //   const isAuthenticated = !!token;
-  //   this.isAuthenticatedSubject.next(isAuthenticated && isAdmin);
-  //   return isAuthenticated && isAdmin;
-  // }
-
   isAdmin(): Observable<boolean> {
     const storedIsAdmin = localStorage.getItem('isAdmin') === 'true';
     return this.getUser().pipe(
@@ -174,7 +168,11 @@ export class LoginService {
     console.error(error);
     if (error instanceof HttpErrorResponse) {
       console.log(error)
-      if (error.status === 400 && error.error && error.error.error === 'Email já  está  em uso.') {
+      if (error.status === 401 && error.error && error.error.error === 'Token inválido.') {
+        this.clearToken();  // Limpa o token inválido
+        this.router.navigate(['/login']);  // Redireciona para a página de login
+        this.showMessage('Sua sessão expirou ou as credenciais são inválidas. Por favor, faça login novamente.', true);
+      } else if (error.status === 400 && error.error && error.error.error === 'Email já  está  em uso.') {
         this.showMessage('Email já  está  em uso.', true);
       } else if (error.status === 401 && error.error && error.error.error) {
         this.showMessage('Credenciais incorretas', true);
@@ -239,6 +237,14 @@ export class LoginService {
     );
   }
 }
+
+// isAuthenticated(): boolean {
+//   const token = localStorage.getItem('token');
+//   const isAdmin = localStorage.getItem('isAdmin') === 'true';
+//   const isAuthenticated = !!token;
+//   this.isAuthenticatedSubject.next(isAuthenticated && isAdmin);
+//   return isAuthenticated && isAdmin;
+// }
 
 
 // login(credentials: { email: string, password: string }): Observable<User> {
