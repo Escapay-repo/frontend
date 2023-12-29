@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from '../login.service';
+import { LoginService, UserData } from '../login.service';
 import { Router } from '@angular/router';
 import { User } from '../login.service';
 
@@ -10,23 +10,22 @@ import { User } from '../login.service';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  user: User | null = null;
 
-  constructor(private loginService: LoginService, private router: Router) { }
+  user: UserData | null = null;
+
+  constructor(private loginService: LoginService, private router: Router,) { }
   ngOnInit(): void {
-    this.loginService.getUserDetails().subscribe({
-      next: (user) => {
-        if (user) {
-          this.user = user;
-        } else {
-          // Handle error or redirect to login
-        }
-      },
-      error: (error) => {
-        console.error('Erro ao obter detalhes do usuário:', error);
-        // Handle error or redirect to login
-      }
-    });
+    const storedUserDetails = localStorage.getItem('userDetails');
+    if (storedUserDetails) {
+      this.user = JSON.parse(storedUserDetails) as UserData; // Converta para UserData
+    }
+  }
+
+  changePW() {
+    this.router.navigate(['changePassword']);
+  }
+  changeEmail() {
+    this.router.navigate(['changeEmail']);
   }
   logout() {
     this.loginService.clearToken();

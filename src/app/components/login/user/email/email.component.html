@@ -1,0 +1,20 @@
+<div>
+    <h2>Alterar E-mail</h2>
+
+    <mat-form-field appearance="fill">
+        <mat-label>E-mail Atual</mat-label>
+        <input matInput [(ngModel)]="currentEmail">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Novo E-mail</mat-label>
+        <input matInput [(ngModel)]="newEmail">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Confirmar Novo E-mail</mat-label>
+        <input matInput [(ngModel)]="confirmEmail">
+    </mat-form-field>
+
+    <button class="button" mat-raised-button (click)="verifyEmailChange()">Verificar e-mail</button>
+</div>

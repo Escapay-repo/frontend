@@ -16,6 +16,8 @@ import { MaquininhaHomeComponent } from './views/maquininha-home/maquininha-home
 import { MaquininhaUpdateComponent } from './components/maquininha/maquininha-update/maquininha-update.component';
 import { MaquininhaDeleteComponent } from './components/maquininha/maquininha-delete/maquininha-delete.component';
 import { adminAuthGuard } from './components/login/admin-auth.guard';
+import { PasswordComponent } from './components/login/user/password/password.component';
+import { EmailComponent } from './components/login/user/email/email.component';
 
 const routes: Routes = [
   {
@@ -56,6 +58,14 @@ const routes: Routes = [
   }, {
     path: "user",
     component: UserComponent,
+    canActivate: [authGuard]
+  }, {
+    path: "changePassword",
+    component: PasswordComponent,
+    canActivate: [authGuard]
+  }, {
+    path: "changeEmail",
+    component: EmailComponent,
     canActivate: [authGuard]
   }, {
     path: "maquininhaCreate",

@@ -1,1 +1,14 @@
-<button (click)="logout()">Logout</button>
+<div *ngIf="user" class="user-profile">
+    <h2>Página do(a) {{ user.user.name }}.</h2>
+    <p><strong>Nome:</strong> {{ user.user.name }}</p>
+    <p><strong>Email:</strong> {{ user.user.email }}</p>
+    <div class="button_container">
+        <button class="button" (click)="changePW()">Alterar Senha</button>
+    </div>
+    <div class="button_container">
+        <button class="button" (click)="changeEmail()">Alterar Email</button>
+    </div>
+    <div class="button_container">
+        <button class="button" (click)="logout()">Logout</button>
+    </div>
+</div>

@@ -65,6 +65,8 @@ import { MaquininhaUpdateComponent } from './components/maquininha/maquininha-up
 import { MaquininhaDeleteComponent } from './components/maquininha/maquininha-delete/maquininha-delete.component';
 import { MaquininhaHomeComponent } from './views/maquininha-home/maquininha-home.component';
 import { CreateMaquininhaComponent } from './components/button/create-maquininha/create-maquininha.component';
+import { PasswordComponent } from './components/login/user/password/password.component';
+import { EmailComponent } from './components/login/user/email/email.component';
 
 
 
@@ -107,6 +109,8 @@ registerLocaleData(localePt);
     MaquininhaDeleteComponent,
     MaquininhaHomeComponent,
     CreateMaquininhaComponent,
+    PasswordComponent,
+    EmailComponent,
   ],
   imports: [
     BrowserModule,
