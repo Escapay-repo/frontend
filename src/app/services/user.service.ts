@@ -7,7 +7,9 @@ import { catchError, map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class UserService {
-  private apiUrl = 'http://localhost:3001/users';
+  // private apiUrl = 'http://localhost:3001/users';
+  private apiUrl = 'https://api.escapaybank-integracoes.com.br/users';
+
 
   constructor(private http: HttpClient) { }
 
