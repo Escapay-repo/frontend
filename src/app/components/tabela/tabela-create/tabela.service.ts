@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class TabelaService {
 
-  baseUrl = "https://api.gusmfscoder.com.br/tabelas";
+  baseUrl = "https://api.escapaybank-integracoes.com.br/tabelas";
   // baseUrl = 'http://localhost:3001/tabelas';
 
   constructor(private snackBar: MatSnackBar,

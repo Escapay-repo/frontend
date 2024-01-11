@@ -38,8 +38,8 @@ export interface UserData {
   providedIn: 'root'
 })
 export class LoginService {
-  // private apiUrl = 'http://localhost:3001/users';
-  private apiUrl = 'https://api.gusmfscoder.com.br/users';
+  //private apiUrl = 'http://localhost:3001/users';
+  private apiUrl = 'https://api.escapaybank-integracoes.com.br/';
   private token: string = '';
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
   private currentUserSubject = new BehaviorSubject<User | null>(null);

@@ -9,7 +9,7 @@ import { maquininhaCrud } from '../tabela/maquininhaCrud';
   providedIn: 'root'
 })
 export class MaquininhaService {
-  baseUrl = "https://api.gusmfscoder.com.br/maquininha";
+  baseUrl = "https://api.escapaybank-integracoes.com.br/maquininha";
   // baseUrl = 'http://localhost:3001/maquininha';
 
   constructor(private snackBar: MatSnackBar,
