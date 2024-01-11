@@ -11,6 +11,7 @@ export interface User {
   password: string;
   admin: boolean;
   token: string;
+  active?: boolean;
 }
 
 interface LoginResponse {
@@ -20,9 +21,11 @@ interface LoginResponse {
     email: string;
     admin: boolean;
     password: string;
+    active?: boolean;
   };
   token: string;
   admin: boolean;
+  active?: boolean;
 }
 
 export interface UserData {
@@ -31,6 +34,7 @@ export interface UserData {
     name: string;
     email: string;
     admin: boolean;
+    active?: boolean;
   };
 }
 
@@ -38,7 +42,7 @@ export interface UserData {
   providedIn: 'root'
 })
 export class LoginService {
-  //private apiUrl = 'http://localhost:3001/users';
+  // private apiUrl = 'http://localhost:3001/users';
   private apiUrl = 'https://api.escapaybank-integracoes.com.br/users';
   private token: string = '';
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
@@ -68,7 +72,8 @@ export class LoginService {
             email: response.user.email,
             password: response.user.password,
             token: response.token,
-            admin: response.admin
+            admin: response.admin,
+            active: response.active,
           };
 
           const userData: UserData = {
@@ -76,7 +81,8 @@ export class LoginService {
               _id: user._id,
               name: user.name,
               email: user.email,
-              admin: user.admin
+              admin: user.admin,
+              active: user.active,
             }
           };
 
@@ -213,8 +219,26 @@ export class LoginService {
     );
   }
 
+  getActiveStatus(): boolean | null {
+    const userDetails = localStorage.getItem('userDetails');
+    console.log('userDetails from localStorage:', userDetails);
+
+    if (userDetails) {
+      const userData: UserData = JSON.parse(userDetails);
+      const activeStatus = userData?.user?.active;
+      console.log('activeStatus from user details:', activeStatus);
+      return activeStatus ?? null;
+    }
+
+    return null;
+  }
+
+
+
   getUserDetails(): Observable<User | null> {
     const token = localStorage.getItem('token');
+    console.log('token', token);
+
     if (!token) {
       console.error('Token not found');
       return of(null);
@@ -222,7 +246,7 @@ export class LoginService {
 
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': token
+      'Authorization': this.token
     });
 
     return this.http.get<User>(`${this.apiUrl}/me`, { headers, withCredentials: true }).pipe(
@@ -236,34 +260,51 @@ export class LoginService {
       })
     );
   }
+
+  getAuthenticatedUser(): Observable<User | null> {
+    const token = localStorage.getItem('token');
+    console.log('token', token);
+
+    if (!token) {
+      console.error('Token not found');
+      this.isAuthenticatedSubject.next(false);
+      return of(null);
+    }
+
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': token
+    });
+
+    return this.http.get<User>(`${this.apiUrl}/me`, { headers, withCredentials: true }).pipe(
+      map(user => {
+        // Se o usuário for retornado e estiver ativo, atualize o estado de autenticação
+        if (user && user.active) {
+          this.isAuthenticatedSubject.next(true);
+          this.currentUserSubject.next(user);
+          return user;
+        } else {
+          // Se o usuário não estiver ativo, limpe o token e atualize o estado de autenticação
+          this.clearToken();
+          this.isAuthenticatedSubject.next(false);
+          return null;
+        }
+      }),
+      catchError(e => {
+        console.error('Erro ao obter detalhes do usuário:', e);
+
+        // Imprima detalhes do erro no console
+        if (e.status) {
+          console.error('Erro de status:', e.status);
+        }
+        if (e.error && e.error.error) {
+          console.error('Mensagem de erro:', e.error.error);
+        }
+
+        this.clearToken();
+        this.isAuthenticatedSubject.next(false);
+        return of(null);
+      })
+    );
+  }
 }
-
-// isAuthenticated(): boolean {
-//   const token = localStorage.getItem('token');
-//   const isAdmin = localStorage.getItem('isAdmin') === 'true';
-//   const isAuthenticated = !!token;
-//   this.isAuthenticatedSubject.next(isAuthenticated && isAdmin);
-//   return isAuthenticated && isAdmin;
-// }
-
-
-// login(credentials: { email: string, password: string }): Observable<User> {
-//   return this.http.post<User>(`${this.apiUrl}/login`, credentials, { withCredentials: true }).pipe(
-//     map((userResponse) => {
-//       if (userResponse.token) {
-//         this.token = userResponse.token;
-//         localStorage.setItem('token', this.token);
-//         localStorage.setItem('isAdmin', userResponse.admin.toString());
-//         localStorage.setItem('userDetails', JSON.stringify({
-//           _id: userResponse._id,
-//           name: userResponse.name,
-//           email: userResponse.email,
-//         }));
-//         this.isAuthenticatedSubject.next(true);
-//         this.currentUserSubject.next(userResponse);
-//       }
-//       return userResponse;
-//     }),
-//     catchError(e => this.errorHandler(e))
-//   );
-// }

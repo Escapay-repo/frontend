@@ -67,6 +67,7 @@ import { MaquininhaHomeComponent } from './views/maquininha-home/maquininha-home
 import { CreateMaquininhaComponent } from './components/button/create-maquininha/create-maquininha.component';
 import { PasswordComponent } from './components/login/user/password/password.component';
 import { EmailComponent } from './components/login/user/email/email.component';
+import { AdminComponent } from './views/admin/admin.component';
 
 
 
@@ -111,6 +112,7 @@ registerLocaleData(localePt);
     CreateMaquininhaComponent,
     PasswordComponent,
     EmailComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,

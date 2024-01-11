@@ -18,6 +18,7 @@ import { MaquininhaDeleteComponent } from './components/maquininha/maquininha-de
 import { adminAuthGuard } from './components/login/admin-auth.guard';
 import { PasswordComponent } from './components/login/user/password/password.component';
 import { EmailComponent } from './components/login/user/email/email.component';
+import { AdminComponent } from './views/admin/admin.component';
 
 const routes: Routes = [
   {
@@ -59,6 +60,10 @@ const routes: Routes = [
     path: "user",
     component: UserComponent,
     canActivate: [authGuard]
+  }, {
+    path: "admin",
+    component: AdminComponent,
+    canActivate: [adminAuthGuard]
   }, {
     path: "changePassword",
     component: PasswordComponent,
