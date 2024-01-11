@@ -39,7 +39,7 @@ export interface UserData {
 })
 export class LoginService {
   //private apiUrl = 'http://localhost:3001/users';
-  private apiUrl = 'https://api.escapaybank-integracoes.com.br/';
+  private apiUrl = 'https://api.escapaybank-integracoes.com.br/users';
   private token: string = '';
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
   private currentUserSubject = new BehaviorSubject<User | null>(null);
