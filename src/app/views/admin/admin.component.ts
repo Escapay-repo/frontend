@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalConfirmationComponent } from 'src/app/modal/modal-confirmation/modal-confirmation.component';
 
 @Component({
   selector: 'escapay-admin',
@@ -9,7 +11,8 @@ import { UserService } from 'src/app/services/user.service';
 export class AdminComponent implements OnInit {
   users: any[] = [];
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,
+    public dialog: MatDialog) { }
 
   ngOnInit() {
     this.loadUsers();
@@ -27,15 +30,21 @@ export class AdminComponent implements OnInit {
   }
 
   deleteUser(userId: string) {
-    this.userService.deleteUser(userId).subscribe(
-      () => {
-        console.log('Usuário excluído com sucesso.');
-        this.reloadUsers();
-      },
-      (error) => {
-        console.error('Erro ao excluir usuário:', error);
+    const dialogRef = this.dialog.open(ModalConfirmationComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.userService.deleteUser(userId).subscribe(
+          () => {
+            console.log('Usuário excluído com sucesso.');
+            this.reloadUsers();
+          },
+          (error) => {
+            console.error('Erro ao excluir usuário:', error);
+          }
+        );
       }
-    );
+    });
   }
 
   toggleUserStatus(userId: string, currentStatus: boolean) {

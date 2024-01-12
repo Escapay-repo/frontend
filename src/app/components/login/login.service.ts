@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject, EMPTY, Observable, catchError, map, of, tap } from 'rxjs';
+import { BehaviorSubject, EMPTY, Observable, catchError, map, of } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
@@ -12,6 +12,7 @@ export interface User {
   admin: boolean;
   token: string;
   active?: boolean;
+  lastLogin?: Date;
 }
 
 interface LoginResponse {
@@ -22,10 +23,12 @@ interface LoginResponse {
     admin: boolean;
     password: string;
     active?: boolean;
+    lastLogin?: Date;
   };
   token: string;
   admin: boolean;
   active?: boolean;
+  dateLogin?: Date;
 }
 
 export interface UserData {
@@ -74,6 +77,7 @@ export class LoginService {
             token: response.token,
             admin: response.admin,
             active: response.active,
+            lastLogin: response.user.lastLogin,
           };
 
           const userData: UserData = {
@@ -231,80 +235,5 @@ export class LoginService {
     }
 
     return null;
-  }
-
-
-
-  getUserDetails(): Observable<User | null> {
-    const token = localStorage.getItem('token');
-    console.log('token', token);
-
-    if (!token) {
-      console.error('Token not found');
-      return of(null);
-    }
-
-    let headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': this.token
-    });
-
-    return this.http.get<User>(`${this.apiUrl}/me`, { headers, withCredentials: true }).pipe(
-      map(user => {
-        this.currentUserSubject.next(user);
-        return user;
-      }),
-      catchError(e => {
-        console.error('Erro ao obter detalhes do usuário:', e);
-        return of(null);
-      })
-    );
-  }
-
-  getAuthenticatedUser(): Observable<User | null> {
-    const token = localStorage.getItem('token');
-    console.log('token', token);
-
-    if (!token) {
-      console.error('Token not found');
-      this.isAuthenticatedSubject.next(false);
-      return of(null);
-    }
-
-    let headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': token
-    });
-
-    return this.http.get<User>(`${this.apiUrl}/me`, { headers, withCredentials: true }).pipe(
-      map(user => {
-        // Se o usuário for retornado e estiver ativo, atualize o estado de autenticação
-        if (user && user.active) {
-          this.isAuthenticatedSubject.next(true);
-          this.currentUserSubject.next(user);
-          return user;
-        } else {
-          // Se o usuário não estiver ativo, limpe o token e atualize o estado de autenticação
-          this.clearToken();
-          this.isAuthenticatedSubject.next(false);
-          return null;
-        }
-      }),
-      catchError(e => {
-        console.error('Erro ao obter detalhes do usuário:', e);
-
-        // Imprima detalhes do erro no console
-        if (e.status) {
-          console.error('Erro de status:', e.status);
-        }
-        if (e.error && e.error.error) {
-          console.error('Mensagem de erro:', e.error.error);
-        }
-
-        this.clearToken();
-        this.isAuthenticatedSubject.next(false);
-        return of(null);
-      })
-    );
   }
 }

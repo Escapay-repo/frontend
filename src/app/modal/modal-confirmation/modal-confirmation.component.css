@@ -1,0 +1,9 @@
+.confirm {
+    background-color: rgb(135, 161, 45);
+    color: white !important;
+}
+
+.cancel {
+    background-color: #e74c3c;
+    color: white !important;
+}

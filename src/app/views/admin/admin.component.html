@@ -1,12 +1,12 @@
 <div class="admin-page">
     <h2>Administração de Usuários</h2>
-
     <table>
         <thead>
             <tr>
                 <th>Nome</th>
                 <th>Email</th>
                 <th>Ativo</th>
+                <th>Último Login</th>
                 <th>Ações</th>
             </tr>
         </thead>
@@ -22,11 +22,14 @@
                         <mat-icon class="red">cancel</mat-icon>
                     </span>
                 </td>
-                <td class="action-buttons">
-                    <button class="table-button delete-button" (click)="deleteUser(user._id)">Excluir</button>
-                    <button class="table-button toggle-button" (click)="toggleUserStatus(user._id, user.active)">
-                        {{ user.active ? 'Desativar' : 'Ativar' }}
-                    </button>
+                <td>{{ user.lastLogin | date: 'medium' }}</td>
+                <td>
+                    <div class="action-buttons-container">
+                        <button class="table-button delete-button" (click)="deleteUser(user._id)">Excluir</button>
+                        <button class="table-button toggle-button" (click)="toggleUserStatus(user._id, user.active)">
+                            {{ user.active ? 'Desativar' : 'Ativar' }}
+                        </button>
+                    </div>
                 </td>
             </tr>
         </tbody>

@@ -50,8 +50,9 @@ export class RegisterComponent {
       )
       .subscribe({
         next: response => {
-          console.log('Usuário cadastrado com sucesso:', response);
-          this.router.navigate(['/']);
+          console.log('Usuário cadastrado com sucesso', response);
+          this.loginService.showMessage('Usuário cadastrado com sucesso', true);
+          this.router.navigate(['/login']);
         },
         error: error => {
           console.error('Erro ao cadastrar usuário:', error);

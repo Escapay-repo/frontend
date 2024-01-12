@@ -13,7 +13,6 @@ h2 {
 }
 
 table {
-    white-space: nowrap;
     font-family: Arial, Helvetica, sans-serif;
     width: 100%;
     border-collapse: collapse;
@@ -25,6 +24,9 @@ td {
     padding: 10px;
     border: 1px solid #ddd;
     height: 30px;
+    max-width: 250px;
+    word-wrap: break-word;
+    flex: 1;
 }
 
 th {
@@ -47,11 +49,10 @@ tr:nth-child(even) {
     color: #e74c3c;
 }
 
-.action-buttons {
+.action-buttons-container {
     display: flex;
     gap: 8px;
     align-items: center;
-    /* Adicionando alinhamento vertical ao centro */
 }
 
 .table-button {
@@ -62,7 +63,6 @@ tr:nth-child(even) {
     font-size: 1rem;
     font-weight: 600;
     line-height: 1;
-    /* Removendo altura fixa */
     text-align: center;
     transition: background-color 100ms;
     padding: 10px 16px;

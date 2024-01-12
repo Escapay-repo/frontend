@@ -14,13 +14,15 @@ export class LoginComponent {
   constructor(private loginService: LoginService, private router: Router) { }
 
   login() {
-    const credentials = { email: this.email, password: this.password };
+    const credentials = { email: this.email, password: this.password, dateLogin: new Date() };
+
     this.loginService.login(credentials).subscribe({
       next: (response) => {
         const isAdmin = response.admin;
         localStorage.setItem('isAdmin', isAdmin.toString());
         const token = this.loginService.getToken();
         localStorage.setItem('token', token);
+        console.log('credenciais', credentials)
         this.router.navigate(['/']);
       },
       error: (error) => {

@@ -16,6 +16,7 @@ export class NavSchematicsComponent implements OnInit {
   @Output() menuButtonClick = new EventEmitter<void>();
   isLoggedIn: boolean = false;
   isAdmin: boolean = false;
+  anoAtual: number = 0;
 
   toggleMenu() {
     this.menuButtonClick.emit();
@@ -26,6 +27,7 @@ export class NavSchematicsComponent implements OnInit {
     private router: Router,
     private loginService: LoginService) {
     this.headerService.showMenuButton = true;
+
   }
 
   iconForLoggedIn: string = 'login';
@@ -38,6 +40,8 @@ export class NavSchematicsComponent implements OnInit {
     this.loginService.isAdmin().subscribe((isAdmin) => {
       this.isAdmin = isAdmin;
     });
+
+    this.anoAtual = new Date().getFullYear();
   }
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)

@@ -1,4 +1,3 @@
-import { FooterComponent } from './components/template/footer/footer.component';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -19,6 +18,7 @@ import { MatSortModule } from '@angular/material/sort'
 import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
@@ -68,6 +68,7 @@ import { CreateMaquininhaComponent } from './components/button/create-maquininha
 import { PasswordComponent } from './components/login/user/password/password.component';
 import { EmailComponent } from './components/login/user/email/email.component';
 import { AdminComponent } from './views/admin/admin.component';
+import { ModalConfirmationComponent } from './modal/modal-confirmation/modal-confirmation.component';
 
 
 
@@ -78,7 +79,6 @@ registerLocaleData(localePt);
 @NgModule({
   declarations: [
     AppComponent,
-    FooterComponent,
     TabelaCreateComponent,
     TabelaDeleteComponent,
     TabelaUpdateComponent,
@@ -113,6 +113,7 @@ registerLocaleData(localePt);
     PasswordComponent,
     EmailComponent,
     AdminComponent,
+    ModalConfirmationComponent,
   ],
   imports: [
     BrowserModule,
@@ -139,8 +140,8 @@ registerLocaleData(localePt);
     MatSelectModule,
     MatRadioModule,
     NgxMaskDirective,
-    NgxMaskPipe
-
+    NgxMaskPipe,
+    MatDialogModule,
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt-BR' },
