@@ -22,7 +22,7 @@ export class LoginComponent {
         localStorage.setItem('isAdmin', isAdmin.toString());
         const token = this.loginService.getToken();
         localStorage.setItem('token', token);
-        console.log('credenciais', credentials)
+        // console.log('credenciais', credentials)
         this.router.navigate(['/']);
       },
       error: (error) => {

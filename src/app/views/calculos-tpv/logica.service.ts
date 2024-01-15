@@ -90,5 +90,4 @@ export class LogicaService {
       panelClass: isError ? ['msg-error'] : ['msg-success']
     })
   }
-
 }

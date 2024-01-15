@@ -4,7 +4,16 @@
             RECEITA TOTAL
         </th>
         <tr>
-            <td>{{calcularSoma()| currency:'BRL' }}</td>
+            <td>
+                {{ calcularSoma() | currency:'BRL' }}
+                <input class="input-text" mask="separator.2" suffix="%" thousandSeparator="." [decimalMarker]="','"
+                    separatorLimit="10" size="6" maxlength="6" [(ngModel)]="porcentagemImposto"
+                    (change)="ImpostoChange()">
+            </td>
         </tr>
     </table>
 </div>
+<!-- <td>
+    <input type="number" [(ngModel)]="customValue" placeholder="Enter a value" />
+    {{ calcularSoma() | currency:'BRL' }}
+</td> -->

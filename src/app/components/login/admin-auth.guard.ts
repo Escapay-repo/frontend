@@ -16,10 +16,10 @@ export const adminAuthGuard: CanActivateFn = (route, state) => {
       return loginService.isAdmin().pipe(
         map(isAdmin => {
           if (isAdmin) {
-            console.log('User is an admin:', isAdmin);
+            // console.log('User is an admin:', isAdmin);
             return true;
           } else {
-            console.log('User is not an admin:', isAdmin);
+            // console.log('User is not an admin:', isAdmin);
             loginService.showMessage('Sem Permissões.', true);
             router.navigate(['/']);
             return false;

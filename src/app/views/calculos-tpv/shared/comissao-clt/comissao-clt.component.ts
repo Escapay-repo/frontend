@@ -7,6 +7,7 @@ import { TaxaCustoService } from '../taxa-custo/taxa-custo.service';
 import { MaquininhaService } from 'src/app/components/maquininha/maquininha.service';
 import { TaxaVendaService } from '../taxa-venda/taxa-venda.service';
 import { maquininhaCrud } from 'src/app/components/tabela/maquininhaCrud';
+import { ReceitaserviceService } from '../receita-total/receitaservice.service';
 
 @Component({
   selector: 'escapay-comissao-clt',
@@ -17,6 +18,10 @@ export class ComissaoCltComponent implements OnInit {
   masterShare: number = 50;
   visaShare: number = 38;
   outrosShare: number = 12;
+
+  porcentagemImposto: number = 0;
+  porcentagemComissao: number = 8;
+
 
   @Input() resultados: Array<number> = [];
   @Input() tabelaSelecionada: tabelaCrud | null = null;
@@ -136,6 +141,7 @@ export class ComissaoCltComponent implements OnInit {
       outros: 0,
     },
   }
+
   taxaCusto: maquininhaCrud | null = null
   @Input() maquininhaSelecionada: maquininhaCrud | null = null;
   maquininhasDisponiveis: maquininhaCrud[] = [];
@@ -261,6 +267,7 @@ export class ComissaoCltComponent implements OnInit {
     private taxaCustoService: TaxaCustoService,
     private maquininhaService: MaquininhaService,
     private taxaVendaService: TaxaVendaService,
+    private receitaserviceService: ReceitaserviceService
   ) { }
 
   ngOnInit(): void {
@@ -278,6 +285,10 @@ export class ComissaoCltComponent implements OnInit {
     }
     this.maquininhaService.read().subscribe(tabelas => {
       this.maquininhasDisponiveis = tabelas;
+    });
+
+    this.receitaserviceService.getPorcentagemImposto().subscribe(valor => {
+      this.porcentagemImposto = valor;
     });
   }
   ngOnChanges(changes: SimpleChanges): void {
@@ -309,6 +320,8 @@ export class ComissaoCltComponent implements OnInit {
   }
 
   calcularSoma(): number {
+    const porcentagemImpostoDecimal = 1 - (this.porcentagemImposto / 100);
+    const porcentagemcomissaoDecimal = this.porcentagemComissao / 100;
     const valor = ((
       ((this.resultados[0] * (this.masterShare / 100)) * ((this.convertToNumber(this.table.debito.masterCard) - this.convertToNumber(this.maquininhaTable.debito.masterCard)) / 100)) +
       ((this.resultados[0] * (this.visaShare / 100)) * ((this.convertToNumber(this.table.debito.visa) - this.convertToNumber(this.maquininhaTable.debito.visa)) / 100)) +
@@ -376,8 +389,12 @@ export class ComissaoCltComponent implements OnInit {
       ((this.resultados[21] * (this.masterShare / 100)) * ((this.convertToNumber(this.table.vinteUm.masterCard) - this.convertToNumber(this.maquininhaTable.vinteUm.masterCard)) / 100)) +
       ((this.resultados[21] * (this.visaShare / 100)) * ((this.convertToNumber(this.table.vinteUm.visa) - this.convertToNumber(this.maquininhaTable.vinteUm.visa)) / 100)) +
       ((this.resultados[21] * (this.outrosShare / 100)) * ((this.convertToNumber(this.table.vinteUm.outros) - this.convertToNumber(this.maquininhaTable.vinteUm.outros)) / 100))
-    ) * 0.845) * 0.015
+    ) * porcentagemImpostoDecimal) * porcentagemcomissaoDecimal
     return valor;
+  }
+
+  TaxaChange(): void {
+    this.porcentagemComissao = this.convertToNumber(this.porcentagemComissao);
   }
 }
 

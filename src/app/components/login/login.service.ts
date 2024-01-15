@@ -225,12 +225,12 @@ export class LoginService {
 
   getActiveStatus(): boolean | null {
     const userDetails = localStorage.getItem('userDetails');
-    console.log('userDetails from localStorage:', userDetails);
+    // console.log('userDetails from localStorage:', userDetails);
 
     if (userDetails) {
       const userData: UserData = JSON.parse(userDetails);
       const activeStatus = userData?.user?.active;
-      console.log('activeStatus from user details:', activeStatus);
+      // console.log('activeStatus from user details:', activeStatus);
       return activeStatus ?? null;
     }
 

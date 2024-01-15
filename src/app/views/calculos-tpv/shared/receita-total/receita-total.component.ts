@@ -1,8 +1,8 @@
+import { ReceitaserviceService } from './receitaservice.service';
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TabelaService } from 'src/app/components/tabela/tabela-create/tabela.service';
 import { tabelaCrud } from 'src/app/components/tabela/tabelaCrud';
-import { tabelaTaxaCusto } from 'src/app/components/tabela/tabelaTaxaCusto';
 import { LogicaService } from '../../logica.service';
 import { TaxaCustoService } from '../taxa-custo/taxa-custo.service';
 import { MaquininhaService } from 'src/app/components/maquininha/maquininha.service';
@@ -18,9 +18,11 @@ export class ReceitaTotalComponent implements OnInit {
   masterShare: number = 50;
   visaShare: number = 38;
   outrosShare: number = 12;
-
   @Input() resultados: Array<number> = [];
   @Input() tabelaSelecionada: tabelaCrud | null = null;
+  porcentagemImposto: number = 6;
+
+
   tabelasDisponiveis: tabelaCrud[] = [];
   table: tabelaCrud = {
     _id: '',
@@ -262,6 +264,7 @@ export class ReceitaTotalComponent implements OnInit {
     private taxaCustoService: TaxaCustoService,
     private maquininhaService: MaquininhaService,
     private taxaVendaService: TaxaVendaService,
+    private receitaserviceService: ReceitaserviceService
   ) { }
 
   ngOnInit(): void {
@@ -280,6 +283,11 @@ export class ReceitaTotalComponent implements OnInit {
     this.maquininhaService.read().subscribe(tabelas => {
       this.maquininhasDisponiveis = tabelas;
     });
+
+    this.receitaserviceService.getPorcentagemImposto().subscribe(valor => {
+      this.porcentagemImposto = valor;
+    });
+
   }
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['maquininhaSelecionada'] && changes['maquininhaSelecionada'].currentValue) {
@@ -377,8 +385,12 @@ export class ReceitaTotalComponent implements OnInit {
       ((this.resultados[21] * this.masterShare / 100) * (this.convertToNumber(this.table.vinteUm.masterCard) - this.convertToNumber(this.maquininhaTable.vinteUm.masterCard))) / 100 +
       ((this.resultados[21] * this.visaShare / 100) * (this.convertToNumber(this.table.vinteUm.visa) - this.convertToNumber(this.maquininhaTable.vinteUm.visa))) / 100 +
       ((this.resultados[21] * this.outrosShare / 100) * (this.convertToNumber(this.table.vinteUm.outros) - this.convertToNumber(this.maquininhaTable.vinteUm.outros))) / 100
-    ) * 0.94)
+    ) * (1 - this.porcentagemImposto / 100))
     return valor;
+  }
+
+  ImpostoChange(): void {
+    this.receitaserviceService.setPorcentagemImposto(this.porcentagemImposto);
   }
 }
 

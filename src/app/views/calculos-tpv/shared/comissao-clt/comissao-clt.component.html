@@ -1,10 +1,14 @@
 <div>
     <table>
         <th>
-            COMISSÃO CLT
+            COMISSÃO COMERCIAL
         </th>
         <tr>
-            <td>{{calcularSoma()| currency:'BRL' }}</td>
+            <td>
+                {{ calcularSoma() | currency:'BRL' }}
+                <input class="input-text" mask="separator.2" suffix="%" thousandSeparator="." [decimalMarker]="','"
+                    separatorLimit="10" size="6" maxlength="6" [(ngModel)]="porcentagemComissao">
+            </td>
         </tr>
     </table>
 </div>

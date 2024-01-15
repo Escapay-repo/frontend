@@ -110,7 +110,7 @@ export class CalculosTpvComponent implements OnInit {
     if (maquininhaId) {
       this.logicaService.readMaquininha().subscribe(maquininhas => {
         this.maquininhasDisponiveis = maquininhas;
-        console.log('maquininha taxa', this.maquininhasDisponiveis)
+        // console.log('maquininha taxa', this.maquininhasDisponiveis)
         if (this.maquininhasDisponiveis.length > 0) {
           this.maquininhaSelecionadaId = this.maquininhasDisponiveis[0]._id;
           this.atualizarMaquininha();
@@ -123,7 +123,7 @@ export class CalculosTpvComponent implements OnInit {
     if (tabelaId) {
       this.logicaService.readTabela().subscribe(tabelas => {
         this.tabelasDisponiveis = tabelas;
-        console.log('maquininha taxa', this.tabelasDisponiveis)
+        // console.log('maquininha taxa', this.tabelasDisponiveis)
         if (this.tabelasDisponiveis.length > 0) {
           this.tabelaSelecionadaId = this.tabelasDisponiveis[0]._id;
           this.atualizarMaquininha();
@@ -135,9 +135,9 @@ export class CalculosTpvComponent implements OnInit {
   // atualiza maquininha selecionada no dropdown
   atualizarMaquininha(): void {
     const maquininhaId = this.maquininhaSelecionadaId;
-    console.log('dropdown antes', this.maquininhasDisponiveis, this.maquininhaSelecionadaId, maquininhaId)
+    // console.log('dropdown antes', this.maquininhasDisponiveis, this.maquininhaSelecionadaId, maquininhaId)
     if (maquininhaId) {
-      console.log('dropdown final', maquininhaId)
+      // console.log('dropdown final', maquininhaId)
       this.logicaService.readMaquininhaById(maquininhaId).subscribe(maquininhaTable => {
         this.maquininhaTable = maquininhaTable;
         this.taxaCustoService.atualizarTabelaDados(maquininhaTable);
@@ -148,9 +148,9 @@ export class CalculosTpvComponent implements OnInit {
   // atualiza maquininha selecionada no dropdown
   atualizarTabela(): void {
     const tabelasId = this.tabelaSelecionadaId;
-    console.log('dropdown antes', this.tabelasDisponiveis, this.tabelaSelecionadaId, tabelasId)
+    // console.log('dropdown antes', this.tabelasDisponiveis, this.tabelaSelecionadaId, tabelasId)
     if (tabelasId) {
-      console.log('dropdown final', tabelasId)
+      // console.log('dropdown final', tabelasId)
       this.logicaService.readTabelaById(tabelasId).subscribe(tabelasTable => {
         this.tabela = tabelasTable;
         this.taxaCustoService.atualizarTabelaDados(tabelasTable);
@@ -158,14 +158,6 @@ export class CalculosTpvComponent implements OnInit {
     }
   }
 
-
-  // formatInput() {
-  //   const valorSemPontos = this.formattedValue.replace(/\./g, '');
-  //   const partes = valorSemPontos.split(',');
-  //   const valorFinal = partes[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.') + (partes[1] ? ',' + partes[1].substring(0, 3) : '');
-  //   this.formattedValue = valorFinal;
-  //   this.inputValue = parseFloat(valorSemPontos.replace(',', '.'));
-  // }
 
   validarPorcentagem() {
     let porcentagemTotal =

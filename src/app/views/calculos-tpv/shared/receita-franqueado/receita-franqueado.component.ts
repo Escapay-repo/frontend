@@ -8,6 +8,7 @@ import { maquininhaCrud } from 'src/app/components/tabela/maquininhaCrud';
 import { TaxaCustoService } from '../taxa-custo/taxa-custo.service';
 import { MaquininhaService } from 'src/app/components/maquininha/maquininha.service';
 import { TaxaVendaService } from '../taxa-venda/taxa-venda.service';
+import { ReceitaserviceService } from '../receita-total/receitaservice.service';
 
 @Component({
   selector: 'escapay-receita-franqueado',
@@ -19,6 +20,9 @@ export class ReceitaFranqueadoComponent implements OnInit {
   masterShare: number = 50;
   visaShare: number = 38;
   outrosShare: number = 12;
+
+  porcentagemImposto: number = 0;
+  porcentagemFranqueado: number = 40;
 
   @Input() resultados: Array<number> = [];
   @Input() tabelaSelecionada: tabelaCrud | null = null;
@@ -263,6 +267,7 @@ export class ReceitaFranqueadoComponent implements OnInit {
     private taxaCustoService: TaxaCustoService,
     private maquininhaService: MaquininhaService,
     private taxaVendaService: TaxaVendaService,
+    private receitaserviceService: ReceitaserviceService,
   ) { }
 
   ngOnInit(): void {
@@ -280,6 +285,10 @@ export class ReceitaFranqueadoComponent implements OnInit {
     }
     this.maquininhaService.read().subscribe(tabelas => {
       this.maquininhasDisponiveis = tabelas;
+    });
+
+    this.receitaserviceService.getPorcentagemImposto().subscribe(valor => {
+      this.porcentagemImposto = valor;
     });
   }
   ngOnChanges(changes: SimpleChanges): void {
@@ -311,6 +320,9 @@ export class ReceitaFranqueadoComponent implements OnInit {
   }
 
   calcularSoma(): number {
+    const porcentagemImpostoDecimal = 1 - (this.porcentagemImposto / 100);
+    const porcentagemFranqueadoDecimal = this.porcentagemFranqueado / 100;
+
     const valor = ((
       ((this.resultados[0] * this.masterShare / 100) * (this.convertToNumber(this.table.debito.masterCard) - this.convertToNumber(this.maquininhaTable.debito.masterCard))) / 100 +
       ((this.resultados[0] * this.visaShare / 100) * (this.convertToNumber(this.table.debito.visa) - this.convertToNumber(this.maquininhaTable.debito.visa))) / 100 +
@@ -378,8 +390,12 @@ export class ReceitaFranqueadoComponent implements OnInit {
       ((this.resultados[21] * this.masterShare / 100) * (this.convertToNumber(this.table.vinteUm.masterCard) - this.convertToNumber(this.maquininhaTable.vinteUm.masterCard))) / 100 +
       ((this.resultados[21] * this.visaShare / 100) * (this.convertToNumber(this.table.vinteUm.visa) - this.convertToNumber(this.maquininhaTable.vinteUm.visa))) / 100 +
       ((this.resultados[21] * this.outrosShare / 100) * (this.convertToNumber(this.table.vinteUm.outros) - this.convertToNumber(this.maquininhaTable.vinteUm.outros))) / 100
-    ) * 0.94) * 0.40
+    ) * porcentagemImpostoDecimal) * porcentagemFranqueadoDecimal
     return valor;
+  }
+
+  FranqueadoChange(): void {
+    this.porcentagemFranqueado = this.convertToNumber(this.porcentagemFranqueado);
   }
 }
 
