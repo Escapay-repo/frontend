@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar'
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { tabelaCrud } from '../tabelaCrud';
 import { Router } from '@angular/router';
+import { LoginService } from '../../login/login.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,8 @@ export class TabelaService {
 
   constructor(private snackBar: MatSnackBar,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private loginService: LoginService
   ) { }
 
   private getHeaders(): HttpHeaders {
@@ -91,8 +93,16 @@ export class TabelaService {
     if (error instanceof HttpErrorResponse) {
       if (error.status === 401 && error.error) {
         this.showMessage('Acesso não autorizado, por favor faça login.', true);
+      } else if (error.status === 403 && error.error && error.error.error === 'Token inválido.') {
+        this.loginService.clearToken();
+        this.router.navigate(['/login']);
+        this.showMessage('Sua sessão expirou ou as credenciais são inválidas. Por favor, faça login novamente.', true);
+      } else if (error.status === 400 && error.error && error.error.error === 'Email já  está  em uso.') {
+        this.showMessage('Email já  está  em uso.', true);
+      } else if (error.status === 401 && error.error && error.error.error) {
+        this.showMessage('Credenciais incorretas.', true);
       } else {
-        this.showMessage('Ocorreu um Erro', true);
+        this.showMessage('Ocorreu um Erro.', true);
       }
     }
     return EMPTY;

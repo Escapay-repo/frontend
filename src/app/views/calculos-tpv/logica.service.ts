@@ -2,7 +2,9 @@ import { tabelaCrud } from './../../components/tabela/tabelaCrud';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { EMPTY, Observable, catchError, map } from 'rxjs';
+import { LoginService } from 'src/app/components/login/login.service';
 import { maquininhaCrud } from 'src/app/components/tabela/maquininhaCrud';
 
 @Injectable({
@@ -15,6 +17,8 @@ export class LogicaService {
   constructor(
     private http: HttpClient,
     private snackBar: MatSnackBar,
+    private router: Router,
+    private loginService: LoginService
   ) { }
   masterShare: number = 0;
   visaShare: number = 0;
@@ -76,8 +80,12 @@ export class LogicaService {
     if (error instanceof HttpErrorResponse) {
       if (error.status === 401 && error.error) {
         this.showMessage('Acesso não autorizado, por favor faça login.', true);
+      } else if (error.status === 403 && error.error && error.error.error === 'Token inválido.') {
+        this.loginService.clearToken();
+        this.router.navigate(['/login']);
+        this.showMessage('Sua sessão expirou ou as credenciais são inválidas. Por favor, faça login novamente.', true);
       } else {
-        this.showMessage('Ocorreu um Erro', true);
+        this.showMessage('Ocorreu um Erro.', true);
       }
     }
     return EMPTY;

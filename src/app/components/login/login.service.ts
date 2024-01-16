@@ -178,16 +178,16 @@ export class LoginService {
     console.error(error);
     if (error instanceof HttpErrorResponse) {
       console.log(error)
-      if (error.status === 401 && error.error && error.error.error === 'Token inválido.') {
+      if (error.status === 403 && error.error && error.error.error === 'Token inválido.') {
         this.clearToken();  // Limpa o token inválido
         this.router.navigate(['/login']);  // Redireciona para a página de login
         this.showMessage('Sua sessão expirou ou as credenciais são inválidas. Por favor, faça login novamente.', true);
       } else if (error.status === 400 && error.error && error.error.error === 'Email já  está  em uso.') {
         this.showMessage('Email já  está  em uso.', true);
       } else if (error.status === 401 && error.error && error.error.error) {
-        this.showMessage('Credenciais incorretas', true);
+        this.showMessage('Credenciais incorretas.', true);
       } else {
-        this.showMessage('Ocorreu um Erro', true);
+        this.showMessage('Ocorreu um Erro.', true);
       }
     }
     return EMPTY;

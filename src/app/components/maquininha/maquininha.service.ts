@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar'
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { maquininhaCrud } from '../tabela/maquininhaCrud';
+import { LoginService } from '../login/login.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,8 @@ export class MaquininhaService {
 
   constructor(private snackBar: MatSnackBar,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private loginService: LoginService,
   ) { }
 
   private getHeaders(): HttpHeaders {
@@ -39,6 +41,10 @@ export class MaquininhaService {
     if (error instanceof HttpErrorResponse) {
       if (error.status === 401 && error.error) {
         this.showMessage('Acesso não autorizado, por favor faça login.', true);
+      } else if (error.status === 403 && error.error && error.error.error === 'Token inválido.') {
+        this.loginService.clearToken();
+        this.router.navigate(['/login']);
+        this.showMessage('Sua sessão expirou ou as credenciais são inválidas. Por favor, faça login novamente.', true);
       } else {
         this.showMessage('Ocorreu um Erro', true);
       }
