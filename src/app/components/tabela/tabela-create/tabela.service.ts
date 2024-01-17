@@ -27,7 +27,7 @@ export class TabelaService {
       'Authorization': token || ''
     });
   }
-  // teste
+
   showMessage(msg: string, isError: boolean = false) {
     this.snackBar.open(msg, 'X', {
       duration: 3000,
