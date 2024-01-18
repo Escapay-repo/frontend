@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { EMPTY, Observable, catchError, map, of } from 'rxjs'
-import { MatSnackBar, MatSnackBarRef } from '@angular/material/snack-bar'
+import { EMPTY, Observable, catchError, map } from 'rxjs'
+import { MatSnackBar } from '@angular/material/snack-bar'
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { tabelaCrud } from '../tabelaCrud';
 import { Router } from '@angular/router';
@@ -79,6 +79,7 @@ export class TabelaService {
       catchError(e => this.errorHandler(e))
     )
   }
+
   showMessage(msg: string) {
     this.snackBar.open(msg, 'X', {
       duration: 3000,
@@ -90,9 +91,8 @@ export class TabelaService {
   errorHandler(error: any): Observable<any> {
     console.error(error);
     if (error instanceof HttpErrorResponse) {
-      console.log(error)
       if (error.status === 401 && error.error && error.error.error === "Acesso negado.") {
-        this.showMessage("Acesso não autorizado, por favor faça login.");
+        this.showMessage('Acesso não autorizado, por favor faça login.');
       } else if (error.status === 403 && error.error && error.error.error === 'Token inválido.') {
         this.loginService.clearToken();
         this.router.navigate(['/login']);
