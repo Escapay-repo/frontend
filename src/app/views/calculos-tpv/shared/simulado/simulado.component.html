@@ -1,6 +1,6 @@
 <div class="dropdown-container">
     <label for="tabelaDropdown">Selecionar Tabela: </label>
-    <select id="tabelaDropdown" (change)="atualizarTabela()" [(ngModel)]="tabelaSelecionadaId">
+    <select id="tabelaDropdown" class="dropwdownButton" (change)="atualizarTabela()" [(ngModel)]="tabelaSelecionadaId">
         <option *ngFor="let tabela of tabelasDisponiveis" [value]="tabela._id">
             {{ tabela.tableName }}
         </option>
