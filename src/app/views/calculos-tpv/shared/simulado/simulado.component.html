@@ -8,182 +8,206 @@
 </div>
 
 <div class="tabela-container" *ngIf="tabelaSelecionadaId">
-    <div class="tabela">
-        <table>
-            <tr>
-                <th>MODALIDADES
-                </th>
-                <th>SIMULADO
-                </th>
-                <th>CUSTO<br>CLIENTE
-                </th>
-                <th>VALOR DA<br>PARCELA
-                </th>
-                <th>TAXA
-                </th>
-            </tr>
-            <tr>
-                <td>Débito</td>
-                <td>{{1000 | currency:'BRL'}}</td>
-                <td>{{ custoReais(convertToNumber(table.debito.masterCard)) | currency:'BRL' }}</td>
-                <td>{{ custoReais(convertToNumber(table.debito.masterCard)) | currency:'BRL' }}</td>
-                <td>{{ ((custoReais(convertToNumber(table.debito.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%</td>
-            </tr>
-            <tr>
-                <td>Crédito</td>
-                <td>{{1000 | currency:'BRL'}}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.credito.masterCard))/100)) | currency:'BRL' }}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.credito.masterCard))/100)) | currency:'BRL' }}</td>
-                <td>{{ ((custoReais(convertToNumber(table.credito.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%
-                </td>
-            </tr>
-            <tr>
-                <td>Parcelado 2x</td>
-                <td>{{1000 | currency:'BRL'}}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.duas.masterCard))/100)) | currency:'BRL' }}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.duas.masterCard))/100)) / 2 | currency:'BRL' }}</td>
-                <td>{{ ((custoReais(convertToNumber(table.duas.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%</td>
-            </tr>
-            <tr>
-                <td>Parcelado 3x</td>
-                <td>{{1000 | currency:'BRL'}}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.tres.masterCard))/100)) | currency:'BRL' }}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.tres.masterCard))/100)) / 3 | currency:'BRL' }}</td>
-                <td>{{ ((custoReais(convertToNumber(table.tres.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%</td>
-            </tr>
-            <tr>
-                <td>Parcelado 4x</td>
-                <td>{{1000 | currency:'BRL'}}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.quatro.masterCard))/100)) | currency:'BRL' }}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.quatro.masterCard))/100)) / 4 | currency:'BRL' }}</td>
-                <td>{{ ((custoReais(convertToNumber(table.quatro.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%</td>
-            </tr>
-            <tr>
-                <td>Parcelado 5x</td>
-                <td>{{1000 | currency:'BRL'}}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.cinco.masterCard))/100)) | currency:'BRL' }}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.cinco.masterCard))/100)) / 5 | currency:'BRL' }}</td>
-                <td>{{ ((custoReais(convertToNumber(table.cinco.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%</td>
-            </tr>
-            <tr>
-                <td>Parcelado 6x</td>
-                <td>{{1000 | currency:'BRL'}}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.seis.masterCard))/100)) | currency:'BRL' }}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.seis.masterCard))/100)) / 6 | currency:'BRL' }}</td>
-                <td>{{ ((custoReais(convertToNumber(table.seis.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%</td>
-            </tr>
-            <tr>
-                <td>Parcelado 7x</td>
-                <td>{{1000 | currency:'BRL'}}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.sete.masterCard))/100)) | currency:'BRL' }}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.sete.masterCard))/100)) / 7 | currency:'BRL' }}</td>
-                <td>{{ ((custoReais(convertToNumber(table.sete.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%</td>
-            </tr>
-            <tr>
-                <td>Parcelado 8x</td>
-                <td>{{1000 | currency:'BRL'}}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.oito.masterCard))/100)) | currency:'BRL' }}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.oito.masterCard))/100)) / 8 | currency:'BRL' }}</td>
-                <td>{{ ((custoReais(convertToNumber(table.oito.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%</td>
-            </tr>
-            <tr>
-                <td>Parcelado 9x</td>
-                <td>{{1000 | currency:'BRL'}}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.nove.masterCard))/100)) | currency:'BRL' }}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.nove.masterCard))/100)) / 9 | currency:'BRL' }}</td>
-                <td>{{ ((custoReais(convertToNumber(table.nove.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%</td>
-            </tr>
-            <tr>
-                <td>Parcelado 10x</td>
-                <td>{{1000 | currency:'BRL'}}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.dez.masterCard))/100)) | currency:'BRL' }}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.dez.masterCard))/100)) / 10 | currency:'BRL' }}</td>
-                <td>{{ ((custoReais(convertToNumber(table.dez.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%</td>
-            </tr>
-            <tr>
-                <td>Parcelado 11x</td>
-                <td>{{1000 | currency:'BRL'}}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.onze.masterCard))/100)) | currency:'BRL' }}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.onze.masterCard))/100)) / 11 | currency:'BRL' }}</td>
-                <td>{{ ((custoReais(convertToNumber(table.onze.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%</td>
-            </tr>
-            <tr>
-                <td>Parcelado 12x</td>
-                <td>{{1000 | currency:'BRL'}}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.doze.masterCard))/100)) | currency:'BRL' }}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.doze.masterCard))/100)) / 12 | currency:'BRL' }}</td>
-                <td>{{ ((custoReais(convertToNumber(table.doze.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%</td>
-            </tr>
-            <tr>
-                <td>Parcelado 13x</td>
-                <td>{{1000 | currency:'BRL'}}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.treze.masterCard))/100)) | currency:'BRL' }}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.treze.masterCard))/100)) / 13 | currency:'BRL' }}</td>
-                <td>{{ ((custoReais(convertToNumber(table.treze.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%</td>
-            </tr>
-            <tr>
-                <td>Parcelado 14x</td>
-                <td>{{1000 | currency:'BRL'}}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.quatorze.masterCard))/100)) | currency:'BRL' }}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.quatorze.masterCard))/100)) / 14 | currency:'BRL' }}</td>
-                <td>{{ ((custoReais(convertToNumber(table.quatorze.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%
-                </td>
-            </tr>
-            <tr>
-                <td>Parcelado 15x</td>
-                <td>{{1000 | currency:'BRL'}}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.quinze.masterCard))/100)) | currency:'BRL' }}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.quinze.masterCard))/100)) / 15 | currency:'BRL' }}</td>
-                <td>{{ ((custoReais(convertToNumber(table.quinze.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%</td>
-            </tr>
-            <tr>
-                <td>Parcelado 16x</td>
-                <td>{{1000 | currency:'BRL'}}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.dezesseis.masterCard))/100)) | currency:'BRL' }}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.dezesseis.masterCard))/100)) / 16 | currency:'BRL' }}</td>
-                <td>{{ ((custoReais(convertToNumber(table.dezesseis.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%
-                </td>
-            </tr>
-            <tr>
-                <td>Parcelado 17x</td>
-                <td>{{1000 | currency:'BRL'}}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.dezessete.masterCard))/100)) | currency:'BRL' }}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.dezessete.masterCard))/100)) / 17 | currency:'BRL' }}</td>
-                <td>{{ ((custoReais(convertToNumber(table.dezessete.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%
-                </td>
-            </tr>
-            <tr>
-                <td>Parcelado 18x</td>
-                <td>{{1000 | currency:'BRL'}}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.dezoito.masterCard))/100)) | currency:'BRL' }}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.dezoito.masterCard))/100)) / 18 | currency:'BRL' }}</td>
-                <td>{{ ((custoReais(convertToNumber(table.dezoito.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%
-                </td>
-            </tr>
-            <tr>
-                <td>Parcelado 19x</td>
-                <td>{{1000 | currency:'BRL'}}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.dezenove.masterCard))/100)) | currency:'BRL' }}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.dezenove.masterCard))/100)) / 19 | currency:'BRL' }}</td>
-                <td>{{ ((custoReais(convertToNumber(table.dezenove.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%
-                </td>
-            </tr>
-            <tr>
-                <td>Parcelado 20x</td>
-                <td>{{1000 | currency:'BRL'}}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.vinte.masterCard))/100)) | currency:'BRL' }}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.vinte.masterCard))/100)) / 20 | currency:'BRL' }}</td>
-                <td>{{ ((custoReais(convertToNumber(table.vinte.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%</td>
-            </tr>
-            <tr>
-                <td>Parcelado 21x</td>
-                <td>{{1000 | currency:'BRL'}}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.vinteUm.masterCard))/100)) | currency:'BRL' }}</td>
-                <td>{{ (1000/ ((100 - convertToNumber(table.vinteUm.masterCard))/100)) / 21 | currency:'BRL' }}</td>
-                <td>{{ ((custoReais(convertToNumber(table.vinteUm.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%
-                </td>
-            </tr>
-        </table>
-
+    <div class="tabela-wrapper">
+        <div class="tabela">
+            <table>
+                <tr>
+                    <th>MODALIDADES
+                    </th>
+                    <th>SIMULADO
+                    </th>
+                    <th>CUSTO<br>CLIENTE
+                    </th>
+                    <th>VALOR DA<br>PARCELA
+                    </th>
+                    <th>TAXA
+                    </th>
+                </tr>
+                <tr>
+                    <td>Débito</td>
+                    <td>{{1000 | currency:'BRL'}}</td>
+                    <td>{{ custoReais(convertToNumber(table.debito.masterCard)) | currency:'BRL' }}</td>
+                    <td>{{ custoReais(convertToNumber(table.debito.masterCard)) | currency:'BRL' }}</td>
+                    <td>{{ ((custoReais(convertToNumber(table.debito.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%
+                    </td>
+                </tr>
+                <tr>
+                    <td>Crédito</td>
+                    <td>{{1000 | currency:'BRL'}}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.credito.masterCard))/100)) | currency:'BRL' }}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.credito.masterCard))/100)) | currency:'BRL' }}</td>
+                    <td>{{ ((custoReais(convertToNumber(table.credito.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%
+                    </td>
+                </tr>
+                <tr>
+                    <td>Parcelado 2x</td>
+                    <td>{{1000 | currency:'BRL'}}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.duas.masterCard))/100)) | currency:'BRL' }}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.duas.masterCard))/100)) / 2 | currency:'BRL' }}</td>
+                    <td>{{ ((custoReais(convertToNumber(table.duas.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%
+                    </td>
+                </tr>
+                <tr>
+                    <td>Parcelado 3x</td>
+                    <td>{{1000 | currency:'BRL'}}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.tres.masterCard))/100)) | currency:'BRL' }}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.tres.masterCard))/100)) / 3 | currency:'BRL' }}</td>
+                    <td>{{ ((custoReais(convertToNumber(table.tres.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%
+                    </td>
+                </tr>
+                <tr>
+                    <td>Parcelado 4x</td>
+                    <td>{{1000 | currency:'BRL'}}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.quatro.masterCard))/100)) | currency:'BRL' }}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.quatro.masterCard))/100)) / 4 | currency:'BRL' }}</td>
+                    <td>{{ ((custoReais(convertToNumber(table.quatro.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%
+                    </td>
+                </tr>
+                <tr>
+                    <td>Parcelado 5x</td>
+                    <td>{{1000 | currency:'BRL'}}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.cinco.masterCard))/100)) | currency:'BRL' }}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.cinco.masterCard))/100)) / 5 | currency:'BRL' }}</td>
+                    <td>{{ ((custoReais(convertToNumber(table.cinco.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%
+                    </td>
+                </tr>
+                <tr>
+                    <td>Parcelado 6x</td>
+                    <td>{{1000 | currency:'BRL'}}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.seis.masterCard))/100)) | currency:'BRL' }}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.seis.masterCard))/100)) / 6 | currency:'BRL' }}</td>
+                    <td>{{ ((custoReais(convertToNumber(table.seis.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%
+                    </td>
+                </tr>
+                <tr>
+                    <td>Parcelado 7x</td>
+                    <td>{{1000 | currency:'BRL'}}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.sete.masterCard))/100)) | currency:'BRL' }}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.sete.masterCard))/100)) / 7 | currency:'BRL' }}</td>
+                    <td>{{ ((custoReais(convertToNumber(table.sete.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%
+                    </td>
+                </tr>
+                <tr>
+                    <td>Parcelado 8x</td>
+                    <td>{{1000 | currency:'BRL'}}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.oito.masterCard))/100)) | currency:'BRL' }}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.oito.masterCard))/100)) / 8 | currency:'BRL' }}</td>
+                    <td>{{ ((custoReais(convertToNumber(table.oito.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%
+                    </td>
+                </tr>
+                <tr>
+                    <td>Parcelado 9x</td>
+                    <td>{{1000 | currency:'BRL'}}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.nove.masterCard))/100)) | currency:'BRL' }}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.nove.masterCard))/100)) / 9 | currency:'BRL' }}</td>
+                    <td>{{ ((custoReais(convertToNumber(table.nove.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%
+                    </td>
+                </tr>
+                <tr>
+                    <td>Parcelado 10x</td>
+                    <td>{{1000 | currency:'BRL'}}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.dez.masterCard))/100)) | currency:'BRL' }}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.dez.masterCard))/100)) / 10 | currency:'BRL' }}</td>
+                    <td>{{ ((custoReais(convertToNumber(table.dez.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%
+                    </td>
+                </tr>
+                <tr>
+                    <td>Parcelado 11x</td>
+                    <td>{{1000 | currency:'BRL'}}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.onze.masterCard))/100)) | currency:'BRL' }}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.onze.masterCard))/100)) / 11 | currency:'BRL' }}</td>
+                    <td>{{ ((custoReais(convertToNumber(table.onze.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%
+                    </td>
+                </tr>
+                <tr>
+                    <td>Parcelado 12x</td>
+                    <td>{{1000 | currency:'BRL'}}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.doze.masterCard))/100)) | currency:'BRL' }}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.doze.masterCard))/100)) / 12 | currency:'BRL' }}</td>
+                    <td>{{ ((custoReais(convertToNumber(table.doze.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%
+                    </td>
+                </tr>
+                <tr>
+                    <td>Parcelado 13x</td>
+                    <td>{{1000 | currency:'BRL'}}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.treze.masterCard))/100)) | currency:'BRL' }}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.treze.masterCard))/100)) / 13 | currency:'BRL' }}</td>
+                    <td>{{ ((custoReais(convertToNumber(table.treze.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%
+                    </td>
+                </tr>
+                <tr>
+                    <td>Parcelado 14x</td>
+                    <td>{{1000 | currency:'BRL'}}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.quatorze.masterCard))/100)) | currency:'BRL' }}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.quatorze.masterCard))/100)) / 14 | currency:'BRL' }}
+                    </td>
+                    <td>{{ ((custoReais(convertToNumber(table.quatorze.masterCard))-1000)/1000)*100 | number: '1.2-2'
+                        }}%
+                    </td>
+                </tr>
+                <tr>
+                    <td>Parcelado 15x</td>
+                    <td>{{1000 | currency:'BRL'}}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.quinze.masterCard))/100)) | currency:'BRL' }}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.quinze.masterCard))/100)) / 15 | currency:'BRL' }}</td>
+                    <td>{{ ((custoReais(convertToNumber(table.quinze.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%
+                    </td>
+                </tr>
+                <tr>
+                    <td>Parcelado 16x</td>
+                    <td>{{1000 | currency:'BRL'}}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.dezesseis.masterCard))/100)) | currency:'BRL' }}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.dezesseis.masterCard))/100)) / 16 | currency:'BRL' }}
+                    </td>
+                    <td>{{ ((custoReais(convertToNumber(table.dezesseis.masterCard))-1000)/1000)*100 | number: '1.2-2'
+                        }}%
+                    </td>
+                </tr>
+                <tr>
+                    <td>Parcelado 17x</td>
+                    <td>{{1000 | currency:'BRL'}}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.dezessete.masterCard))/100)) | currency:'BRL' }}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.dezessete.masterCard))/100)) / 17 | currency:'BRL' }}
+                    </td>
+                    <td>{{ ((custoReais(convertToNumber(table.dezessete.masterCard))-1000)/1000)*100 | number: '1.2-2'
+                        }}%
+                    </td>
+                </tr>
+                <tr>
+                    <td>Parcelado 18x</td>
+                    <td>{{1000 | currency:'BRL'}}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.dezoito.masterCard))/100)) | currency:'BRL' }}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.dezoito.masterCard))/100)) / 18 | currency:'BRL' }}</td>
+                    <td>{{ ((custoReais(convertToNumber(table.dezoito.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%
+                    </td>
+                </tr>
+                <tr>
+                    <td>Parcelado 19x</td>
+                    <td>{{1000 | currency:'BRL'}}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.dezenove.masterCard))/100)) | currency:'BRL' }}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.dezenove.masterCard))/100)) / 19 | currency:'BRL' }}
+                    </td>
+                    <td>{{ ((custoReais(convertToNumber(table.dezenove.masterCard))-1000)/1000)*100 | number: '1.2-2'
+                        }}%
+                    </td>
+                </tr>
+                <tr>
+                    <td>Parcelado 20x</td>
+                    <td>{{1000 | currency:'BRL'}}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.vinte.masterCard))/100)) | currency:'BRL' }}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.vinte.masterCard))/100)) / 20 | currency:'BRL' }}</td>
+                    <td>{{ ((custoReais(convertToNumber(table.vinte.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%
+                    </td>
+                </tr>
+                <tr>
+                    <td>Parcelado 21x</td>
+                    <td>{{1000 | currency:'BRL'}}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.vinteUm.masterCard))/100)) | currency:'BRL' }}</td>
+                    <td>{{ (1000/ ((100 - convertToNumber(table.vinteUm.masterCard))/100)) / 21 | currency:'BRL' }}</td>
+                    <td>{{ ((custoReais(convertToNumber(table.vinteUm.masterCard))-1000)/1000)*100 | number: '1.2-2' }}%
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>

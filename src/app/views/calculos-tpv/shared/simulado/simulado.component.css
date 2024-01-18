@@ -1,10 +1,16 @@
 @media only screen and (max-width: 600px) {
     .tabela-container {
         overflow-x: auto;
+        max-width: 100%;
+    }
+
+    .tabela-wrapper {
+        overflow-x: auto;
     }
 
     table {
-        width: 100%;
+        width: auto;
+        /* Ajusta para o conteúdo ser do tamanho necessário */
         table-layout: auto;
     }
 
@@ -39,12 +45,27 @@
 
     #tabelaDropdown {
         max-width: 150px;
+        overflow-x: auto;
     }
 }
 
 .tabela-container {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    /* Centraliza verticalmente */
+    justify-content: center;
+    /* Centraliza horizontalmente */
+    min-height: 100vh;
+    /* Define a altura mínima para ocupar pelo menos a altura da tela */
+}
+
+.dropdown-container {
+    display: flex;
+    align-items: center;
+    /* Centraliza verticalmente */
+    justify-content: center;
+    /* Centraliza horizontalmente */
+    padding: 1rem;
 }
 
 table {
