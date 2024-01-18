@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject, EMPTY, Observable, catchError, map, of } from 'rxjs';
+import { BehaviorSubject, EMPTY, Observable, Subject, catchError, map, of, tap } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
@@ -51,6 +51,8 @@ export class LoginService {
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
   private currentUserSubject = new BehaviorSubject<User | null>(null);
   private isAdminSubject = new BehaviorSubject<boolean>(false);
+  private logoutNotification = new Subject<void>();
+  private isAdminLogoutNotification = new Subject<void>();
 
   constructor(private snackBar: MatSnackBar,
     private http: HttpClient,
@@ -118,15 +120,43 @@ export class LoginService {
     return this.http.post<any>(`${this.apiUrl}/changeEmail`, emailData, { headers, withCredentials: true });
   }
 
+  notifyLogout() {
+    this.logoutNotification.next();
+  }
+
+  notifyAdminLogout() {
+    this.isAdminLogoutNotification.next();
+  }
+
+  onLogoutNotification() {
+    return this.logoutNotification.asObservable();
+  }
+
+  onAdminLogoutNotification() {
+    return this.isAdminLogoutNotification.asObservable();
+  }
+
   logout() {
     return this.http.post(`${this.apiUrl}/logout`, {}).pipe(
-      map(() => {
-        localStorage.removeItem('token');  // Remover o token do localStorage
-        this.isAuthenticatedSubject.next(false);  // Definir o status de autenticação como falso
+      tap(() => {
+        localStorage.removeItem('token');
+        this.isAuthenticatedSubject.next(false);
+        this.notifyLogout(); // Notificar sobre logout
+        this.notifyAdminLogout(); // Notificar sobre logout de admin
       }),
       catchError(e => this.errorHandler(e))
     );
   }
+
+  // logout() {
+  //   return this.http.post(`${this.apiUrl}/logout`, {}).pipe(
+  //     tap(() => {
+  //       localStorage.removeItem('token');
+  //       this.isAuthenticatedSubject.next(false);
+  //     }),
+  //     catchError(e => this.errorHandler(e))
+  //   );
+  // }
 
   isAuthenticated(): boolean {
     const token = localStorage.getItem('token');

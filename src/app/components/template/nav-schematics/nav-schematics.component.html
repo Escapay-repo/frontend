@@ -15,6 +15,16 @@
           </span>
         </a>
       </div>
+      <div class="SideNavButton" *ngIf="isLoggedIn">
+        <a mat-list-item routerLink="simulado">
+          <i class="material-icons">
+            payments
+          </i>
+          <span class="estiloBotao">
+            Simulado
+          </span>
+        </a>
+      </div>
       <div class="SideNavButton" *ngIf="isAdmin">
         <a mat-list-item routerLink="tabela">
           <i class="material-icons">

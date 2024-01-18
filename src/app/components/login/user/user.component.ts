@@ -28,7 +28,9 @@ export class UserComponent implements OnInit {
     this.router.navigate(['changeEmail']);
   }
   logout() {
+    this.loginService.logout();
     this.loginService.clearToken();
+    this.loginService.notifyAdminLogout()
     this.router.navigate(['/']);
   }
 }

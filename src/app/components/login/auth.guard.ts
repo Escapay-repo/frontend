@@ -28,13 +28,3 @@ export const authGuard: CanActivateFn = (route, state) => {
   );
 };
 
-//   return loginService.getAuthStatus().pipe(
-//     switchMap(isAuthenticated => {
-//       if (!isAuthenticated) {
-//         router.navigate(['/login']);
-//         return of(false);
-//       }
-//       return of(true);
-//     })
-//   );
-// };

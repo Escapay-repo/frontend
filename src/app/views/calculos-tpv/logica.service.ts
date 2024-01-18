@@ -98,4 +98,8 @@ export class LogicaService {
       panelClass: isError ? ['msg-error'] : ['msg-success']
     })
   }
+
+  readTodasTabelas(): Observable<tabelaCrud[]> {
+    return this.http.get<tabelaCrud[]>(`${this.apiUrl}/tabelas`);
+  }
 }

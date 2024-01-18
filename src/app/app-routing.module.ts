@@ -19,6 +19,7 @@ import { adminAuthGuard } from './components/login/admin-auth.guard';
 import { PasswordComponent } from './components/login/user/password/password.component';
 import { EmailComponent } from './components/login/user/email/email.component';
 import { AdminComponent } from './views/admin/admin.component';
+import { SimuladoComponent } from './views/calculos-tpv/shared/simulado/simulado.component';
 
 const routes: Routes = [
   {
@@ -33,12 +34,12 @@ const routes: Routes = [
   {
     path: "tabelaTpv/:id",
     component: CalculosTpvComponent,
-    canActivate: [authGuard]
+    canActivate: [authGuard],
   },
   {
     path: "listaTabelas",
     component: ListaComponent,
-    canActivate: [authGuard]
+    canActivate: [authGuard],
   },
   {
     path: "tabelaUpdate/:id",
@@ -51,27 +52,27 @@ const routes: Routes = [
   }, {
     path: "login",
     component: LoginComponent,
-    canActivate: [reverseAuthGuard]
+    canActivate: [reverseAuthGuard],
   }, {
     path: "registro",
     component: RegisterComponent,
-    canActivate: [reverseAuthGuard]
+    canActivate: [reverseAuthGuard],
   }, {
     path: "user",
     component: UserComponent,
-    canActivate: [authGuard]
+    canActivate: [authGuard],
   }, {
     path: "admin",
     component: AdminComponent,
-    canActivate: [adminAuthGuard]
+    canActivate: [adminAuthGuard],
   }, {
     path: "changePassword",
     component: PasswordComponent,
-    canActivate: [authGuard]
+    canActivate: [authGuard],
   }, {
     path: "changeEmail",
     component: EmailComponent,
-    canActivate: [authGuard]
+    canActivate: [authGuard],
   }, {
     path: "maquininhaCreate",
     component: MaquininhaCreateComponent,
@@ -88,6 +89,10 @@ const routes: Routes = [
     path: "maquininhaDelete/:id",
     component: MaquininhaDeleteComponent,
     canActivate: [adminAuthGuard],
+  }, {
+    path: "simulado",
+    component: SimuladoComponent,
+    canActivate: [authGuard],
   },
 ];
 

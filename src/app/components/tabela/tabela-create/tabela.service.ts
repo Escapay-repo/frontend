@@ -10,9 +10,10 @@ import { LoginService } from '../../login/login.service';
   providedIn: 'root'
 })
 export class TabelaService {
-
   baseUrl = "https://api.escapaybank-integracoes.com.br/tabelas";
   // baseUrl = 'http://localhost:3001/tabelas';
+  baseUrlSimulado = 'https://api.escapaybank-integracoes.com.br/simulado';
+  // baseUrlSimulado = 'http://localhost:3001/simulado';
 
   constructor(private snackBar: MatSnackBar,
     private http: HttpClient,
@@ -116,4 +117,11 @@ export class TabelaService {
     this.router.navigate([`${prefix}/${variablePart}`]);
   }
 
+  readAllTables(): Observable<tabelaCrud[]> {
+    const headers = this.getHeaders();
+    return this.http.get<tabelaCrud[]>(this.baseUrlSimulado, { headers }).pipe(
+      map((obj) => obj),
+      catchError(e => this.errorHandler(e))
+    )
+  }
 }

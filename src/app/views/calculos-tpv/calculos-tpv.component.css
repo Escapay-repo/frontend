@@ -140,3 +140,7 @@ tr:nth-child(even) {
     margin-top: 0.3rem;
     opacity: 0;
 }
+
+#tabelaDropdown {
+    max-width: 200px;
+}

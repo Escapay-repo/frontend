@@ -3,15 +3,23 @@
     <table>
         <thead>
             <tr>
-                <th>Nome</th>
-                <th>Email</th>
-                <th>Ativo</th>
-                <th>Último Login</th>
+                <th (click)="toggleSortDirection('name')">Nome <span
+                        [class]="sortDirection === 'asc' && sortColumn === 'name' ? 'arrow-up' : 'arrow-down'"></span>
+                </th>
+                <th (click)="toggleSortDirection('email')">Email <span
+                        [class]="sortDirection === 'asc' && sortColumn === 'email' ? 'arrow-up' : 'arrow-down'"></span>
+                </th>
+                <th (click)="toggleSortDirection('active')">Ativo <span
+                        [class]="sortDirection === 'asc' && sortColumn === 'active' ? 'arrow-up' : 'arrow-down'"></span>
+                </th>
+                <th (click)="toggleSortDirection('lastLogin')">Último Login <span
+                        [class]="sortDirection === 'asc' && sortColumn === 'lastLogin' ? 'arrow-up' : 'arrow-down'"></span>
+                </th>
                 <th>Ações</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let user of users">
+            <tr *ngFor="let user of getCurrentPageItems()">
                 <td>{{ user.name }}</td>
                 <td>{{ user.email }}</td>
                 <td>
@@ -34,4 +42,15 @@
             </tr>
         </tbody>
     </table>
+
+    <div class="pagination">
+        <button mat-button *ngIf="!isFirstPage() && getTotalPages() > 1" (click)="changePage('prev')">
+            Anterior
+        </button>
+        <span *ngIf="getTotalPages() > 1">Página {{ currentPage }} de {{ getTotalPages() }}</span>
+        <button mat-button *ngIf="currentPage < getTotalPages() && getTotalPages() > 1" (click)="changePage('next')">
+            Próxima
+        </button>
+    </div>
+
 </div>

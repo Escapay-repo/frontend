@@ -4,39 +4,72 @@ div {
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  th, td {
-    border: 1px solid #ccc;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  th {
-    background-color: #f2f2f2;
-  }
-  
-  button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  
-  button:hover {
-    text-decoration: underline;
-  }
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
 
-  .edit {
-    margin-right:10px ;
-  }
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
 
-  .edit > i {
-    color: #a1bf37
-  }
+th {
+  background-color: #f2f2f2;
+}
 
-  .delete > i {
-    color: #e35e6b;
-  }
+.last-row {
+  border-bottom: 1px solid #ccc;
+}
+
+.edit {
+  margin-right: 10px;
+}
+
+.edit>i {
+  color: #a1bf37
+}
+
+.delete>i {
+  color: #e35e6b;
+}
+
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+}
+
+.pagination button {
+  display: inline-block;
+  background-color: rgb(135, 161, 45) !important;
+  border-radius: 3px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF !important;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  height: 40px;
+  width: 130px;
+  min-width: 120px;
+  line-height: 20px;
+  margin: 8px 0px 8px 0;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  transition: background-color 100ms;
+  vertical-align: baseline;
+}
+
+.pagination button:hover {
+  background-color: #ef9bbf !important;
+}
+
+.pagination span {
+  margin: 0 10px;
+}

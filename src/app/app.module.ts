@@ -69,6 +69,7 @@ import { PasswordComponent } from './components/login/user/password/password.com
 import { EmailComponent } from './components/login/user/email/email.component';
 import { AdminComponent } from './views/admin/admin.component';
 import { ModalConfirmationComponent } from './modal/modal-confirmation/modal-confirmation.component';
+import { SimuladoComponent } from './views/calculos-tpv/shared/simulado/simulado.component';
 
 
 
@@ -114,6 +115,7 @@ registerLocaleData(localePt);
     EmailComponent,
     AdminComponent,
     ModalConfirmationComponent,
+    SimuladoComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output, inject } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
+import { Observable, Subject } from 'rxjs';
+import { map, shareReplay, takeUntil } from 'rxjs/operators';
 import { HeaderService } from '../header/header.service';
 import { Router } from '@angular/router';
 import { LoginService } from '../../login/login.service';
@@ -17,7 +17,7 @@ export class NavSchematicsComponent implements OnInit {
   isLoggedIn: boolean = false;
   isAdmin: boolean = false;
   anoAtual: number = 0;
-
+  private destroy$ = new Subject<void>();
   toggleMenu() {
     this.menuButtonClick.emit();
   }
@@ -33,8 +33,23 @@ export class NavSchematicsComponent implements OnInit {
   iconForLoggedIn: string = 'login';
 
   ngOnInit() {
-    this.loginService.getAuthStatus().subscribe((isAuthenticated) => {
+    // this.loginService.getAuthStatus().subscribe((isAuthenticated) => {
+    //   this.isLoggedIn = isAuthenticated;
+    // });
+    this.loginService.getAuthStatus().pipe(
+      takeUntil(this.destroy$)
+    ).subscribe((isAuthenticated) => {
       this.isLoggedIn = isAuthenticated;
+    });
+    this.loginService.onLogoutNotification().pipe(
+      takeUntil(this.destroy$)
+    ).subscribe(() => {
+      this.isLoggedIn = false;
+    });
+    this.loginService.onAdminLogoutNotification().pipe(
+      takeUntil(this.destroy$)
+    ).subscribe(() => {
+      this.isAdmin = false;
     });
     this.isLoggedIn = this.loginService.isAuthenticated();
     this.loginService.isAdmin().subscribe((isAdmin) => {
@@ -42,6 +57,11 @@ export class NavSchematicsComponent implements OnInit {
     });
 
     this.anoAtual = new Date().getFullYear();
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
