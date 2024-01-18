@@ -11,8 +11,8 @@ import { maquininhaCrud } from 'src/app/components/tabela/maquininhaCrud';
   providedIn: 'root'
 })
 export class LogicaService {
-  // private apiUrl = 'http://localhost:3001'
-  private apiUrl = 'https://api.escapaybank-integracoes.com.br';
+  private apiUrl = 'http://localhost:3001'
+  // private apiUrl = 'https://api.escapaybank-integracoes.com.br';
 
   constructor(
     private http: HttpClient,

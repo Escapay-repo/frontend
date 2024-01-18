@@ -91,9 +91,9 @@ export class TabelaService {
     console.error(error);
     if (error instanceof HttpErrorResponse) {
       console.log(error)
-      // if (error.status === 401 && error.error && error.error.error === "Acesso negado.") {
-      //   this.showMessage("Acesso não autorizado, por favor faça login.");
-      if (error.status === 403 && error.error && error.error.error === 'Token inválido.') {
+      if (error.status === 401 && error.error && error.error.error === "Acesso negado.") {
+        this.showMessage("Acesso não autorizado, por favor faça login.");
+      } else if (error.status === 403 && error.error && error.error.error === 'Token inválido.') {
         this.loginService.clearToken();
         this.router.navigate(['/login']);
         this.showMessage('Sua sessão expirou ou as credenciais são inválidas. Por favor, faça login novamente.');
