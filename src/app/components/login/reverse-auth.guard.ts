@@ -8,7 +8,7 @@ export const reverseAuthGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
 
   if (token) {
-    router.navigate(['/'])
+    // router.navigate(['/'])
     return false
   } else {
     return true;

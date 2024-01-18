@@ -141,22 +141,13 @@ export class LoginService {
       tap(() => {
         localStorage.removeItem('token');
         this.isAuthenticatedSubject.next(false);
-        this.notifyLogout(); // Notificar sobre logout
-        this.notifyAdminLogout(); // Notificar sobre logout de admin
+        this.notifyLogout();
+        this.notifyAdminLogout();
       }),
       catchError(e => this.errorHandler(e))
     );
   }
 
-  // logout() {
-  //   return this.http.post(`${this.apiUrl}/logout`, {}).pipe(
-  //     tap(() => {
-  //       localStorage.removeItem('token');
-  //       this.isAuthenticatedSubject.next(false);
-  //     }),
-  //     catchError(e => this.errorHandler(e))
-  //   );
-  // }
 
   isAuthenticated(): boolean {
     const token = localStorage.getItem('token');
@@ -195,12 +186,11 @@ export class LoginService {
     this.isAuthenticatedSubject.next(false);
   }
 
-  showMessage(msg: string, isError: boolean = false) {
+  showMessage(msg: string) {
     this.snackBar.open(msg, 'X', {
       duration: 3000,
       horizontalPosition: 'right',
       verticalPosition: "top",
-      panelClass: isError ? ['msg-error'] : ['msg-success']
     })
   }
 
@@ -208,16 +198,16 @@ export class LoginService {
     console.error(error);
     if (error instanceof HttpErrorResponse) {
       console.log(error)
-      if (error.status === 403 && error.error && error.error.error === 'Token inválido.') {
-        this.clearToken();  // Limpa o token inválido
-        this.router.navigate(['/login']);  // Redireciona para a página de login
-        this.showMessage('Sua sessão expirou ou as credenciais são inválidas. Por favor, faça login novamente.', true);
-      } else if (error.status === 400 && error.error && error.error.error === 'Email já  está  em uso.') {
-        this.showMessage('Email já  está  em uso.', true);
+      if (error.status === 403 && error.error && error.error.error === "Token inválido.") {
+        this.clearToken();
+        this.router.navigate(['/login']);
+        this.showMessage('Sua sessão expirou ou as credenciais são inválidas. Por favor, faça login novamente.');
+      } else if (error.status === 400 && error.error.error === "Email já está em uso.") {
+        this.showMessage('Email já  está  em uso.');
       } else if (error.status === 401 && error.error && error.error.error) {
-        this.showMessage('Credenciais incorretas.', true);
+        this.showMessage('Credenciais incorretas.');
       } else {
-        this.showMessage('Ocorreu um Erro.', true);
+        this.showMessage('Ocorreu um Erro.');
       }
     }
     return EMPTY;

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { EMPTY, Observable, catchError, map } from 'rxjs'
-import { MatSnackBar } from '@angular/material/snack-bar'
+import { EMPTY, Observable, catchError, map, of } from 'rxjs'
+import { MatSnackBar, MatSnackBarRef } from '@angular/material/snack-bar'
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { tabelaCrud } from '../tabelaCrud';
 import { Router } from '@angular/router';
@@ -27,15 +27,6 @@ export class TabelaService {
       'Content-Type': 'application/json',
       'Authorization': token || ''
     });
-  }
-
-  showMessage(msg: string, isError: boolean = false) {
-    this.snackBar.open(msg, 'X', {
-      duration: 3000,
-      horizontalPosition: 'right',
-      verticalPosition: "top",
-      panelClass: isError ? ['msg-error'] : ['msg-success']
-    })
   }
 
   create(tabela: tabelaCrud): Observable<tabelaCrud> {
@@ -88,22 +79,28 @@ export class TabelaService {
       catchError(e => this.errorHandler(e))
     )
   }
+  showMessage(msg: string) {
+    this.snackBar.open(msg, 'X', {
+      duration: 3000,
+      horizontalPosition: 'right',
+      verticalPosition: "top",
+    })
+  }
 
   errorHandler(error: any): Observable<any> {
     console.error(error);
     if (error instanceof HttpErrorResponse) {
-      if (error.status === 401 && error.error) {
-        this.showMessage('Acesso não autorizado, por favor faça login.', true);
-      } else if (error.status === 403 && error.error && error.error.error === 'Token inválido.') {
+      console.log(error)
+      // if (error.status === 401 && error.error && error.error.error === "Acesso negado.") {
+      //   this.showMessage("Acesso não autorizado, por favor faça login.");
+      if (error.status === 403 && error.error && error.error.error === 'Token inválido.') {
         this.loginService.clearToken();
         this.router.navigate(['/login']);
-        this.showMessage('Sua sessão expirou ou as credenciais são inválidas. Por favor, faça login novamente.', true);
+        this.showMessage('Sua sessão expirou ou as credenciais são inválidas. Por favor, faça login novamente.');
       } else if (error.status === 400 && error.error && error.error.error === 'Email já  está  em uso.') {
-        this.showMessage('Email já  está  em uso.', true);
-      } else if (error.status === 401 && error.error && error.error.error) {
-        this.showMessage('Credenciais incorretas.', true);
-      } else {
-        this.showMessage('Ocorreu um Erro.', true);
+        this.showMessage('Email já  está  em uso.');
+      } else if (error.status === 401 && error.error && error.error.error && error.error.error === "Email ou senha incorreta.") {
+        this.showMessage('Credenciais incorretas.');
       }
     }
     return EMPTY;

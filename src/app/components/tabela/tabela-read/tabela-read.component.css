@@ -1,6 +1,6 @@
-div {
-  width: 800px;
-  margin: 0 auto
+.table-container {
+  width: 100%;
+  overflow-x: auto;
 }
 
 table {
@@ -24,12 +24,13 @@ th {
   border-bottom: 1px solid #ccc;
 }
 
-.edit {
+.edit,
+.delete {
   margin-right: 10px;
 }
 
 .edit>i {
-  color: #a1bf37
+  color: #a1bf37;
 }
 
 .delete>i {
@@ -46,28 +47,25 @@ th {
 
 .pagination button {
   display: inline-block;
-  background-color: rgb(135, 161, 45) !important;
+  background-color: rgb(135, 161, 45);
   border-radius: 3px;
-  border-style: none;
+  border: none;
   box-sizing: border-box;
-  color: #FFFFFF !important;
+  color: #fff;
   cursor: pointer;
   font-size: 1rem;
   font-weight: 600;
   height: 40px;
-  width: 130px;
   min-width: 120px;
   line-height: 20px;
-  margin: 8px 0px 8px 0;
+  margin: 8px 0;
   padding: 10px 16px;
-  position: relative;
   text-align: center;
   transition: background-color 100ms;
-  vertical-align: baseline;
 }
 
 .pagination button:hover {
-  background-color: #ef9bbf !important;
+  background-color: #ef9bbf;
 }
 
 .pagination span {

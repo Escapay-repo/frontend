@@ -1,56 +1,58 @@
-<table mat-table [dataSource]="getCurrentPageItems()">
-  <!-- Id Column -->
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef>Id</th>
-    <td mat-cell *matCellDef="let row">{{row._id}}</td>
-  </ng-container>
+<div class="table-container">
+  <table mat-table [dataSource]="getCurrentPageItems()">
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>Id</th>
+      <td mat-cell *matCellDef="let row">{{row._id}}</td>
+    </ng-container>
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="tableName">
-    <th mat-header-cell *matHeaderCellDef class="sortable" (click)="sortTables('tableName')">
-      NOME
-      <span [class]="sortOrder === 'asc' ? 'arrow-up' : 'arrow-down'"></span>
-    </th>
-    <td mat-cell *matCellDef="let row" (click)="onClickNavigateToDetails(row._id)">{{row.tableName}}</td>
-  </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="tableName">
+      <th mat-header-cell *matHeaderCellDef class="sortable" (click)="sortTables('tableName')">
+        NOME
+        <span [class]="sortOrder === 'asc' ? 'arrow-up' : 'arrow-down'"></span>
+      </th>
+      <td mat-cell *matCellDef="let row" (click)="onClickNavigateToDetails(row._id)">{{row.tableName}}</td>
+    </ng-container>
 
 
-  <!-- Action Column -->
-  <ng-container matColumnDef="action">
-    <th mat-header-cell *matHeaderCellDef>AÇÕES</th>
-    <td mat-cell *matCellDef="let row">
+    <!-- Action Column -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>AÇÕES</th>
+      <td mat-cell *matCellDef="let row">
 
-      <a routerLink="/tabelaTpv/{{row._id}}" class="edit">
-        <i class="material-icons">
-          file_open
-        </i>
-      </a>
+        <a routerLink="/tabelaTpv/{{row._id}}" class="edit">
+          <i class="material-icons">
+            file_open
+          </i>
+        </a>
 
-      <a routerLink="/tabelaUpdate/{{row._id}}" class="edit" *ngIf="isAdmin">
-        <i class="material-icons">
-          edit
-        </i>
-      </a>
+        <a routerLink="/tabelaUpdate/{{row._id}}" class="edit" *ngIf="isAdmin">
+          <i class="material-icons">
+            edit
+          </i>
+        </a>
 
-      <a routerLink="/tabelaDelete/{{ row._id }}" class="delete" *ngIf="isAdmin">
-        <i class="material-icons">
-          delete
-        </i>
-      </a>
+        <a routerLink="/tabelaDelete/{{ row._id }}" class="delete" *ngIf="isAdmin">
+          <i class="material-icons">
+            delete
+          </i>
+        </a>
 
-    </td>
-  </ng-container>
+      </td>
+    </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="last-row"></tr>
-</table>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="last-row"></tr>
+  </table>
 
-<div class="pagination">
-  <button mat-button (click)="changePage('prev')" *ngIf="!isFirstPage()">
-    Anterior
-  </button>
-  <span>Página {{ currentPage }} de {{ getTotalPages() }}</span>
-  <button mat-button (click)="changePage('next')" [disabled]="currentPage === getTotalPages()">
-    Próxima
-  </button>
+  <div class="pagination">
+    <button mat-button *ngIf="!isFirstPage() && getTotalPages() > 1" (click)="changePage('prev')">
+      Anterior
+    </button>
+    <span *ngIf="getTotalPages() > 1">Página {{ currentPage }} de {{ getTotalPages() }}</span>
+    <button mat-button *ngIf="currentPage < getTotalPages() && getTotalPages() > 1" (click)="changePage('next')">
+      Próxima
+    </button>
+  </div>
 </div>

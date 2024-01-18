@@ -27,7 +27,7 @@ export class LoginComponent {
       },
       error: (error) => {
         console.error('Erro no login', error);
-        this.loginService.showMessage('Email ou senha incorreta.', true);
+        this.loginService.showMessage('Email ou senha incorreta.');
       }
     });
   }

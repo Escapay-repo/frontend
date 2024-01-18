@@ -39,24 +39,21 @@ export class RegisterComponent {
       return;
     }
 
-    // Se todas as validações passarem, chame o serviço para registrar o usuário
     this.loginService.register(this.user)
       .pipe(
         catchError(error => {
           console.error('Erro ao cadastrar usuário:', error);
-          // Trate os erros, exiba mensagens ou realize outras ações necessárias
           throw error; // Re-throw para manter o erro propagando para a próxima camada
         })
       )
       .subscribe({
         next: response => {
           // console.log('Usuário cadastrado com sucesso', response);
-          this.loginService.showMessage('Usuário cadastrado com sucesso', true);
+          this.loginService.showMessage('Usuário cadastrado com sucesso');
           this.router.navigate(['/login']);
         },
         error: error => {
           console.error('Erro ao cadastrar usuário:', error);
-          // Trate os erros, exiba mensagens ou realize outras ações necessárias
         }
       });
   }

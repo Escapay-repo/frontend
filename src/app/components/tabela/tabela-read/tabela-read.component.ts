@@ -17,6 +17,7 @@ export class TabelaReadComponent implements OnInit {
   sortOrder: string = '';
   currentPage: number = 1;
   itemsPerPage: number = 10;
+  totalItems: number = 0;
 
   constructor(private tabelaService: TabelaService,
     private loginService: LoginService) { }
@@ -24,6 +25,7 @@ export class TabelaReadComponent implements OnInit {
   ngOnInit(): void {
     this.tabelaService.read().subscribe(tables => {
       this.tables = tables
+      this.totalItems = tables.length;
       this.sortTables('tableName');
     })
     this.loginService.isAdmin().subscribe((isAdmin) => {
@@ -62,7 +64,7 @@ export class TabelaReadComponent implements OnInit {
   }
 
   getTotalPages(): number {
-    return Math.ceil(this.tables.length / this.itemsPerPage);
+    return Math.max(Math.ceil(this.totalItems / this.itemsPerPage), 1);
   }
 
   changePage(action: 'prev' | 'next'): void {

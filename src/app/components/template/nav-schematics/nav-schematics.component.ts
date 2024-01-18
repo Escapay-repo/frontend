@@ -33,9 +33,6 @@ export class NavSchematicsComponent implements OnInit {
   iconForLoggedIn: string = 'login';
 
   ngOnInit() {
-    // this.loginService.getAuthStatus().subscribe((isAuthenticated) => {
-    //   this.isLoggedIn = isAuthenticated;
-    // });
     this.loginService.getAuthStatus().pipe(
       takeUntil(this.destroy$)
     ).subscribe((isAuthenticated) => {
