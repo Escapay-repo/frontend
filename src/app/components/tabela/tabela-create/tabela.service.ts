@@ -10,10 +10,10 @@ import { LoginService } from '../../login/login.service';
   providedIn: 'root'
 })
 export class TabelaService {
-  baseUrl = "https://api.escapaybank-integracoes.com.br/tabelas";
-  // baseUrl = 'http://localhost:3001/tabelas';
-  baseUrlSimulado = 'https://api.escapaybank-integracoes.com.br/simulado';
-  // baseUrlSimulado = 'http://localhost:3001/simulado';
+  // baseUrl = "https://api.escapaybank-integracoes.com.br/tabelas";
+  baseUrl = 'http://localhost:3001/tabelas';
+  // baseUrlSimulado = 'https://api.escapaybank-integracoes.com.br/simulado';
+  baseUrlSimulado = 'http://localhost:3001/simulado';
 
   constructor(private snackBar: MatSnackBar,
     private http: HttpClient,

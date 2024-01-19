@@ -92,7 +92,7 @@ const routes: Routes = [
   }, {
     path: "simulado",
     component: SimuladoComponent,
-    canActivate: [authGuard],
+    // canActivate: [authGuard],
   },
 ];
 
